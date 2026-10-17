@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ari Eka Prianda — Backend / Fullstack Developer</title>
+  <meta name="description" content="Portfolio of Ari Eka Prianda, Backend & Fullstack Developer specializing in scalable web systems, RESTful APIs, Next.js, and ASP.NET Core.">
+  <meta name="keywords" content="Ari Eka Prianda, Backend Developer, Fullstack Developer, Next.js, ASP.NET, Node.js, Web Development, Microservices, REST API">
+  
+  <!-- Tactical Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="alternate icon" href="assets/icons/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#071324">
+
+  <!-- Open Graph / WhatsApp / LinkedIn / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arieka.dev/">
+  <meta property="og:title" content="Ari Eka Prianda — Backend &amp; Fullstack Developer">
+  <meta property="og:description" content="Portfolio of Ari Eka Prianda. Scalable web systems, RESTful APIs, Next.js, and ASP.NET Core with precision engineering philosophy.">
+  <meta property="og:image" content="assets/images/og_banner.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ari Eka Prianda — Backend &amp; Fullstack Developer">
+  <meta name="twitter:description" content="Scalable backend architectures, RESTful APIs, and fullstack modern web engineering.">
+  <meta name="twitter:image" content="assets/images/og_banner.jpg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/mecha-tokens.css?v=2.7">
+  <link rel="stylesheet" href="css/style.css?v=2.7">
+  <link rel="stylesheet" href="css/dark-theme.css?v=2.7">
+  <link rel="stylesheet" href="css/landing-upgrade.css?v=2.7">
+
+  <!-- PDF.js for Certificate Preview -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- Theme Anti-FOUC Engine -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('portfolio_theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="tech-grid-bg">
+
+  <!-- Desktop Custom Cursor -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-outline" id="cursorOutline"></div>
+
+  <!-- MECHA BOOT SPLASHSCREEN v2.0 -->
+  <div id="mechaSplashScreen" class="mecha-splash-overlay">
+    <div class="splash-center-module">
+      <div class="splash-top-tab"></div>
+
+      <!-- Tactical Meta Header -->
+      <div class="splash-meta-tag">
+        <span>SYS.BOOT // SEQ-01</span>
+        <span>SECURITY: VERIFIED</span>
+      </div>
+      
+      <!-- Pulsing Mecha Emblem with HUD Rings -->
+      <div class="splash-emblem-wrapper">
+        <div class="splash-hud-ring"></div>
+        <div class="splash-logo-box">
+          <svg width="44" height="44" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,4 36,36 29,36 20,18 11,36 4,36" fill="#0b1e38"/>
+            <polygon points="13,26 27,26 24,31 16,31" fill="#e53935"/>
+            <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="splash-brand-title">ARI EKA PRIANDA</div>
+      <div class="splash-brand-role">BACKEND / FULLSTACK DEVELOPER</div>
+
+      <!-- Telemetry Boot Sequence Feed -->
+      <div class="splash-log-feed">
+        <div class="splash-log-item active" id="splashLog1">
+          <span class="log-led"></span>
+          <span class="log-text" data-i18n="splash_boot_1">> [0.12s] BOOTING KERNEL // ARI-OS v2.4 ... OK</span>
+        </div>
+        <div class="splash-log-item" id="splashLog2">
+          <span class="log-led"></span>
+          <span class="log-text" data-i18n="splash_boot_2">> [0.45s] INITIALIZING REST &amp; SOAP ARCHITECTURE ... OK</span>
+        </div>
+        <div class="splash-log-item" id="splashLog3">
+          <span class="log-led"></span>
+          <span class="log-text" data-i18n="splash_boot_3">> [0.82s] ALL MECHA SYSTEMS ONLINE // READY</span>
+        </div>
+      </div>
+
+      <!-- Progress Track -->
+      <div class="splash-progress-track">
+        <div class="splash-progress-bar" id="splashProgressBar"></div>
+      </div>
+
+      <div class="splash-status-meta">
+        <span><span data-i18n="splash_status_lbl">STATUS:</span> <strong style="color: #10b981;" data-i18n="splash_status_val">INITIALIZING</strong></span>
+        <span id="splashPercent">0%</span>
+      </div>
+
+      <div class="splash-skip-hint" id="splashSkipBtn" data-i18n="splash_skip">[ CLICK ANYWHERE TO SKIP ]</div>
+    </div>
+  </div>
+
+  <!-- Blueprint Lines Overlay -->
+  <div class="blueprint-overlay"></div>
+
+  <div class="portfolio-canvas">
+    <!-- ====================================================================
+         TOP NAVIGATION BAR
+         ==================================================================== -->
+    <header class="navbar">
+      <a href="#hero" class="brand">
+        <!-- Stylized Mecha 'A' Logo SVG -->
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+          <polygon points="20,4 36,36 29,36 20,18 11,36 4,36" fill="#0b1e38"/>
+          <polygon points="13,26 27,26 24,31 16,31" fill="#e53935"/>
+          <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">ARI EKA PRIANDA</span>
+          <span class="brand-role" data-i18n="footer_role">BACKEND / FULLSTACK DEVELOPER</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Beranda</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav_about">Tentang</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Keahlian</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek</a></li>
+          <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a></li>
+          <li><a href="#education" class="nav-link" data-i18n="nav_education">Pendidikan</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions-group">
+        <!-- Telemetry Clock Badge -->
+        <div class="nav-telemetry-badge" title="Sistem Online — UTC+7" data-i18n-title="nav_telemetry_title">
+          <span class="ping-dot"></span>
+          <span class="tele-time">--:--:--</span>
+        </div>
+
+        <!-- Language Switcher (ID / EN / JP) -->
+        <div class="lang-switcher-group" role="group" aria-label="Language Selector">
+          <button class="lang-switcher-btn active" data-lang="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
+          <button class="lang-switcher-btn" data-lang="en" aria-pressed="false" title="English">EN</button>
+          <button class="lang-switcher-btn" data-lang="jp" aria-pressed="false" title="日本語 (Japanese)">JP</button>
+        </div>
+
+        <!-- Sound FX Toggle Button -->
+        <button class="btn-sound-toggle framer-magnetic" id="soundToggleBtn" title="Toggle Mecha Audio Effects (Press M)">
+          <div class="sound-wave-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span id="soundToggleLabel" data-i18n="nav_sfx_on">SFX: ON</span>
+        </button>
+
+        <!-- Theme Mode Toggle Button -->
+        <button class="btn-theme-toggle framer-magnetic" id="themeToggleBtn" title="Toggle Light / Dark Mode (Press T)" aria-label="Toggle Theme Mode">
+          <svg class="theme-icon-sun" id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span id="themeToggleLabel" data-i18n="nav_theme_dark">DARK</span>
+        </button>
+
+        <!-- Tactical CLI Terminal Launcher -->
+        <button class="btn-cli-toggle framer-magnetic" id="cliToggleBtn" title="Launch Tactical CLI Console (Press ` or ~)" aria-label="Open CLI Console">
+          <span style="color:#10b981; font-weight:800;">&gt;_</span>
+          <span>CLI</span>
+        </button>
+
+        <a href="#download-cv" class="btn-nav-cv trigger-cv-download framer-magnetic">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span data-i18n="nav_cv">Unduh CV</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-panel" id="mobileNavPanel">
+      <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #1769e0; margin-bottom: 12px; font-weight: 700;" data-i18n="mob_nav_header">
+        // SISTEM NAVIGASI MECHA // ARI EKA PRIANDA
+      </div>
+
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-lang-row">
+        <span class="mobile-lang-label" data-i18n="mob_lang_label">// BAHASA / LANG:</span>
+        <div class="lang-switcher-group" role="group" aria-label="Language Selector">
+          <button class="lang-switcher-btn active" data-lang="id" aria-pressed="true">ID</button>
+          <button class="lang-switcher-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-switcher-btn" data-lang="jp" aria-pressed="false">JP</button>
+        </div>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link"><span data-i18n="mob_nav_home">01. Beranda</span> <span>&rarr;</span></a></li>
+        <li><a href="#about" class="mobile-nav-link"><span data-i18n="mob_nav_about">02. Tentang Saya</span> <span>&rarr;</span></a></li>
+        <li><a href="#skills" class="mobile-nav-link"><span data-i18n="mob_nav_skills">03. Stack Teknis</span> <span>&rarr;</span></a></li>
+        <li><a href="#projects" class="mobile-nav-link"><span data-i18n="mob_nav_projects">04. Portofolio Proyek</span> <span>&rarr;</span></a></li>
+        <li><a href="#experience" class="mobile-nav-link"><span data-i18n="mob_nav_experience">05. Pengalaman</span> <span>&rarr;</span></a></li>
+        <li><a href="#education" class="mobile-nav-link"><span data-i18n="mob_nav_education">06. Pendidikan &amp; Sertifikasi</span> <span>&rarr;</span></a></li>
+        <li><a href="#contact" class="mobile-nav-link"><span data-i18n="mob_nav_contact">07. Kontak &amp; Pesan</span> <span>&rarr;</span></a></li>
+      </ul>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <button class="btn-theme-toggle" id="mobileThemeToggleBtn" style="justify-content:center; text-align:center; padding:10px;">
+          <span id="mobileThemeLabel">MODE: DARK 🌙</span>
+        </button>
+        <a href="#download-cv" class="btn-hero-red trigger-cv-download" style="justify-content:center; text-align:center;">
+          Download Curriculum Vitae (PDF)
+        </a>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         01. HERO PANEL (Image 1)
+         ==================================================================== -->
+    <section id="hero" class="mecha-panel hero-panel has-3d-perspective">
+      <div class="panel-top-tab"></div>
+
+      <!-- Left margin indicator -->
+      <div class="section-marker-col">
+        <span class="marker-num blue">01</span>
+        <div class="marker-line"></div>
+      </div>
+
+      <!-- Left side bottom indicators: CODE, BUILD, DEPLOY, IMPROVE -->
+      <div class="hero-code-markers">
+        <span>CODE</span>
+        <span>BUILD</span>
+        <span>DEPLOY</span>
+        <span>IMPROVE</span>
+      </div>
+
+      <!-- Hero Main Left Content -->
+      <div class="hero-left framer-reveal in-view">
+        <div class="hero-status-chip">
+          <span class="pulse-dot"></span>
+          <span data-i18n="hero_status">TERSEDIA UNTUK REKAYASA SISTEM // SIAP DITUGASKAN</span>
+        </div>
+
+        <div class="hero-preheader" data-i18n="hero_preheader">ARSITEKTUR BACKEND // SISTEM PERUSAHAAN</div>
+
+        <h1 class="hero-name-title">
+          <span class="navy-word">ARI EKA</span>
+          <span class="blue-word">PRIANDA</span>
+        </h1>
+
+        <h2 class="hero-role-title">Backend / Fullstack Developer</h2>
+
+        <p class="hero-bio-desc" data-i18n="hero_bio">
+          Fresh Graduate S1 Teknik Informatika dengan spesialisasi perancangan RESTful API performa tinggi, integrasi middleware enterprise, dan aplikasi web modern berbasis Next.js serta ASP.NET Core. Menggabungkan ketelitian manufaktur presisi dengan rekayasa software tangguh.
+        </p>
+
+        <!-- Pill Badges -->
+        <div class="hero-badges-row">
+          <span class="tech-badge-pill framer-float-idle" data-i18n="hero_badge_backend">BACKEND SPECIALIST</span>
+          <span class="tech-badge-pill framer-float-idle" style="animation-delay: 0.5s;" data-i18n="hero_badge_rest_soap">REST &amp; SOAP ARCHITECTURE</span>
+          <span class="tech-badge-pill framer-float-idle" style="animation-delay: 1s;" data-i18n="hero_badge_integration">SYSTEM INTEGRATION</span>
+          <span class="tech-badge-pill framer-float-idle" style="animation-delay: 1.5s;" data-i18n="hero_badge_next_asp">NEXT.JS &amp; ASP.NET</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="hero-actions-row">
+          <a href="#projects" class="btn-hero-red framer-magnetic">
+            <span data-i18n="hero_btn_projects">INSPEKSI PROYEK</span> <span>&rarr;</span>
+          </a>
+          <a href="#download-cv" class="btn-hero-white trigger-cv-download framer-magnetic">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span data-i18n="hero_btn_cv">LIHAT & UNDUH CV</span>
+          </a>
+          <a href="#contact" class="btn-hero-white framer-magnetic">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span data-i18n="hero_btn_contact">KIRIM TRANSMISI</span>
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="hero-socials-row">
+          <a href="https://github.com/ariekakagerou" target="_blank" rel="noopener noreferrer" class="hero-social-item framer-magnetic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/ari-eka-prianda" target="_blank" rel="noopener noreferrer" class="hero-social-item framer-magnetic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:ariekaprianda@gmail.com" class="hero-social-item framer-magnetic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Email
+          </a>
+          <button class="hero-social-item framer-magnetic trigger-copy-email" style="cursor:pointer; background:none; border:none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy Email
+          </button>
+        </div>
+
+        <!-- Telemetry Stats Matrix Bar -->
+        <div class="hero-stats-matrix">
+          <div class="hero-stat-cell">
+            <div class="hero-stat-val">02<span class="accent-blue">+</span></div>
+            <div class="hero-stat-label" data-i18n="hero_stat_exp">Tahun Pengalaman Coding</div>
+          </div>
+          <div class="hero-stat-cell">
+            <div class="hero-stat-val">3.63<span class="accent-red"></span></div>
+            <div class="hero-stat-label" data-i18n="hero_stat_gpa">IPK Akademik S1 (UNBIN)</div>
+          </div>
+          <div class="hero-stat-cell">
+            <div class="hero-stat-val">05<span class="accent-blue">+</span></div>
+            <div class="hero-stat-label" data-i18n="hero_stat_projects">Proyek &amp; Arsitektur API</div>
+          </div>
+          <div class="hero-stat-cell">
+            <div class="hero-stat-val">06<span class="accent-red"></span></div>
+            <div class="hero-stat-label" data-i18n="hero_stat_certs">Sertifikasi &amp; Pelatihan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right Side: Massive Mecha Visual Backdrop with Holographic HUD -->
+      <div class="hero-right-visual">
+        <div class="mecha-cyber-aura"></div>
+        <div class="mecha-hud-scanline"></div>
+        <div class="mecha-hud-reticle"></div>
+        <div class="mecha-target-badge">
+          <span class="target-dot"></span>
+          <span>LOCK: RX-ENGINEER-01</span>
+        </div>
+        <img src="assets/images/mecha_hero.jpg" alt="Ari Eka Prianda Mecha Engineering Hero Unit" class="mecha-backdrop-img">
+        <div class="mecha-hud-telemetry">
+          <span data-i18n-html="hero_sys_label">SYS: <strong>NOMINAL</strong></span>
+          <span data-i18n-html="hero_gpa_label">GPA: <strong>3.63</strong></span>
+          <span data-i18n-html="hero_exp_badge">EXP: <strong>2+ YRS</strong></span>
+        </div>
+      </div>
+
+      <!-- Far Right Annotations -->
+      <div class="hero-flank-annotations">
+        <div class="vertical-kanji">進み続ける</div>
+        <div class="hero-side-quote-box">
+          <span class="quote-build-tomorrow" data-i18n="hero_quote_tomorrow">BUILD A BETTER TOMORROW</span>
+          <span class="quote-sub-line" data-i18n="hero_quote_impact">SAME PASSION. DIFFERENT TOOLS. BIGGER IMPACT.</span>
+          <div class="quote-hazard-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         02. ABOUT ME PANEL (Image 2)
+         ==================================================================== -->
+    <section id="about" class="mecha-panel about-panel framer-reveal has-3d-perspective">
+      <div class="panel-top-tab"></div>
+
+      <div class="section-marker-col">
+        <span class="marker-num blue">02</span>
+        <div class="marker-line"></div>
+      </div>
+
+      <div class="panel-header-row">
+        <div class="panel-title-group">
+          <h2 class="panel-title" data-i18n="about_title">TENTANG SAYA</h2>
+          <span class="panel-jp-sub">私について</span>
+        </div>
+        <span class="panel-category-tag" data-i18n="about_category_tag">// PERSONAL JOURNEY &amp; PHILOSOPHY</span>
+      </div>
+
+      <div class="about-content-grid">
+        <!-- Left: Bio Text & Interactive Philosophy -->
+        <div class="about-left-col framer-reveal-left">
+          <p class="about-text-p" data-i18n-html="about_bio_p1">
+            Lulusan <strong>S1 Teknik Informatika</strong> Universitas Binaniaga Indonesia dengan latar belakang teknis yang unik: berawal dari <strong>Teknik Pemesinan (Machining)</strong> di SMK sebelum bertransformasi ke Teknik Informatika.
+          </p>
+
+          <!-- Interactive Engineering Philosophy Tabs -->
+          <div style="margin-top: 1.5rem;">
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #1769e0; font-weight: 700; margin-bottom: 8px;">
+              // CORE ENGINEERING PILLARS [ CLICK TO INSPECT ]:
+            </div>
+            <div class="philosophy-tabs-nav">
+              <button class="btn-phil-tab active" data-tab="precision" data-i18n="phil_tab_1">01. PRESISI &amp; TOLERANSI</button>
+              <button class="btn-phil-tab" data-tab="scalability" data-i18n="phil_tab_2">02. SKALABILITAS</button>
+              <button class="btn-phil-tab" data-tab="integration" data-i18n="phil_tab_3">03. INTEGRASI ENTERPRISE</button>
+            </div>
+            <div class="philosophy-card-display">
+              <div class="phil-title" id="philDisplayTitle" data-i18n="phil_title_1">01. TOLERANSI PRESISI &amp; ARSITEKTUR ZERO-DEFECT</div>
+              <div class="phil-desc" id="philDisplayDesc" data-i18n="phil_desc_1">
+                Latar belakang Teknik Pemesinan (Machining) menanamkan mentalitas toleransi presisi micrometer ke dalam Teknik Informatika. Setiap kontrak API, schema database, dan tipe data dirancang dengan pertahanan ketat (defensive programming), validasi input komprehensif, dan pengujian boundary condition.
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:12px; margin-top:1.25rem;">
+            <a href="#experience" class="btn-about-more framer-magnetic">
+              <span data-i18n="about_explore_exp">Work Experience</span> <span>&rarr;</span>
+            </a>
+            <a href="#skills" class="btn-hero-white framer-magnetic" style="padding: 0.6rem 1.2rem; font-size: 0.82rem;">
+              <span data-i18n="about_explore_tech">Explore Tech Stack</span> <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Silhouette & From Machines To Systems -->
+        <div class="about-right-col framer-reveal-right has-3d-perspective">
+          <!-- Tactical Multi-Angle Camera Monitor (Option A) -->
+          <div class="about-silhouette-frame framer-3d-card mecha-cam-monitor" id="aboutCamMonitor">
+            <!-- Top HUD Bar -->
+            <div class="cam-hud-top">
+              <div class="cam-live-indicator">
+                <span class="cam-rec-dot"></span>
+                <span class="cam-live-text" data-i18n="cam_live_feed">FEED ACTIVE</span>
+              </div>
+              <div class="cam-hud-channel" id="camChannelLabel">CAM-01 // PROFILE</div>
+              <div class="cam-hud-counter" id="camCounterLabel">01/03</div>
+            </div>
+
+            <!-- Optical Sensor Viewport -->
+            <div class="cam-viewport">
+              <div class="cam-slides-wrapper" id="camSlidesWrapper">
+                <!-- Slide 1: Dev Silhouette / Profile -->
+                <div class="cam-slide active" data-index="0" data-channel="CAM-01 // PROFILE" data-counter="01/03">
+                  <img src="assets/images/dev_silhouette.jpg" alt="Ari Eka Prianda Silhouette" class="about-silhouette-img elevate-3d-sm">
+                  <div class="cam-slide-caption">
+                    <span class="caption-tag" data-i18n="cam_caption_tag_1">// 01. IDENTITY</span>
+                    <span class="caption-title" data-i18n="cam_caption_title_1">Software Engineer &amp; Architect</span>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Workspace / Setup -->
+                <div class="cam-slide" data-index="1" data-channel="CAM-02 // WORKSPACE" data-counter="02/03">
+                  <img src="assets/images/about_workspace.jpg" alt="Ari Eka Prianda Workstation" class="about-silhouette-img elevate-3d-sm">
+                  <div class="cam-slide-caption">
+                    <span class="caption-tag" data-i18n="cam_caption_tag_2">// 02. ENVIRONMENT</span>
+                    <span class="caption-title" data-i18n="cam_caption_title_2">Modern Dev &amp; Terminal Setup</span>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Machining Origin -->
+                <div class="cam-slide" data-index="2" data-channel="CAM-03 // ORIGIN" data-counter="03/03">
+                  <img src="assets/images/about_origin.jpg" alt="Precision Machining Workshop" class="about-silhouette-img elevate-3d-sm">
+                  <div class="cam-slide-caption">
+                    <span class="caption-tag" data-i18n="cam_caption_tag_3">// 03. ORIGIN</span>
+                    <span class="caption-title" data-i18n="cam_caption_title_3">Micrometer Precision &amp; Machining</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- HUD Reticle / Crosshair Overlay -->
+              <div class="cam-hud-overlay">
+                <div class="cam-corner cam-tl"></div>
+                <div class="cam-corner cam-tr"></div>
+                <div class="cam-corner cam-bl"></div>
+                <div class="cam-corner cam-br"></div>
+              </div>
+            </div>
+
+            <!-- Bottom Tactical Navigation Strip -->
+            <div class="cam-tactical-nav">
+              <button class="cam-nav-arrow cam-nav-prev" id="camPrevBtn" aria-label="Previous Camera Feed" title="Previous Feed">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              
+              <div class="cam-selector-tabs">
+                <button class="cam-tab-btn active" data-target="0" data-i18n="cam_tab_1">01. PROFILE</button>
+                <button class="cam-tab-btn" data-target="1" data-i18n="cam_tab_2">02. DESK</button>
+                <button class="cam-tab-btn" data-target="2" data-i18n="cam_tab_3">03. ORIGIN</button>
+              </div>
+
+              <button class="cam-nav-arrow cam-nav-next" id="camNextBtn" aria-label="Next Camera Feed" title="Next Feed">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="from-machines-box framer-3d-card has-3d-perspective" id="machineTransitionDiagram" style="cursor: pointer;" title="Click to test mechanical-to-systems linkage">
+            <div class="elevate-3d-sm">
+              <h3 class="machines-title" data-i18n="from_machines_title">TRANSFORMASI: DARI MESIN KE KODE</h3>
+              <div class="machines-red-bar"></div>
+              <p class="machines-subtitle" data-i18n="from_machines_desc">Dari kalibrasi mesin bubut &amp; CNC bertoleransi 0.01mm ke arsitektur software decoupled dengan latensi sub-50ms.</p>
+            </div>
+
+            <div class="machines-diagram-row elevate-3d-md">
+              <div class="diagram-item">
+                <img src="assets/images/mechanical_gear.jpg" alt="Mechanical Gear" class="diagram-gear-img gear-spin-hover">
+                <span class="diagram-lbl" data-i18n="mech_diagram_machining">MECHANICAL ENGINEERING</span>
+              </div>
+
+              <div class="diagram-arrow-blue framer-float-idle">&rarr;</div>
+
+              <div class="diagram-item">
+                <div class="diagram-circuit-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                    <line x1="15" y1="20" x2="15" y2="23"></line>
+                  </svg>
+                </div>
+                <span class="diagram-lbl" data-i18n="mech_diagram_software">SOFTWARE ENGINEERING</span>
+              </div>
+            </div>
+
+            <div class="machines-quote-italic elevate-3d-sm" data-i18n="mech_diagram_quote">"Different background. Same passion. Bigger impact."</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         03. TECH STACK PANEL (Image 2)
+         ==================================================================== -->
+    <section id="skills" class="mecha-panel skills-panel framer-reveal">
+      <div class="panel-top-tab"></div>
+
+      <div class="section-marker-col">
+        <span class="marker-num blue">03</span>
+        <div class="marker-line"></div>
+      </div>
+
+      <div class="panel-header-row">
+        <div class="panel-title-group">
+          <h2 class="panel-title" data-i18n="skills_title">KEAHLIAN &amp; STACK TEKNIS</h2>
+          <span class="panel-jp-sub">使用技術</span>
+        </div>
+        <span class="panel-category-tag" data-i18n="skills_category_tag">// TECHNOLOGIES I WORK WITH</span>
+      </div>
+
+      <!-- UPGRADED: Tech Constellation + Categorized Pills -->
+      <div class="tech-showcase-container">
+        
+        <!-- Eyebrow & Headline -->
+        <div class="tech-showcase-header">
+          <span class="tech-showcase-eyebrow" data-i18n="skills_badge">ARSENAL TEKNOLOGI // SUBSISTEM</span>
+          <h3 class="tech-showcase-title" data-i18n-html="skills_intro_title">Technologies <span class="accent-tech-gradient">I Use</span></h3>
+          <p style="font-size:0.875rem; color:var(--text-secondary); max-width:580px; margin:0.75rem auto 0; line-height:1.7;" data-i18n="skills_intro_desc">Ekosistem teknologi yang saya kuasai — dari backend enterprise hingga modern fullstack dan cloud infrastructure.</p>
+        </div>
+
+        <!-- ===== ORBITAL LABYRINTH TECH SYSTEM ===== -->
+        <div class="orbit-system-wrapper">
+          <div class="orbit-system" id="techOrbitSystem" aria-label="Interactive Orbital Technology Radar">
+
+            <!-- Cyber Labyrinth SVG Background -->
+            <svg class="orbit-labyrinth-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="labCenterGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="rgba(16, 185, 129, 0.18)"/>
+                  <stop offset="40%" stop-color="rgba(6, 182, 212, 0.08)"/>
+                  <stop offset="80%" stop-color="rgba(15, 23, 42, 0.02)"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </radialGradient>
+                <linearGradient id="labSweepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(16, 185, 129, 0.4)"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Central glow field -->
+              <circle cx="250" cy="250" r="236" fill="url(#labCenterGlow)"/>
+
+              <!-- Outer Boundary Circle & Labyrinth Accents -->
+              <circle cx="250" cy="250" r="238" stroke="rgba(23, 105, 224, 0.18)" stroke-width="1.2" stroke-dasharray="6 6"/>
+
+              <!-- OUTER TRACK (r=215) Labyrinth Grooves -->
+              <circle cx="250" cy="250" r="215" stroke="rgba(23, 105, 224, 0.22)" stroke-width="1.5"/>
+              <circle cx="250" cy="250" r="215" stroke="rgba(16, 185, 129, 0.6)" stroke-width="2.5" stroke-dasharray="70 25 35 25 110 30" stroke-linecap="round"/>
+              <circle cx="250" cy="250" r="223" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1" stroke-dasharray="4 8"/>
+
+              <!-- MIDDLE TRACK (r=148) Labyrinth Grooves -->
+              <circle cx="250" cy="250" r="148" stroke="rgba(23, 105, 224, 0.25)" stroke-width="1.5"/>
+              <circle cx="250" cy="250" r="148" stroke="rgba(6, 182, 212, 0.65)" stroke-width="2.5" stroke-dasharray="50 20 80 20 30 20" stroke-linecap="round"/>
+              <circle cx="250" cy="250" r="155" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1" stroke-dasharray="4 8"/>
+
+              <!-- INNER TRACK (r=82) Labyrinth Grooves -->
+              <circle cx="250" cy="250" r="82" stroke="rgba(23, 105, 224, 0.3)" stroke-width="1.5"/>
+              <circle cx="250" cy="250" r="82" stroke="rgba(139, 92, 246, 0.75)" stroke-width="2.5" stroke-dasharray="35 15 55 15" stroke-linecap="round"/>
+              <circle cx="250" cy="250" r="88" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" stroke-dasharray="2 6"/>
+
+              <!-- Crosshair Axes & Labyrinth Radial Gates -->
+              <line x1="20" y1="250" x2="480" y2="250" stroke="rgba(23, 105, 224, 0.16)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="250" y1="20" x2="250" y2="480" stroke="rgba(23, 105, 224, 0.16)" stroke-width="1" stroke-dasharray="4 4"/>
+
+              <!-- Diagonal Notches / Radial Ticks -->
+              <g stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.5">
+                <line x1="250" y1="28" x2="250" y2="42"/>
+                <line x1="250" y1="458" x2="250" y2="472"/>
+                <line x1="28" y1="250" x2="42" y2="250"/>
+                <line x1="458" y1="250" x2="472" y2="250"/>
+                <line x1="95" y1="95" x2="105" y2="105"/>
+                <line x1="395" y1="95" x2="405" y2="105"/>
+                <line x1="95" y1="405" x2="105" y2="395"/>
+                <line x1="395" y1="405" x2="405" y2="395"/>
+              </g>
+
+              <!-- Radar sweep beam -->
+              <g class="orbit-sweep-beam">
+                <line x1="250" y1="250" x2="485" y2="250" stroke="rgba(16, 185, 129, 0.7)" stroke-width="1.5"/>
+                <path d="M 250 250 L 485 220 A 235 235 0 0 1 485 250 Z" fill="url(#labSweepGrad)"/>
+              </g>
+            </svg>
+
+            <!-- Center Core Hub -->
+            <div class="orbit-core-hub">
+              <div class="hub-ring hub-ring--outer"></div>
+              <div class="hub-ring hub-ring--inner"></div>
+              <div class="hub-glyph">
+                <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
+                  <polygon points="20,4 36,36 29,36 20,18 11,36 4,36" fill="#0b1e38"/>
+                  <polygon points="13,26 27,26 24,31 16,31" fill="#ef4444"/>
+                  <polygon points="20,8 24,16 16,16" fill="#10b981"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- ── INNER ORBIT TRACK (r=82px, 6 nodes, CW 32s) ── -->
+            <div class="orbit-track orbit-track--inner" style="--radius: 82px;">
+              <div class="orbit-node" style="--angle: 0deg;"   data-cat="be"   data-tech="ASP.NET Core" data-pill="pill-aspnet"   title="ASP.NET Core"> <div class="orbit-bubble"><img src="assets/icons/aspnet-icon.svg"    alt="ASP.NET"></div></div>
+              <div class="orbit-node" style="--angle: 60deg;"  data-cat="be"   data-tech="Node.js"      data-pill="pill-nodejs"   title="Node.js">      <div class="orbit-bubble"><img src="assets/icons/nodejs-icon.png"    alt="Node.js"></div></div>
+              <div class="orbit-node" style="--angle: 120deg;" data-cat="db"   data-tech="PostgreSQL"   data-pill="pill-postgres" title="PostgreSQL">   <div class="orbit-bubble"><img src="assets/icons/postgresql-icon.svg" alt="PostgreSQL"></div></div>
+              <div class="orbit-node" style="--angle: 180deg;" data-cat="fe"   data-tech="Next.js"      data-pill="pill-nextjs"   title="Next.js">      <div class="orbit-bubble"><img src="assets/icons/nextjs-icon.svg"     alt="Next.js"></div></div>
+              <div class="orbit-node" style="--angle: 240deg;" data-cat="fe"   data-tech="React"        data-pill="pill-react"    title="React">        <div class="orbit-bubble"><img src="assets/icons/react-icon.svg"       alt="React"></div></div>
+              <div class="orbit-node" style="--angle: 300deg;" data-cat="lang" data-tech="TypeScript"   data-pill="pill-typescript" title="TypeScript"> <div class="orbit-bubble"><img src="assets/icons/typescript-icon.png"  alt="TypeScript"></div></div>
+            </div>
+
+            <!-- ── MIDDLE ORBIT TRACK (r=148px, 9 nodes, CCW 44s) ── -->
+            <div class="orbit-track orbit-track--middle" style="--radius: 148px;">
+              <div class="orbit-node" style="--angle: 0deg;"   data-cat="ops"  data-tech="Git"          data-pill="pill-git"        title="Git">          <div class="orbit-bubble"><img src="assets/icons/git-icon.png"         alt="Git"></div></div>
+              <div class="orbit-node" style="--angle: 40deg;"  data-cat="ops"  data-tech="Docker"       data-pill="pill-docker"     title="Docker">       <div class="orbit-bubble"><img src="assets/icons/docker-icon.svg"      alt="Docker"></div></div>
+              <div class="orbit-node" style="--angle: 80deg;"  data-cat="be"   data-tech="Express.js"   data-pill="pill-express"    title="Express.js">   <div class="orbit-bubble"><img src="assets/icons/expressjs-icon.png"   alt="Express.js"></div></div>
+              <div class="orbit-node" style="--angle: 120deg;" data-cat="db"   data-tech="MySQL"        data-pill="pill-mysql"      title="MySQL">        <div class="orbit-bubble"><img src="assets/icons/mysql-icon.png"        alt="MySQL"></div></div>
+              <div class="orbit-node" style="--angle: 160deg;" data-cat="db"   data-tech="Oracle DB"    data-pill="pill-oracle"     title="Oracle DB">    <div class="orbit-bubble"><img src="assets/icons/oracledb-icon.svg"    alt="Oracle DB"></div></div>
+              <div class="orbit-node" style="--angle: 200deg;" data-cat="db"   data-tech="Firebase"     data-pill="pill-firebase"   title="Firebase">     <div class="orbit-bubble"><img src="assets/icons/firebase-icon.png"    alt="Firebase"></div></div>
+              <div class="orbit-node" style="--angle: 240deg;" data-cat="fe"   data-tech="Tailwind CSS" data-pill="pill-tailwind"   title="Tailwind CSS"> <div class="orbit-bubble"><img src="assets/icons/tailwind-icon.svg"    alt="Tailwind CSS"></div></div>
+              <div class="orbit-node" style="--angle: 280deg;" data-cat="fe"   data-tech="Flutter"      data-pill="pill-flutter"    title="Flutter">      <div class="orbit-bubble"><img src="assets/icons/flutter-icon.png"     alt="Flutter"></div></div>
+              <div class="orbit-node" style="--angle: 320deg;" data-cat="lang" data-tech="JavaScript"   data-pill="pill-javascript" title="JavaScript">   <div class="orbit-bubble"><img src="assets/icons/javascript-icon.png"  alt="JavaScript"></div></div>
+            </div>
+
+            <!-- ── OUTER ORBIT TRACK (r=215px, 12 nodes, CW 60s) ── -->
+            <div class="orbit-track orbit-track--outer" style="--radius: 215px;">
+              <div class="orbit-node" style="--angle: 0deg;"   data-cat="ops"  data-tech="Figma"    data-pill="pill-figma"    title="Figma">    <div class="orbit-bubble"><img src="assets/icons/figma-icon.png"      alt="Figma"></div></div>
+              <div class="orbit-node" style="--angle: 30deg;"  data-cat="ops"  data-tech="VS Code"  data-pill="pill-vscode"   title="VS Code">  <div class="orbit-bubble"><img src="assets/icons/vscode-icon.png"     alt="VS Code"></div></div>
+              <div class="orbit-node" style="--angle: 60deg;"  data-cat="ops"  data-tech="AWS S3"   data-pill="pill-aws"      title="AWS S3">   <div class="orbit-bubble"><img src="assets/icons/aws-icon.svg"        alt="AWS S3"></div></div>
+              <div class="orbit-node" style="--angle: 90deg;"  data-cat="be"   data-tech="PHP"      data-pill="pill-php-lang" title="PHP">      <div class="orbit-bubble"><img src="assets/icons/php-icon.png"         alt="PHP"></div></div>
+              <div class="orbit-node" style="--angle: 120deg;" data-cat="be"   data-tech="Laravel"  data-pill="pill-laravel"  title="Laravel">  <div class="orbit-bubble"><img src="assets/icons/laravel-icon.png"    alt="Laravel"></div></div>
+              <div class="orbit-node" style="--angle: 150deg;" data-cat="ops"  data-tech="Postman"  data-pill="pill-postman"  title="Postman">  <div class="orbit-bubble"><img src="assets/icons/postman-icon.png"    alt="Postman"></div></div>
+              <div class="orbit-node" style="--angle: 180deg;" data-cat="lang" data-tech="Go"       data-pill="pill-go-lang"  title="Go">       <div class="orbit-bubble"><img src="assets/icons/golang-icon.png"     alt="Go"></div></div>
+              <div class="orbit-node" style="--angle: 210deg;" data-cat="be"   data-tech="Python"   data-pill="pill-python"   title="Python">   <div class="orbit-bubble"><img src="assets/icons/python-icon.svg"     alt="Python"></div></div>
+              <div class="orbit-node" style="--angle: 240deg;" data-cat="lang" data-tech="Dart"     data-pill="pill-dart"     title="Dart">     <div class="orbit-bubble"><img src="assets/icons/dart-icon.png"        alt="Dart"></div></div>
+              <div class="orbit-node" style="--angle: 270deg;" data-cat="fe"   data-tech="CSS3"     data-pill="pill-css3"     title="CSS3">     <div class="orbit-bubble"><img src="assets/icons/css3-icon.png"        alt="CSS3"></div></div>
+              <div class="orbit-node" style="--angle: 300deg;" data-cat="fe"   data-tech="HTML5"    data-pill="pill-html5"    title="HTML5">    <div class="orbit-bubble"><img src="assets/icons/html5-icon.png"       alt="HTML5"></div></div>
+              <div class="orbit-node" style="--angle: 330deg;" data-cat="lang" data-tech="C#"       data-pill="pill-csharp"   title="C#">       <div class="orbit-bubble"><img src="assets/icons/csharp-icon.svg"      alt="C#"></div></div>
+            </div>
+
+            <!-- Orbit Tooltip HUD -->
+            <div class="orbit-tooltip" id="orbitTooltip">
+              <span class="orbit-tooltip-name" id="orbitTooltipName">Technology</span>
+              <span class="orbit-tooltip-cat"  id="orbitTooltipCat">CATEGORY</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tech-category-legend" id="techCategoryLegend">
+          <button class="legend-filter-item active" data-cat-filter="all">
+            <span class="legend-indicator dot-all"></span> <span data-i18n="skills_legend_all">ALL STACK</span>
+          </button>
+          <button class="legend-filter-item" data-cat-filter="lang">
+            <span class="legend-indicator dot-lang"></span> <span data-i18n="skills_legend_lang">LANGUAGE</span>
+          </button>
+          <button class="legend-filter-item" data-cat-filter="be">
+            <span class="legend-indicator dot-be"></span> <span data-i18n="skills_legend_be">BACKEND</span>
+          </button>
+          <button class="legend-filter-item" data-cat-filter="fe">
+            <span class="legend-indicator dot-fe"></span> <span data-i18n="skills_legend_fe">FRONTEND</span>
+          </button>
+          <button class="legend-filter-item" data-cat-filter="db">
+            <span class="legend-indicator dot-db"></span> <span data-i18n="skills_legend_db">DATABASE</span>
+          </button>
+          <button class="legend-filter-item" data-cat-filter="ops">
+            <span class="legend-indicator dot-ops"></span> <span data-i18n="skills_legend_ops">DEVOPS</span>
+          </button>
+        </div>
+
+        <!-- ===== CATEGORIZED TECH PILLS MATRIX ===== -->
+        <div class="tech-pills-matrix" id="techPillsMatrix">
+
+          <!-- Languages -->
+          <div class="tech-pills-row">
+            <div class="tech-pill-badge framer-magnetic" data-cat="lang" id="pill-typescript">
+              <img src="assets/icons/typescript-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-lang">LANG</span>
+              <span class="pill-label">TypeScript</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="lang" id="pill-javascript">
+              <img src="assets/icons/javascript-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-lang">LANG</span>
+              <span class="pill-label">JavaScript</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="lang" id="pill-csharp">
+              <img src="assets/icons/csharp-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-lang">LANG</span>
+              <span class="pill-label">C#</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="lang" id="pill-dart">
+              <img src="assets/icons/dart-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-lang">LANG</span>
+              <span class="pill-label">Dart</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="lang" id="pill-php-lang">
+              <img src="assets/icons/php-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-lang">LANG</span>
+              <span class="pill-label">PHP</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="lang" id="pill-go-lang">
+              <img src="assets/icons/golang-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-lang">LANG</span>
+              <span class="pill-label">Go</span>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="tech-pills-row">
+            <div class="tech-pill-badge framer-magnetic" data-cat="fe" id="pill-flutter">
+              <img src="assets/icons/flutter-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-fe">FE</span>
+              <span class="pill-label">Flutter</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="fe" id="pill-react">
+              <img src="assets/icons/react-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-fe">FE</span>
+              <span class="pill-label">React</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="fe" id="pill-nextjs">
+              <img src="assets/icons/nextjs-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-fe">FE</span>
+              <span class="pill-label">Next.js</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="fe" id="pill-tailwind">
+              <img src="assets/icons/tailwind-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-fe">FE</span>
+              <span class="pill-label">Tailwind</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="fe" id="pill-css3">
+              <img src="assets/icons/css3-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-fe">FE</span>
+              <span class="pill-label">CSS3</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="fe" id="pill-html5">
+              <img src="assets/icons/html5-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-fe">FE</span>
+              <span class="pill-label">HTML5</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="be" id="pill-laravel">
+              <img src="assets/icons/laravel-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-be">BE</span>
+              <span class="pill-label">Laravel</span>
+            </div>
+          </div>
+
+          <!-- Backend & Database -->
+          <div class="tech-pills-row">
+            <div class="tech-pill-badge framer-magnetic" data-cat="be" id="pill-aspnet">
+              <img src="assets/icons/aspnet-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-be">BE</span>
+              <span class="pill-label">ASP.NET Core</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="be" id="pill-nodejs">
+              <img src="assets/icons/nodejs-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-be">BE</span>
+              <span class="pill-label">Node.js</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="be" id="pill-express">
+              <img src="assets/icons/expressjs-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-be">BE</span>
+              <span class="pill-label">Express.js</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="db" id="pill-postgres">
+              <img src="assets/icons/postgresql-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-db">DB</span>
+              <span class="pill-label">PostgreSQL</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="db" id="pill-mysql">
+              <img src="assets/icons/mysql-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-db">DB</span>
+              <span class="pill-label">MySQL</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="db" id="pill-oracle">
+              <img src="assets/icons/oracledb-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-db">DB</span>
+              <span class="pill-label">Oracle DB</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="db" id="pill-firebase">
+              <img src="assets/icons/firebase-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-db">DB</span>
+              <span class="pill-label">Firebase</span>
+            </div>
+          </div>
+
+          <!-- DevOps & Tools -->
+          <div class="tech-pills-row">
+            <div class="tech-pill-badge framer-magnetic" data-cat="ops" id="pill-docker">
+              <img src="assets/icons/docker-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-ops">OPS</span>
+              <span class="pill-label">Docker</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="ops" id="pill-git">
+              <img src="assets/icons/git-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-ops">OPS</span>
+              <span class="pill-label">Git</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="ops" id="pill-aws">
+              <img src="assets/icons/aws-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-ops">OPS</span>
+              <span class="pill-label">AWS S3</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="ops" id="pill-postman">
+              <img src="assets/icons/postman-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-tool">TOOL</span>
+              <span class="pill-label">Postman</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="ops" id="pill-figma">
+              <img src="assets/icons/figma-icon.png" alt="" width="18" height="18" style="object-fit:contain; border-radius:3px;">
+              <span class="pill-tag tag-tool">TOOL</span>
+              <span class="pill-label">Figma</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="ops" id="pill-vscode">
+              <img src="assets/icons/vscode-icon.png" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-tool">TOOL</span>
+              <span class="pill-label">VS Code</span>
+            </div>
+            <div class="tech-pill-badge framer-magnetic" data-cat="be" id="pill-python">
+              <img src="assets/icons/python-icon.svg" alt="" width="18" height="18" style="object-fit:contain;">
+              <span class="pill-tag tag-be">AI</span>
+              <span class="pill-label">Python / OCR</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         04. PROJECTS PANEL (Image 3)
+         ==================================================================== -->
+    <section id="projects" class="mecha-panel projects-panel framer-reveal">
+      <div class="panel-top-tab"></div>
+
+      <div class="section-marker-col">
+        <span class="marker-num blue">04</span>
+        <div class="marker-line"></div>
+      </div>
+
+      <div class="panel-header-row">
+        <div class="panel-title-group">
+          <h2 class="panel-title" data-i18n="projects_title">PORTOFOLIO PROYEK</h2>
+          <span class="panel-jp-sub">プロジェクト</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:16px;">
+          <span class="panel-category-tag" data-i18n="projects_category_tag">// FEATURED WORKS &amp; BLUEPRINTS</span>
+        </div>
+      </div>
+
+      <!-- Project Filter Pills -->
+      <div class="projects-filter-bar">
+        <button class="tech-filter-btn active" data-pfilter="all" data-i18n="projects_filter_all">SEMUA PROYEK</button>
+        <button class="tech-filter-btn" data-pfilter="enterprise" data-i18n="projects_filter_enterprise">ENTERPRISE / API</button>
+        <button class="tech-filter-btn" data-pfilter="ai" data-i18n="projects_filter_ai_archive">[ AI &amp; ARCHIVE ]</button>
+        <button class="tech-filter-btn" data-pfilter="ecommerce" data-i18n="projects_filter_ecommerce">E-COMMERCE</button>
+        <button class="tech-filter-btn" data-pfilter="realtime" data-i18n="projects_filter_fullstack">FULLSTACK WEB</button>
+      </div>
+
+      <!-- Project Tech Stack Filter Pills -->
+      <div class="projects-tech-filter-row">
+        <span class="tech-filter-label" data-i18n="projects_tech_filter_label">STACK FILTER:</span>
+        <button class="tech-stack-pill active" data-tfilter="all" data-i18n="projects_stack_all">ALL STACKS</button>
+        <button class="tech-stack-pill" data-tfilter="node">Node.js</button>
+        <button class="tech-stack-pill" data-tfilter="asp">ASP.NET</button>
+        <button class="tech-stack-pill" data-tfilter="next">Next.js</button>
+        <button class="tech-stack-pill" data-tfilter="database">SQL / Database</button>
+        <button class="tech-stack-pill" data-tfilter="python">Python / AI</button>
+      </div>
+
+      <div class="projects-cards-grid has-3d-perspective">
+        <!-- Project 01: SIMA BPJS Integration API -->
+        <article class="project-item-card framer-3d-card framer-reveal stagger-1" data-pcat="enterprise" data-techs="asp aspnet c# oracle soap xml database" data-cursor="view">
+          <div class="project-header-badges elevate-3d-md">
+            <span class="project-idx-box">01</span>
+            <span class="project-category-lbl" data-i18n="proj_bpjs_cat">ENTERPRISE INTEGRATION</span>
+          </div>
+          <div class="project-preview-thumb elevate-3d-sm">
+            <img src="assets/images/project_bpjs.svg" alt="SIMA BPJS Integration API">
+          </div>
+          <div class="project-body-area">
+            <h3 class="project-card-title elevate-3d-sm" data-i18n="proj_bpjs_title">SIMA BPJS Integration API</h3>
+            <p class="project-card-desc" data-i18n="proj_bpjs_desc">Gateway API integrasi SIMA dengan layanan BPJS — repositori implementasi backend (C# / ASP.NET).</p>
+            <div class="project-tags-row">
+              <span class="project-tag-pill">ASP.NET</span>
+              <span class="project-tag-pill">C#</span>
+              <span class="project-tag-pill">SOAP / XML</span>
+              <span class="project-tag-pill">Enterprise</span>
+            </div>
+
+            <button class="btn-toggle-spec" data-target="spec-bpjs" data-i18n="projects_spec_toggle">[ + QUICK SYSTEM SPEC ]</button>
+            <div class="project-quick-spec" id="spec-bpjs">
+              <div style="font-weight:700; color:#0b2a5b; margin-bottom:4px;" data-i18n="projects_arch_flow">ARCHITECTURAL DATA FLOW:</div>
+              <div style="color:#1769e0; margin-bottom:8px;">Client Web App &rarr; ASP.NET API Gateway &rarr; Database &rarr; BPJS SOAP WebService</div>
+              <div style="display:flex; gap:12px; font-weight:700; color:#0b1e38;">
+                <span data-i18n="proj_bpjs_m1">Uptime: production-ready</span> | <span data-i18n="proj_bpjs_m2">Latency: low (SOAP)</span> | <span data-i18n="proj_bpjs_m3">Integrasi: BPJS</span>
+              </div>
+            </div>
+
+            <div class="project-card-actions elevate-3d-md" style="margin-top:1rem;">
+              <a href="https://github.com/ariekakagerou/sima_Bpjs_api" target="_blank" rel="noopener noreferrer" class="btn-project-fill-blue framer-magnetic">
+                <span data-i18n="projects_btn_repo_label">Lihat Repositori</span> <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02: H5-Revolution (Official Website) -->
+        <article class="project-item-card framer-3d-card framer-reveal stagger-2" data-pcat="website" data-techs="react vite javascript tailwindcss" data-cursor="view">
+          <div class="project-header-badges elevate-3d-md">
+            <span class="project-idx-box">02</span>
+            <span class="project-category-lbl" data-i18n="proj_h5_cat">OFFICIAL WEBSITE</span>
+          </div>
+
+          <div class="project-preview-thumb elevate-3d-sm">
+            <!-- public/images/h5-revolution-banner.jpg tersedia di repo -->
+            <img src="images/h5-revolution-banner.jpg" alt="H5-Revolution banner" onerror="this.onerror=null; this.src='assets/images/h5-revolution.png';">
+          </div>
+
+          <div class="project-body-area">
+            <h3 class="project-card-title elevate-3d-sm" data-i18n="proj_h5_title">H5-Revolution — Official Website</h3>
+
+            <p class="project-card-desc" data-i18n="proj_h5_desc">
+              Website resmi grup H5-Revolution — Single Page Application dibangun dengan React + Vite, styling menggunakan Tailwind CSS. Demo statis &amp; showcase frontend (no backend).
+            </p>
+
+            <div class="project-tags-row">
+              <span class="project-tag-pill">React</span>
+              <span class="project-tag-pill">Vite</span>
+              <span class="project-tag-pill">Tailwind CSS</span>
+              <span class="project-tag-pill">JavaScript</span>
+            </div>
+
+            <button class="btn-toggle-spec" data-target="spec-h5" data-i18n="projects_spec_toggle">[ + QUICK SYSTEM SPEC ]</button>
+            <div class="project-quick-spec" id="spec-h5">
+              <div style="font-weight:700; color:#0b2a5b; margin-bottom:4px;" data-i18n="projects_arch_flow">ARCHITECTURAL DATA FLOW:</div>
+              <div style="color:#1769e0; margin-bottom:8px;">React (Vite) &rarr; Static build &rarr; CDN / Vercel</div>
+              <div style="display:flex; gap:12px; font-weight:700; color:#0b1e38;">
+                <span data-i18n="proj_h5_m1">SPA: React Router</span> | <span data-i18n="proj_h5_m2">Styling: Tailwind</span> | <span data-i18n="proj_h5_m3">Hosting: Vercel</span>
+              </div>
+            </div>
+
+            <div class="project-card-actions elevate-3d-md" style="margin-top:1rem;">
+              <a href="https://github.com/ariekakagerou/H5-Revolution" target="_blank" rel="noopener noreferrer" class="btn-project-fill-blue framer-magnetic">
+                <span data-i18n="projects_btn_repo_label">Lihat Repositori</span> <span>&rarr;</span>
+              </a>
+
+              <a href="https://h5-revolution.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-project-outline-white framer-magnetic">
+                <span data-i18n="projects_btn_demo_label">Live Demo</span> <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03: Youth (backend) -->
+        <article class="project-item-card framer-3d-card framer-reveal stagger-3" data-pcat="realtime" data-techs="node express socket mysql redis database" data-cursor="view">
+          <div class="project-header-badges elevate-3d-md">
+            <span class="project-idx-box">03</span>
+            <span class="project-category-lbl" data-i18n="proj_youth_cat">REAL-TIME / BACKEND</span>
+          </div>
+          <div class="project-preview-thumb elevate-3d-sm">
+            <img src="assets/images/project_youth.svg" alt="Youth Backend">
+          </div>
+          <div class="project-body-area">
+            <h3 class="project-card-title elevate-3d-sm" data-i18n="proj_youth_title">Youth (Backend)</h3>
+            <p class="project-card-desc" data-i18n="proj_youth_desc">Backend aplikasi sekolah / sistem real-time — implementasi Node.js untuk fitur chat / real-time services.</p>
+            <div class="project-tags-row">
+              <span class="project-tag-pill">Node.js</span>
+              <span class="project-tag-pill">Express</span>
+              <span class="project-tag-pill">Socket / Realtime</span>
+              <span class="project-tag-pill">MySQL</span>
+            </div>
+
+            <button class="btn-toggle-spec" data-target="spec-youth" data-i18n="projects_spec_toggle">[ + QUICK SYSTEM SPEC ]</button>
+            <div class="project-quick-spec" id="spec-youth">
+              <div style="font-weight:700; color:#0b2a5b; margin-bottom:4px;" data-i18n="projects_arch_flow">ARCHITECTURAL DATA FLOW:</div>
+              <div style="color:#1769e0; margin-bottom:8px;">Client &rarr; Node.js / Express &rarr; Socket / Redis PubSub &rarr; MySQL</div>
+              <div style="display:flex; gap:12px; font-weight:700; color:#0b1e38;">
+                <span data-i18n="proj_youth_m1">Concurrency: scalable</span> | <span data-i18n="proj_youth_m2">Delay: low</span> | <span data-i18n="proj_youth_m3">Auth: JWT</span>
+              </div>
+            </div>
+
+            <div class="project-card-actions elevate-3d-md" style="margin-top:1rem;">
+              <a href="https://github.com/ariekakagerou/Youth-Tiger-Soccer-School-back-end-" target="_blank" rel="noopener noreferrer" class="btn-project-fill-blue framer-magnetic">
+                <span data-i18n="projects_btn_repo_label">Lihat Repositori</span> <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 04: BUMDesa Commerce API -->
+        <article class="project-item-card framer-3d-card framer-reveal stagger-4" data-pcat="enterprise" data-techs="node express mysql api database" data-cursor="view">
+          <div class="project-header-badges elevate-3d-md">
+            <span class="project-idx-box">04</span>
+            <span class="project-category-lbl" data-i18n="proj_bumdesa_cat">ENTERPRISE COMMERCE</span>
+          </div>
+          <div class="project-preview-thumb elevate-3d-sm">
+            <img src="assets/images/project_bumdesa.svg" alt="BUMDesa Commerce API">
+          </div>
+          <div class="project-body-area">
+            <h3 class="project-card-title elevate-3d-sm" data-i18n="proj_bumdesa_title">BUMDesa Commerce API</h3>
+            <p class="project-card-desc" data-i18n="proj_bumdesa_desc">Backend API untuk manajemen katalog produk, transaksi, dan laporan (Node.js / MySQL).</p>
+            <div class="project-tags-row">
+              <span class="project-tag-pill">Node.js</span>
+              <span class="project-tag-pill">Express</span>
+              <span class="project-tag-pill">MySQL</span>
+              <span class="project-tag-pill">REST API</span>
+            </div>
+
+            <button class="btn-toggle-spec" data-target="spec-bumdesa" data-i18n="projects_spec_toggle">[ + QUICK SYSTEM SPEC ]</button>
+            <div class="project-quick-spec" id="spec-bumdesa">
+              <div style="font-weight:700; color:#0b2a5b; margin-bottom:4px;" data-i18n="projects_arch_flow">ARCHITECTURAL DATA FLOW:</div>
+              <div style="color:#1769e0; margin-bottom:8px;">Frontend &rarr; Express REST &rarr; MySQL &rarr; Report Engine</div>
+              <div style="display:flex; gap:12px; font-weight:700; color:#0b1e38;">
+                <span data-i18n="proj_bumdesa_m1">Endpoints: CRUD</span> | <span data-i18n="proj_bumdesa_m2">ACID: supported</span> | <span data-i18n="proj_bumdesa_m3">Query: optimized</span>
+              </div>
+            </div>
+
+            <div class="project-card-actions elevate-3d-md" style="margin-top:1rem;">
+              <a href="https://github.com/ariekakagerou/Bmdesa_backend" target="_blank" rel="noopener noreferrer" class="btn-project-fill-blue framer-magnetic">
+                <span data-i18n="projects_btn_repo_label">Lihat Repositori</span> <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 05: SAADA (Digital Archive) -->
+        <article class="project-item-card framer-3d-card framer-reveal stagger-5" data-pcat="archive ai enterprise" data-techs="next nextjs asp aspnet python ocr postgres database" data-cursor="view">
+          <div class="project-header-badges elevate-3d-md">
+            <span class="project-idx-box">05</span>
+            <span class="project-category-lbl" data-i18n="proj_saada_cat">AI &amp; ARCHIVE SYSTEM</span>
+          </div>
+          <div class="project-preview-thumb elevate-3d-sm">
+            <img src="assets/images/Tampilan (Desktop).png" alt="SAADA (Arsip Digital Alumni)">
+          </div>
+          <div class="project-body-area">
+            <h3 class="project-card-title elevate-3d-sm" data-i18n="proj_saada_title">SAADA — Arsip Digital Alumni</h3>
+            <p class="project-card-desc" data-i18n="proj_saada_desc">Sistem digitalisasi arsip berbasis OCR (Tesseract) dengan frontend/back-end terpisah (TypeScript / ASP.NET / Python).</p>
+            <div class="project-tags-row">
+              <span class="project-tag-pill">Next.js</span>
+              <span class="project-tag-pill">TypeScript</span>
+              <span class="project-tag-pill">Tesseract OCR</span>
+              <span class="project-tag-pill">PostgreSQL</span>
+            </div>
+
+            <button class="btn-toggle-spec" data-target="spec-saada" data-i18n="projects_spec_toggle">[ + QUICK SYSTEM SPEC ]</button>
+            <div class="project-quick-spec" id="spec-saada">
+              <div style="font-weight:700; color:#0b2a5b; margin-bottom:4px;" data-i18n="projects_arch_flow">ARCHITECTURAL DATA FLOW:</div>
+              <div style="color:#1769e0; margin-bottom:8px;">Next.js UI &rarr; ASP.NET / API &rarr; Python OCR (Tesseract) &rarr; PostgreSQL</div>
+              <div style="display:flex; gap:12px; font-weight:700; color:#0b1e38;">
+                <span data-i18n="proj_saada_m1">OCR: high-accuracy</span> | <span data-i18n="proj_saada_m2">Docs: archival</span> | <span data-i18n="proj_saada_m3">Latency: OCR-bound</span>
+              </div>
+            </div>
+
+            <div class="project-card-actions elevate-3d-md" style="margin-top:1rem;">
+              <a href="https://github.com/ariekakagerou/saada-digital-archive" target="_blank" rel="noopener noreferrer" class="btn-project-fill-blue framer-magnetic">
+                <span data-i18n="projects_btn_repo_label">Lihat Repositori</span> <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================
+         05. WORK EXPERIENCE PANEL (Image 3)
+         ==================================================================== -->
+    <section id="experience" class="mecha-panel experience-panel framer-reveal">
+      <div class="panel-top-tab"></div>
+
+      <div class="section-marker-col">
+        <span class="marker-num red">05</span>
+        <div class="marker-line"></div>
+      </div>
+
+      <div class="panel-header-row">
+        <div class="panel-title-group">
+          <h2 class="panel-title" data-i18n="exp_title">PENGALAMAN KERJA &amp; MAGANG</h2>
+          <span class="panel-jp-sub">職務経歴</span>
+        </div>
+        <span class="panel-category-tag" data-i18n="exp_category_tag">// WORK JOURNEY &amp; ACHIEVEMENTS</span>
+      </div>
+
+      <div class="timeline-horizontal-wrapper">
+        <div class="timeline-track-bar"></div>
+
+        <div class="timeline-milestones-row has-3d-perspective">
+          <!-- Node 1: BUMDesa Semplak Barat -->
+          <div class="timeline-node-box framer-3d-card framer-reveal stagger-1 active">
+            <div class="timeline-pin-dot elevate-3d-sm"></div>
+            <div class="timeline-date-tag elevate-3d-sm">
+              <span class="date-year">2025</span>
+              <span class="date-period" data-i18n="exp_job1_period">Apr – Jul 2024</span>
+            </div>
+            <h3 class="company-title elevate-3d-sm" data-i18n="exp_job1_company">BUMDesa Semplak Barat</h3>
+            <div class="role-title" data-i18n="exp_job1_role">Backend Developer (Intern)</div>
+            <span class="timeline-role-badge" data-i18n="exp_job1_badge">ENTERPRISE INTERNSHIP</span>
+            <ul class="timeline-details-list">
+              <li class="timeline-detail-item" data-i18n="exp_job1_b1">Developed backend system for e-commerce using Node.js and Express.js</li>
+              <li class="timeline-detail-item" data-i18n="exp_job1_b2">Designed RESTful APIs (Users, Products, Transactions, Shipments, Reports)</li>
+              <li class="timeline-detail-item" data-i18n="exp_job1_b3">Optimized MySQL database with indexing &amp; transaction rollbacks</li>
+              <li class="timeline-detail-item" data-i18n="exp_job1_b4">Collaborated with frontend team and automated testing in Postman</li>
+            </ul>
+          </div>
+
+          <!-- Node 2: Permata Cell -->
+          <div class="timeline-node-box framer-3d-card framer-reveal stagger-2">
+            <div class="timeline-pin-dot elevate-3d-sm"></div>
+            <div class="timeline-date-tag elevate-3d-sm">
+              <span class="date-year">2021 – 2023</span>
+              <span class="date-period" data-i18n="exp_job2_period">Nov 2021 – Okt 2023</span>
+            </div>
+            <h3 class="company-title elevate-3d-sm" data-i18n="exp_job2_company">Permata Cell</h3>
+            <div class="role-title" data-i18n="exp_job2_role">Retail Staff Counter</div>
+            <span class="timeline-role-badge" data-i18n="exp_job2_badge">OPERATIONAL EXCELLENCE</span>
+            <ul class="timeline-details-list">
+              <li class="timeline-detail-item" data-i18n="exp_job2_b1">Managed sales transactions and high-volume customer service</li>
+              <li class="timeline-detail-item" data-i18n="exp_job2_b2">Managed inventory tracking, reconciliation, and product display</li>
+              <li class="timeline-detail-item" data-i18n="exp_job2_b3">Trained communication and systematic troubleshooting under pressure</li>
+            </ul>
+          </div>
+
+          <!-- Node 3: PT Mitra Jofer Indonesia -->
+          <div class="timeline-node-box framer-3d-card framer-reveal stagger-3">
+            <div class="timeline-pin-dot elevate-3d-sm"></div>
+            <div class="timeline-date-tag elevate-3d-sm">
+              <span class="date-year">2021</span>
+              <span class="date-period" data-i18n="exp_job3_period">Jan – Mar 2021</span>
+            </div>
+            <h3 class="company-title elevate-3d-sm" data-i18n="exp_job3_company">PT Mitra Jofer Indonesia</h3>
+            <div class="role-title" data-i18n="exp_job3_role">Production Operator (Intern)</div>
+            <span class="timeline-role-badge" data-i18n="exp_job3_badge">MANUFACTURING VOCATIONAL</span>
+            <ul class="timeline-details-list">
+              <li class="timeline-detail-item" data-i18n="exp_job3_b1">Operated production machinery according to operational standards</li>
+              <li class="timeline-detail-item" data-i18n="exp_job3_b2">Maintained zero-defect production quality and ISO workplace safety</li>
+              <li class="timeline-detail-item" data-i18n="exp_job3_b3">Cultivated rigor in technical calibration and precision tolerances</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-hazard-corner"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         06, 07, 08. EDUCATION, CERTIFICATION & SOFT SKILL (Image 4)
+         ==================================================================== -->
+    <div class="trio-panel-container has-3d-perspective">
+      <!-- 06. EDUCATION -->
+      <div class="trio-column-panel framer-3d-card framer-reveal stagger-1">
+        <div class="trio-header elevate-3d-sm">
+          <span class="trio-idx">06</span>
+          <h3 class="trio-title" data-i18n="edu_tab_edu">PENDIDIKAN FORMAL</h3>
+          <span class="trio-jp">学歴</span>
+        </div>
+        <div class="trio-red-accent-bar elevate-3d-sm"></div>
+
+        <div class="edu-cards-wrap has-3d-perspective">
+          <div class="edu-item-box framer-3d-card elevate-3d-sm">
+            <div class="edu-icon-square elevate-3d-md">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="edu-school-name" data-i18n="edu_unbin_name">Universitas Binaniaga Indonesia</h4>
+              <div class="edu-sub-name" data-i18n="edu_unbin_degree">S1 Teknik Informatika</div>
+              <div class="edu-date-info" data-i18n="edu_unbin_info">2022 – 2026 | IPK: 3.63</div>
+              <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #1769e0; margin-top: 4px;" data-i18n="edu_unbin_focus">Fokus: Arsitektur Software, Basis Data, Jaringan</div>
+            </div>
+          </div>
+
+          <div class="edu-item-box framer-3d-card elevate-3d-sm">
+            <div class="edu-icon-square elevate-3d-md">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="edu-school-name" data-i18n="edu_smk_name">SMK Negeri 2 Bogor</h4>
+              <div class="edu-sub-name" data-i18n="edu_smk_major">Teknik Pemesinan</div>
+              <div class="edu-date-info" data-i18n="edu_smk_info">2019 – 2022 | Nilai: 8.64</div>
+              <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #e53935; margin-top: 4px;" data-i18n="edu_smk_focus">Fokus: Presisi Mekanikal, Standar Manufaktur</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07. CERTIFICATION & TRAINING -->
+      <div class="trio-column-panel framer-3d-card framer-reveal stagger-2">
+        <div class="trio-header elevate-3d-sm">
+          <span class="trio-idx">07</span>
+          <h3 class="trio-title" data-i18n="edu_tab_cert">SERTIFIKASI PROFESIONAL</h3>
+          <span class="trio-jp">認定・トレーニング</span>
+        </div>
+        <div class="trio-red-accent-bar elevate-3d-sm"></div>
+
+        <!-- Filter pills for certs -->
+        <div class="cert-filter-pills">
+          <button class="cert-filter-btn active" data-cfilter="all" data-i18n="cert_filter_all">SEMUA SERTIFIKAT</button>
+          <button class="cert-filter-btn" data-cfilter="software" data-i18n="cert_filter_tech">TEKNIS / CODING</button>
+          <button class="cert-filter-btn" data-cfilter="networking" data-i18n="cert_filter_cloud">CLOUD &amp; NETWORK</button>
+          <button class="cert-filter-btn" data-cfilter="vocational" data-i18n="cert_filter_ai">AI &amp; DATA</button>
+        </div>
+
+        <!-- Certificate Gallery Grid -->
+        <div class="cert-gallery-grid">
+
+          <!-- Cert 1: Python -->
+          <div class="cert-card" data-ccat="software">
+            <div class="cert-card-thumb" data-cert="assets/certificates/Ari eka prianda - Certificate of BelajarDasarBahasaPemrogramanDenganPython by Mounev Academy.pdf" data-cert-title="Python Programming — Mounev Academy">
+              <img src="assets/certificates/python-mounev.png" alt="Python Certificate - Mounev Academy" loading="lazy" />
+              <div class="cert-card-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              </div>
+            </div>
+            <div class="cert-card-info">
+              <div class="cert-card-badge software" data-i18n="cert_badge_tech">TEKNIS</div>
+              <p class="cert-card-name" data-i18n="cert_name_1">Python Programming</p>
+              <p class="cert-card-issuer">Mounev Academy</p>
+            </div>
+          </div>
+
+          <!-- Cert 2: Microservices -->
+          <div class="cert-card" data-ccat="software">
+            <div class="cert-card-thumb" data-cert="assets/certificates/Ari Eka.png" data-cert-title="Engineering Resilience — Maxy Academy">
+              <img src="assets/certificates/microservices.png" alt="Microservices Certificate - Maxy Academy" loading="lazy" />
+              <div class="cert-card-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              </div>
+            </div>
+            <div class="cert-card-info">
+              <div class="cert-card-badge software" data-i18n="cert_badge_tech">TEKNIS</div>
+              <p class="cert-card-name" data-i18n="cert_name_2">Engineering Resilience: Microservices</p>
+              <p class="cert-card-issuer">Maxy Academy</p>
+            </div>
+          </div>
+
+          <!-- Cert 3: CCNA -->
+          <div class="cert-card" data-ccat="networking">
+            <div class="cert-card-thumb" data-cert="assets/certificates/E-Sertifikat ARI EKA PRIANDA.pdf" data-cert-title="CCNA: Introduction to Networks — Cisco">
+              <img src="assets/certificates/ccna.png" alt="CCNA Certificate - Cisco" loading="lazy" />
+              <div class="cert-card-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              </div>
+            </div>
+            <div class="cert-card-info">
+              <div class="cert-card-badge networking" data-i18n="cert_badge_network">JARINGAN</div>
+              <p class="cert-card-name" data-i18n="cert_name_3">CCNA: Introduction to Networks</p>
+              <p class="cert-card-issuer">Cisco Networking Academy</p>
+            </div>
+          </div>
+
+          <!-- Cert 4: UI/UX -->
+          <div class="cert-card" data-ccat="software">
+            <div class="cert-card-thumb" data-cert="assets/certificates/Sertifikat-101123.pdf" data-cert-title="UI/UX Designer Webinar — Eduwork">
+              <img src="assets/certificates/ui-ux-eduwork.png" alt="UI/UX Certificate - Eduwork" loading="lazy" />
+              <div class="cert-card-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              </div>
+            </div>
+            <div class="cert-card-info">
+              <div class="cert-card-badge software" data-i18n="cert_badge_uiux">UI/UX</div>
+              <p class="cert-card-name" data-i18n="cert_name_4">Prinsip Dasar UI/UX Designer</p>
+              <p class="cert-card-issuer">Eduwork</p>
+            </div>
+          </div>
+
+          <!-- Cert 5: Seminar APBN UNBIN & DJP -->
+          <div class="cert-card" data-ccat="vocational">
+            <div class="cert-card-thumb" data-cert="assets/certificates/Ari Eka.png" data-cert-title="Sertifikat Partisipasi Seminar APBN — Tax Center UNBIN &amp; DJP">
+              <img src="assets/certificates/Ari Eka.png" alt="Sertifikat Partisipasi Seminar APBN - Tax Center UNBIN &amp; DJP" loading="lazy" />
+              <div class="cert-card-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              </div>
+            </div>
+            <div class="cert-card-info">
+              <div class="cert-card-badge vocational" data-i18n="cert_badge_seminar">SEMINAR</div>
+              <p class="cert-card-name" data-i18n="cert_name_5">Seminar APBN 2024 &amp; Outlook APBN 2025</p>
+              <p class="cert-card-issuer">Tax Center UNBIN &amp; DJP Kemenkeu</p>
+            </div>
+          </div>
+
+          <!-- Cert 6: Seminar OJK & SB-IPB -->
+          <div class="cert-card" data-ccat="vocational">
+            <div class="cert-card-thumb" data-cert="assets/certificates/Screenshot_2.png" data-cert-title="Sertifikat Seminar Perasuransian — Otoritas Jasa Keuangan (OJK) &amp; SB-IPB">
+              <img src="assets/certificates/Screenshot_2.png" alt="Sertifikat Seminar OJK - Industri Perasuransian Nasional" loading="lazy" />
+              <div class="cert-card-overlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              </div>
+            </div>
+            <div class="cert-card-info">
+              <div class="cert-card-badge vocational" data-i18n="cert_badge_seminar">SEMINAR</div>
+              <p class="cert-card-name" data-i18n="cert_name_6">Industri Perasuransian Nasional</p>
+              <p class="cert-card-issuer">Otoritas Jasa Keuangan (OJK) &amp; SB-IPB</p>
+            </div>
+          </div>
+
+        </div><!-- /.cert-gallery-grid -->
+      </div>
+
+      <!-- 08. SOFT SKILL -->
+      <div class="trio-column-panel framer-3d-card framer-reveal stagger-3">
+        <div class="trio-header elevate-3d-sm">
+          <span class="trio-idx">08</span>
+          <h3 class="trio-title" data-i18n="soft_title">KOMPETENSI PERSONAL</h3>
+          <span class="trio-jp">ソフトスキル</span>
+        </div>
+        <div class="trio-red-accent-bar elevate-3d-sm"></div>
+
+        <ul class="soft-skills-col-list elevate-3d-sm">
+          <li class="soft-skill-card">
+            <div class="soft-skill-header">
+              <div class="soft-skill-title-wrap">
+                <svg class="soft-icon-mecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                </svg>
+                <span class="soft-skill-name" data-i18n="soft_name_1">Problem Solving</span>
+              </div>
+              <span class="soft-skill-tag" data-i18n="soft_tag_1">ANALISIS</span>
+            </div>
+            <p class="soft-skill-desc" data-i18n="soft_desc_1">Root-cause analysis, mitigasi edge-case, dan debugging sistem.</p>
+          </li>
+
+          <li class="soft-skill-card">
+            <div class="soft-skill-header">
+              <div class="soft-skill-title-wrap">
+                <svg class="soft-icon-mecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span class="soft-skill-name" data-i18n="soft_name_2">Analytical Thinking</span>
+              </div>
+              <span class="soft-skill-tag" data-i18n="soft_tag_2">ARSITEKTUR</span>
+            </div>
+            <p class="soft-skill-desc" data-i18n="soft_desc_2">Pemodelan skema relasional, optimasi kueri, &amp; efisiensi data flow.</p>
+          </li>
+
+          <li class="soft-skill-card">
+            <div class="soft-skill-header">
+              <div class="soft-skill-title-wrap">
+                <svg class="soft-icon-mecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+                <span class="soft-skill-name" data-i18n="soft_name_3">Team Collaboration</span>
+              </div>
+              <span class="soft-skill-tag" data-i18n="soft_tag_3">SINERGI</span>
+            </div>
+            <p class="soft-skill-desc" data-i18n="soft_desc_3">Komunikasi Git workflow, koordinasi tim, &amp; kebiasaan code review.</p>
+          </li>
+
+          <li class="soft-skill-card">
+            <div class="soft-skill-header">
+              <div class="soft-skill-title-wrap">
+                <svg class="soft-icon-mecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span class="soft-skill-name" data-i18n="soft_name_4">Time Management</span>
+              </div>
+              <span class="soft-skill-tag" data-i18n="soft_tag_4">DELIVERY</span>
+            </div>
+            <p class="soft-skill-desc" data-i18n="soft_desc_4">Prioritisasi sprint task, kedisiplinan milestone, &amp; timeline delivery.</p>
+          </li>
+
+          <li class="soft-skill-card">
+            <div class="soft-skill-header">
+              <div class="soft-skill-title-wrap">
+                <svg class="soft-icon-mecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span class="soft-skill-name" data-i18n="soft_name_5">Adaptability</span>
+              </div>
+              <span class="soft-skill-tag" data-i18n="soft_tag_5">AGILITAS</span>
+            </div>
+            <p class="soft-skill-desc" data-i18n="soft_desc_5">Kurva belajar cepat dalam adaptasi teknologi, framework, &amp; tools baru.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <!-- ====================================================================
+         07. CONTACT & CALL TO ACTION
+         ==================================================================== -->
+    <section id="contact" class="mecha-panel contact-panel framer-reveal has-3d-perspective">
+      <div class="panel-top-tab"></div>
+
+      <div class="section-marker-col">
+        <span class="marker-num red">07</span>
+        <div class="marker-line"></div>
+      </div>
+
+      <div class="contact-layout-grid">
+        <div>
+          <h2 class="contact-main-headline" data-i18n="contact_title">MULAI TRANSMISI / DISKUSI</h2>
+          <p class="contact-sub-text" data-i18n="contact_subtitle">
+            Punya proyek baru, tawaran posisi kerja, integrasi API, atau ingin berdiskusi teknis? Kirim pesan langsung melalui terminal transmisi di bawah ini.
+          </p>
+
+          <!-- Availability Beacon -->
+          <div>
+            <div class="availability-beacon">
+              <span class="status-pulse-dot"></span>
+              <span data-i18n="contact_dispatch_status">STATUS: TERSEDIA UNTUK POSISI FULL-TIME &amp; KONTRAK</span>
+            </div>
+          </div>
+
+          <div class="contact-btns-tray" style="margin-top:1.5rem;">
+            <a href="mailto:ariekaprianda@gmail.com" class="btn-contact-white framer-magnetic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Email Me
+            </a>
+            <button class="btn-contact-white framer-magnetic trigger-copy-email" style="cursor:pointer;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy Email
+            </button>
+            <a href="https://github.com/ariekakagerou" target="_blank" rel="noopener noreferrer" class="btn-contact-white framer-magnetic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/ari-eka-prianda" target="_blank" rel="noopener noreferrer" class="btn-contact-white framer-magnetic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://wa.me/6285817004456?text=Halo%20Ari%20Eka%20Prianda%2C%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi..." target="_blank" rel="noopener noreferrer" class="btn-contact-wa framer-magnetic" title="Hubungi via WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              WhatsApp
+            </a>
+            <a href="#download-cv" class="btn-contact-red-cta trigger-cv-download framer-magnetic">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download CV
+            </a>
+          </div>
+
+          <!-- Interactive Direct Transmission Form -->
+          <div class="transmission-form-wrap">
+            <div class="transmission-form-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1769e0" stroke-width="2.2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              DIRECT DISPATCH FORM // SEND TRANSMISSION
+            </div>
+            <form id="transmissionForm">
+              <div class="form-grid-2col">
+                <div class="form-input-group">
+                  <label class="form-label" for="txName" data-i18n="contact_form_name">NAMA LENGKAP *</label>
+                  <input type="text" id="txName" class="form-input" placeholder="Masukkan nama atau instansi Anda..." data-i18n-placeholder="contact_form_name_ph" required>
+                </div>
+                <div class="form-input-group">
+                  <label class="form-label" for="txEmail" data-i18n="contact_form_email">ALAMAT EMAIL *</label>
+                  <input type="email" id="txEmail" class="form-input" placeholder="nama@perusahaan.com" data-i18n-placeholder="contact_form_email_ph" required>
+                </div>
+              </div>
+              <div class="form-input-group">
+                <label class="form-label" for="txType" data-i18n="contact_form_type">JENIS KEBUTUHAN / KERJA SAMA</label>
+                <select id="txType" class="form-input" style="cursor:pointer;">
+                  <option value="Full-time Software Engineering" data-i18n="contact_form_type_fulltime">Lowongan Kerja Fulltime / Kontrak</option>
+                  <option value="Backend / REST API Architecture" data-i18n="contact_form_type_project">Pengembangan Proyek / Integrasi API</option>
+                  <option value="Fullstack Web Application" data-i18n="contact_form_type_consult">Konsultasi Teknis &amp; Arsitektur</option>
+                  <option value="Consultation / Freelance Project" data-i18n="contact_form_type_other">Diskusi Bebas &amp; Lainnya</option>
+                </select>
+              </div>
+              <div class="form-input-group">
+                <label class="form-label" for="txMessage" data-i18n="contact_form_message">ISI TRANSMISI PESAN *</label>
+                <textarea id="txMessage" class="form-textarea" placeholder="Jelaskan ruang lingkup proyek, timeline, atau detail tawaran Anda..." data-i18n-placeholder="contact_form_message_ph" required></textarea>
+              </div>
+              <button type="submit" class="btn-transmit framer-magnetic" id="txSubmitBtn">
+                <span data-i18n="contact_form_submit">KIRIM TRANSMISI SEKARANG</span>
+                <span>&rarr;</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="contact-watermark-col">
+          <div class="watermark-img-wrap framer-float-idle">
+            <img src="assets/images/mecha_watermark.svg" alt="Mecha Watermark" style="width:100%; height:100%;">
+          </div>
+          <div class="watermark-sub-motto" data-i18n-html="contact_keep_building">KEEP<br>BUILDING<br>KEEP<br>IMPROVING</div>
+          <div style="margin-top:1.5rem; font-family:var(--font-mono); font-size:0.68rem; color:#8295a8; text-align:right;" data-i18n-html="contact_location_time">LOCATION: BOGOR / JAKARTA<br>TIMEZONE: ASIA/JAKARTA (UTC+7)<br>DISPATCH LATENCY: &lt; 24H</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FOOTER (Image 4)
+         ==================================================================== -->
+    <footer class="footer">
+      <div class="footer-red-indicator"></div>
+      <div class="footer-flex">
+        <div class="brand">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,4 36,36 29,36 20,18 11,36 4,36" fill="#0b1e38"/>
+            <polygon points="13,26 27,26 24,31 16,31" fill="#e53935"/>
+            <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-name">ARI EKA PRIANDA</span>
+            <span class="brand-role">BACKEND / FULLSTACK DEVELOPER</span>
+          </div>
+        </div>
+
+        <ul class="nav-links" style="margin: 0;">
+          <li><a href="#hero" class="nav-link" data-i18n="footer_nav_home">Beranda</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="footer_nav_about">Tentang</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="footer_nav_skills">Keahlian</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="footer_nav_projects">Proyek</a></li>
+          <li><a href="#experience" class="nav-link" data-i18n="footer_nav_experience">Pengalaman</a></li>
+          <li><a href="#education" class="nav-link" data-i18n="footer_nav_education">Pendidikan</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="footer_nav_contact">Kontak</a></li>
+        </ul>
+
+        <div class="footer-copyright-text">
+          &copy; 2026 Ari Eka Prianda<br>
+          <span style="color:#1769e0;" data-i18n="footer_motto">Presisi Rekayasa &amp; Sistem Skalabilitas Tinggi.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Interactive Project Modal -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-container framer-3d-card has-3d-perspective" id="modalContent">
+      <div class="modal-header elevate-3d-sm">
+        <h3 id="modalTitle" class="modal-title" data-i18n="modal_proj_spec_title">SPESIFIKASI PROYEK</h3>
+        <button id="modalCloseBtn" class="modal-close-btn framer-magnetic">&times;</button>
+      </div>
+      <div id="modalBody" class="modal-body elevate-3d-sm"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       CV PREVIEW MODAL
+       =================================================================== -->
+  <div id="cvPreviewModal" class="cv-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="cv-modal-panel">
+      <!-- Header Bar -->
+      <div class="cv-modal-header">
+        <div class="cv-modal-title-group">
+          <div class="cv-modal-badge">CV</div>
+          <div>
+            <h3 id="cvModalTitle" class="cv-modal-title-text" data-i18n="cv_modal_title">DOKUMEN RESUME // ARI EKA PRIANDA</h3>
+            <span class="cv-modal-subtitle" data-i18n="cv_modal_role_sub">// ARI EKA PRIANDA — BACKEND / FULLSTACK DEVELOPER</span>
+          </div>
+        </div>
+        <div class="cv-modal-actions">
+          <a id="cvDownloadBtn" href="assets/cv-ats-ari-eka-prianda.pdf" download="Ari_Eka_Prianda_CV.pdf" class="btn-cv-download framer-magnetic">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download PDF
+          </a>
+          <a id="cvOpenNewBtn" href="assets/cv-ats-ari-eka-prianda.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv-open framer-magnetic">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Open Tab
+          </a>
+          <button id="cvModalCloseBtn" class="cv-modal-close-btn" aria-label="Close CV Preview">&times;</button>
+        </div>
+      </div>
+      <!-- PDF Viewer Body -->
+      <div class="cv-modal-body" id="cvModalBody">
+        <div class="cv-loading-indicator" id="cvLoadingIndicator">
+          <div class="cv-loading-spinner"></div>
+          <span data-i18n="cv_modal_loading_sys">[ SYS.LOAD ] Memuat Dokumen CV...</span>
+        </div>
+        <div class="cv-error-state" id="cvErrorState" style="display:none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p>Pratinjau dokumen tidak dapat ditampilkan di peramban ini.<br>Silakan unduh atau buka langsung di tab baru.</p>
+          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; justify-content:center;">
+            <a href="assets/cv-ats-ari-eka-prianda.pdf" download="Ari_Eka_Prianda_CV.pdf" class="btn-cv-download">Download PDF</a>
+            <a href="assets/cv-ats-ari-eka-prianda.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv-open">Buka Tab Baru</a>
+          </div>
+        </div>
+        <div class="cv-canvas-wrapper" id="cvCanvasWrapper" style="display:none;">
+          <canvas id="cvPdfCanvas" class="cv-pdf-canvas"></canvas>
+        </div>
+        <iframe id="cvIframe" class="cv-iframe" src="" title="CV Preview — Ari Eka Prianda" frameborder="0" style="display:none;"></iframe>
+      </div>
+      <!-- Footer bar -->
+      <div class="cv-modal-footer">
+        <span class="cv-footer-hint" data-i18n-html="cv_modal_scroll_hint">// Gulir dokumen untuk membaca · Tombol unduh di atas untuk menyimpan berkas</span>
+        <div class="cv-footer-tag">Ari_Eka_Prianda_CV.pdf &nbsp; <span style="color:#1769e0;">●</span> &nbsp; <span data-i18n="cv_modal_ats_tag">FORMAT ATS</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate PDF Lightbox Modal (PDF.js Powered) -->
+  <div id="certModal" class="cert-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+    <div class="cert-modal-panel">
+      <!-- Header -->
+      <div class="cert-modal-header">
+        <div class="cert-modal-title-group">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#1769e0; flex-shrink:0;">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <h3 id="certModalTitle" class="cert-modal-title-text" data-i18n="cert_modal_title">PRATINJAU DOKUMEN SERTIFIKAT</h3>
+        </div>
+        <div class="cert-modal-actions">
+          <a id="certDownloadBtn" href="#" download class="btn-cert-download framer-magnetic">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download
+          </a>
+          <a id="certOpenBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-cert-open framer-magnetic">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Open
+          </a>
+          <button id="certModalCloseBtn" class="cert-modal-close-btn" aria-label="Close">&times;</button>
+        </div>
+      </div>
+
+      <!-- PDF Pagination Controls -->
+      <div class="cert-pdf-nav" id="certPdfNav" style="display:none;">
+        <button id="certPrevPage" class="cert-page-btn" aria-label="Previous Page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <span id="certPageInfo" class="cert-page-info">1 / 1</span>
+        <button id="certNextPage" class="cert-page-btn" aria-label="Next Page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="cert-modal-body" id="certModalBody">
+        <!-- Loading state -->
+        <div class="cert-loading-indicator" id="certLoadingIndicator">
+          <div class="cert-loading-spinner"></div>
+          <span>Memuat sertifikat...</span>
+        </div>
+        <!-- Error state -->
+        <div class="cert-error-state" id="certErrorState" style="display:none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e53935" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p>Gagal memuat sertifikat.<br>Coba buka di tab baru.</p>
+          <a id="certErrorOpenBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-cert-open" style="margin-top:12px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            Buka di Tab Baru
+          </a>
+        </div>
+        <!-- PDF Canvas Viewer -->
+        <div class="cert-canvas-wrapper" id="certCanvasWrapper" style="display:none;">
+          <canvas id="certPdfCanvas" class="cert-pdf-canvas"></canvas>
+        </div>
+        <!-- Image Viewer (for PNG/JPG files) -->
+        <div class="cert-img-wrapper" id="certImgWrapper" style="display:none;">
+          <img id="certImgEl" class="cert-preview-img" src="" alt="Certificate" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Back To Top Thruster Button -->
+  <button class="back-to-top-thruster framer-magnetic" id="backToTopBtn" title="Return to Top (Press H)">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ===================================================================
+       TACTICAL CLI CONSOLE TERMINAL MODAL
+       =================================================================== -->
+  <div id="cliTerminalModal" class="cli-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cliTitleText">
+    <div class="cli-terminal-window">
+      <div class="cli-titlebar">
+        <div class="cli-title-left">
+          <div class="cli-dots">
+            <span class="cli-dot red"></span>
+            <span class="cli-dot yellow"></span>
+            <span class="cli-dot green"></span>
+          </div>
+          <span id="cliTitleText" class="cli-title-text" data-i18n="cli_title_text">ARI-OS TERMINAL // KERNEL v2.6.4-prod [ BASH / SH ]</span>
+        </div>
+        <button class="cli-close-btn" id="cliCloseBtn" aria-label="Close Terminal">&times;</button>
+      </div>
+      <div class="cli-screen" id="cliScreen">
+        <div class="cli-history" id="cliHistory"></div>
+        <div class="cli-input-row">
+          <span class="cli-prompt-label">ari@kernel:~$</span>
+          <input type="text" id="cliInputField" class="cli-input-field" autofocus spellcheck="false" autocomplete="off" placeholder="ketik 'help' untuk daftar perintah..." data-i18n-placeholder="cli_prompt_ph">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js?v=2.7"></script>
+  <script src="js/data.js?v=2.7"></script>
+  <script src="js/main.js?v=2.7"></script>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then((reg) => {
+          console.log('[PWA] Service Worker registered successfully:', reg.scope);
+        }).catch((err) => {
+          console.warn('[PWA] Service Worker registration skipped:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

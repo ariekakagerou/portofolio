@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pyBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#387eb8"/>
+      <stop offset="100%" stop-color="#366994"/>
+    </linearGradient>
+    <linearGradient id="pyYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe873"/>
+      <stop offset="100%" stop-color="#ffd43b"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#pyBlue)" d="M63.5 8C43.1 8 44.5 16.8 44.5 16.8l.05 9.2h19.3v2.8H26.7S14.8 27.4 14.8 48c0 20.5 10.4 19.8 10.4 19.8h6.2v-8.8s-.3-10.4 10.3-10.4h19.2s9.9.2 9.9-9.6V17.9S72.5 8 63.5 8zM52.3 14.8a3.1 3.1 0 1 1 0 6.2 3.1 3.1 0 0 1 0-6.2z"/>
+  <path fill="url(#pyYellow)" d="M64.5 120c20.4 0 19-8.8 19-8.8l-.05-9.2H64.1v-2.8h37.1s11.9 1.4 11.9-19.2c0-20.5-10.4-19.8-10.4-19.8h-6.2v8.8s.3 10.4-10.3 10.4H47s-9.9-.2-9.9 9.6v11.1s-1.7 9.9 7.3 9.9h20.1zm11.2-6.8a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2z"/>
+</svg>

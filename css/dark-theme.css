@@ -1,0 +1,1099 @@
+/* ==========================================================================
+   ARI EKA PRIANDA - OFFICIAL MECHA DARK & LIGHT THEME ENGINE
+   Cyber-Mecha Aerospace Palette (Deep Obsidian / Electric Cyan / Crimson)
+   ========================================================================== */
+
+/* Smooth Transition on Theme Switch */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.25s ease,
+              border-color 0.25s ease,
+              color 0.2s ease,
+              box-shadow 0.25s ease,
+              fill 0.25s ease,
+              stroke 0.25s ease !important;
+}
+
+/* Theme Toggle Button in Desktop Header */
+.btn-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0b1e38;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-toggle:hover {
+  border-color: #1769e0;
+  color: #1769e0;
+  background: rgba(23, 105, 224, 0.04);
+}
+
+.theme-icon-sun,
+.theme-icon-moon {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btn-theme-toggle:hover .theme-icon-sun {
+  transform: rotate(35deg);
+}
+
+.btn-theme-toggle:hover .theme-icon-moon {
+  transform: rotate(-15deg);
+}
+
+/* ==========================================================================
+   DARK THEME SYSTEM TOKENS & OVERRIDES
+   ========================================================================== */
+[data-theme="dark"],
+[data-theme="dark"] body {
+  --bg-main: #070e1b;
+  --bg-subtle: #0b1a30;
+  --bg-card: #0d223f;
+  
+  --primary-navy: #f8fafc;
+  --primary-navy-light: #94a3b8;
+  --accent-blue: #38bdf8;
+  --accent-blue-light: rgba(56, 189, 248, 0.15);
+  --accent-blue-subtle: rgba(56, 189, 248, 0.08);
+  --accent-red: #f87171;
+  --accent-red-light: rgba(248, 113, 113, 0.15);
+  
+  --border-tech: rgba(56, 189, 248, 0.22);
+  --border-hairline: rgba(56, 189, 248, 0.12);
+  --border-tech-blue: #38bdf8;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.7);
+
+  background-color: #070e1b !important;
+  color: #f1f5f9 !important;
+}
+
+/* Blueprint Grid Background in Dark Mode */
+[data-theme="dark"] .tech-grid-bg,
+[data-theme="dark"] .blueprint-overlay {
+  background-color: #070e1b !important;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px) !important;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .navbar {
+  background: rgba(9, 20, 38, 0.92) !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+[data-theme="dark"] .brand-name {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .brand-role {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .brand svg polygon[fill="#0b1e38"] {
+  fill: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: #38bdf8 !important;
+  border-color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+[data-theme="dark"] .nav-link.active::after {
+  background-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .nav-telemetry-badge {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .btn-sound-toggle,
+[data-theme="dark"] .btn-theme-toggle {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .btn-sound-toggle:hover,
+[data-theme="dark"] .btn-theme-toggle:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-sound-toggle.muted {
+  color: #64748b !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .btn-nav-cv {
+  background-color: #1769e0 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(23, 105, 224, 0.35) !important;
+}
+
+[data-theme="dark"] .btn-nav-cv:hover {
+  background-color: #0284c7 !important;
+}
+
+[data-theme="dark"] .mobile-menu-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .mobile-menu-btn span {
+  background-color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .mobile-nav-panel {
+  background: rgba(8, 18, 35, 0.98) !important;
+  border-bottom: 2px solid #38bdf8 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65) !important;
+}
+
+[data-theme="dark"] .mobile-nav-link {
+  color: #e2e8f0 !important;
+  background: rgba(14, 29, 53, 0.8) !important;
+  border: 1px solid rgba(56, 189, 248, 0.18) !important;
+}
+
+[data-theme="dark"] .mobile-nav-link:hover {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38bdf8 !important;
+}
+
+/* ==========================================================================
+   MECHA PANELS & SECTION HEADERS (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .mecha-panel {
+  background: rgba(13, 27, 49, 0.88) !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .mecha-panel::before,
+[data-theme="dark"] .mecha-panel::after {
+  border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .panel-top-tab {
+  background: #38bdf8 !important;
+}
+
+[data-theme="dark"] .panel-header-row::after {
+  background-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .panel-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .panel-category-tag {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .panel-jp-sub {
+  color: #f87171 !important;
+}
+
+[data-theme="dark"] .marker-num.blue {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .marker-line {
+  background: #38bdf8 !important;
+}
+
+/* ==========================================================================
+   01. HERO SECTION (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .hero-preheader {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .hero-name-title .navy-word {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .hero-name-title .blue-word {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .hero-role-title {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .hero-bio-desc {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .tech-badge-pill {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #7dd3fc !important;
+}
+
+[data-theme="dark"] .tech-badge-pill:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-hero-white {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-hero-white:hover {
+  background-color: rgba(56, 189, 248, 0.2) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .hero-social-item {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .hero-social-item:hover {
+  background-color: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .hero-stats-matrix {
+  background: rgba(8, 20, 39, 0.85) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+[data-theme="dark"] .hero-stats-matrix::before {
+  background: #38bdf8 !important;
+}
+
+[data-theme="dark"] .hero-stat-cell {
+  border-left-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+[data-theme="dark"] .hero-stat-val {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .hero-stat-label {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .vertical-kanji {
+  color: rgba(56, 189, 248, 0.4) !important;
+}
+
+[data-theme="dark"] .hero-side-quote-box {
+  background: rgba(8, 20, 39, 0.85) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .quote-build-tomorrow {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .quote-sub-line {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   02. ABOUT ME (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .about-text-p {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .about-text-p strong {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .philosophy-tabs-nav .btn-phil-tab {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .philosophy-tabs-nav .btn-phil-tab.active {
+  background: #1769e0 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(23, 105, 224, 0.4) !important;
+}
+
+[data-theme="dark"] .philosophy-card-display {
+  background: rgba(8, 20, 39, 0.85) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  border-left-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .phil-title {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .phil-desc {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .about-right-col {
+  background: rgba(14, 29, 53, 0.92) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+[data-theme="dark"] .about-silhouette-frame {
+  background: rgba(8, 20, 39, 0.95) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .from-machines-box {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .machines-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .machines-subtitle {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .diagram-lbl {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .diagram-circuit-icon {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .diagram-arrow-blue {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .diagram-gear-img {
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.3));
+}
+
+[data-theme="dark"] .machines-quote-italic {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .about-right-col p {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   03. TECH STACK (DARK MODE - Image 1 & 2 Aesthetic)
+   ========================================================================== */
+[data-theme="dark"] .tech-showcase-title {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .tech-showcase-eyebrow {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #34d399 !important;
+}
+
+[data-theme="dark"] .orbit-system {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 72%) !important;
+}
+
+[data-theme="dark"] .orbit-bubble {
+  background: #071322 !important;
+  border-color: rgba(23, 105, 224, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .orbit-node:hover .orbit-bubble,
+[data-theme="dark"] .orbit-node.is-active .orbit-bubble {
+  background: #0b1e38 !important;
+}
+
+[data-theme="dark"] .tech-pill-badge {
+  background: rgba(7, 19, 34, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-theme="dark"] .tech-pill-badge .pill-label {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .tech-category-legend {
+  background: rgba(7, 19, 34, 0.85) !important;
+  border-color: rgba(23, 105, 224, 0.25) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .legend-filter-item {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .legend-filter-item:hover,
+[data-theme="dark"] .legend-filter-item.active {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .legend-filter-item.active {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* New Constellation Elements — Dark Mode */
+[data-theme="dark"] .core-node-glyph {
+  background: linear-gradient(135deg, #071322 0%, #0b1e38 100%) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.4), 0 0 50px rgba(23, 105, 224, 0.2) !important;
+}
+
+[data-theme="dark"] .constellation-tooltip {
+  background: rgba(5, 14, 28, 0.95) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] .radar-scan-sweep {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.9), transparent) !important;
+}
+
+[data-theme="dark"] .tech-constellation-viewport {
+  background: radial-gradient(ellipse at center, rgba(23, 105, 224, 0.06) 0%, transparent 70%) !important;
+}
+
+
+/* ==========================================================================
+   04. PROJECTS (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .projects-filter-bar .tech-filter-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .projects-filter-bar .tech-filter-btn.active {
+  background: #1769e0 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(23, 105, 224, 0.4) !important;
+}
+
+[data-theme="dark"] .project-item-card {
+  background: rgba(14, 29, 53, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-theme="dark"] .project-item-card:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 12px 32px -4px rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .project-header-badges {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15) !important;
+  background: rgba(7, 16, 31, 0.45) !important;
+}
+
+[data-theme="dark"] .project-idx-box {
+  background: rgba(56, 189, 248, 0.15) !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .project-category-lbl {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .project-card-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .project-card-desc {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .project-tag-pill {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+  color: #7dd3fc !important;
+}
+
+[data-theme="dark"] .btn-toggle-spec {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .project-quick-spec {
+  background: rgba(7, 18, 36, 0.92) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .project-quick-spec div:first-child {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .project-quick-spec div:last-child {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .btn-project-outline-white {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .btn-project-outline-white:hover {
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+/* ==========================================================================
+   05. WORK EXPERIENCE (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .timeline-dot {
+  background: #38bdf8 !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .timeline-line {
+  background: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .timeline-card,
+[data-theme="dark"] .timeline-node-box {
+  background: rgba(14, 29, 53, 0.88) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+[data-theme="dark"] .timeline-node-box:hover,
+[data-theme="dark"] .timeline-card:hover {
+  border-color: #38bdf8 !important;
+  background: rgba(18, 38, 68, 0.9) !important;
+}
+
+[data-theme="dark"] .timeline-node-box.active {
+  border-color: #38bdf8 !important;
+  background: rgba(18, 38, 68, 0.95) !important;
+}
+
+[data-theme="dark"] .company-title,
+[data-theme="dark"] .company-name,
+[data-theme="dark"] .exp-role-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .date-year {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .date-period {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .role-title {
+  color: #7dd3fc !important;
+}
+
+[data-theme="dark"] .exp-company-tag,
+[data-theme="dark"] .timeline-role-badge {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .exp-period-badge,
+[data-theme="dark"] .period-badge {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #7dd3fc !important;
+}
+
+[data-theme="dark"] .timeline-detail-item,
+[data-theme="dark"] .exp-duty-list li {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .timeline-detail-item::before {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .timeline-pin-dot {
+  background: #38bdf8 !important;
+  border-color: #071324 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6) !important;
+}
+
+[data-theme="dark"] .timeline-track-bar {
+  background: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .exp-badge-pill {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   06, 07, 08. EDUCATION, CERTS, SOFT SKILLS (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .trio-column-panel {
+  background: rgba(14, 29, 53, 0.88) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+[data-theme="dark"] .trio-column-panel:hover {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+[data-theme="dark"] .trio-header {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15) !important;
+}
+
+[data-theme="dark"] .trio-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .trio-idx {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .trio-jp {
+  color: #f87171 !important;
+}
+
+[data-theme="dark"] .edu-item-box {
+  background: rgba(7, 18, 36, 0.75) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+}
+
+[data-theme="dark"] .edu-school-name {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .edu-sub-name {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .edu-date-info {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .edu-icon-square {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .cert-filter-pills .cert-filter-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .cert-filter-pills .cert-filter-btn.active {
+  background: #1769e0 !important;
+  color: #ffffff !important;
+  border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .cert-check-row {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12) !important;
+}
+
+[data-theme="dark"] .cert-check-row:hover {
+  background: rgba(56, 189, 248, 0.08) !important;
+}
+
+[data-theme="dark"] .cert-item-content span {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .btn-view-cert {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .btn-view-cert:hover {
+  background: #1769e0 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .soft-skill-card {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+[data-theme="dark"] .soft-skill-card:hover {
+  background: rgba(56, 189, 248, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+
+[data-theme="dark"] .soft-skill-name {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .soft-skill-tag {
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+}
+
+[data-theme="dark"] .soft-skill-desc {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   09. CONTACT & TRANSMISSION (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .contact-main-headline {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .contact-sub-text {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .availability-beacon {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+}
+
+[data-theme="dark"] .btn-contact-white {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-contact-white:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .transmission-form-wrap {
+  background: rgba(14, 29, 53, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+}
+
+[data-theme="dark"] .transmission-form-title {
+  color: #38bdf8 !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15) !important;
+}
+
+[data-theme="dark"] .form-label {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea {
+  background: rgba(7, 18, 36, 0.85) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-textarea:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18) !important;
+}
+
+[data-theme="dark"] .form-input::placeholder,
+[data-theme="dark"] .form-textarea::placeholder {
+  color: #64748b !important;
+}
+
+[data-theme="dark"] select.form-input option {
+  background: #0b1e38;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   FOOTER (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .footer {
+  background: rgba(9, 20, 38, 0.95) !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+[data-theme="dark"] .footer .brand-name {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .footer .brand-role {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .footer .nav-link {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .footer .nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .footer-copyright-text {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   MODALS & LIGHTBOXES (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .modal-overlay {
+  background: rgba(3, 8, 18, 0.82) !important;
+}
+
+[data-theme="dark"] .modal-container {
+  background: rgba(11, 24, 46, 0.98) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75) !important;
+}
+
+[data-theme="dark"] .modal-header {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+[data-theme="dark"] .modal-title {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .modal-close-btn {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .modal-close-btn:hover {
+  color: #f87171 !important;
+}
+
+[data-theme="dark"] .modal-body {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .modal-body p {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .modal-body div[style*="background:#f8fafc"] {
+  background: rgba(7, 18, 36, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .modal-body div[style*="background:#F7F9FC"] {
+  background: rgba(7, 18, 36, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .modal-body h4 {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .modal-body li {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .cert-modal-panel {
+  background: rgba(11, 24, 46, 0.98) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+[data-theme="dark"] .cert-modal-header {
+  background: rgba(7, 16, 31, 0.95) !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .cert-modal-title-text {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-cert-download,
+[data-theme="dark"] .btn-cert-open {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .btn-cert-download:hover,
+[data-theme="dark"] .btn-cert-open:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .cert-modal-close-btn {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   FLOATING TOOLS & CURSOR (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .back-to-top-thruster {
+  background: #1769e0 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(23, 105, 224, 0.4) !important;
+}
+
+[data-theme="dark"] .back-to-top-thruster:hover {
+  background: #38bdf8 !important;
+  color: #070e1b !important;
+}
+
+[data-theme="dark"] .custom-cursor-dot {
+  background-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .custom-cursor-outline {
+  border-color: rgba(56, 189, 248, 0.5) !important;
+}
+
+/* ==========================================================================
+   SPLASHSCREEN & 404 (DARK MODE)
+   ========================================================================== */
+[data-theme="dark"] .mecha-splash-overlay {
+  background-color: #070e1b !important;
+}
+
+[data-theme="dark"] .splash-center-module {
+  background: rgba(13, 27, 49, 0.98) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+[data-theme="dark"] .splash-brand-title {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .splash-brand-role {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .splash-logo-box {
+  background: rgba(7, 16, 31, 0.8) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .error-card {
+  background: rgba(14, 29, 53, 0.95) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
+[data-theme="dark"] .error-headline {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .error-desc {
+  color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   LIGHT THEME EXPLICIT RESETS
+   Ensures switching back from dark to light mode overrides all !important rules
+   ========================================================================== */
+[data-theme="light"],
+[data-theme="light"] body {
+  background-color: #f8fafc !important;
+  color: #0b1e38 !important;
+}
+
+[data-theme="light"] .navbar {
+  background: rgba(248, 250, 252, 0.92) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 12px rgba(11, 30, 56, 0.06) !important;
+}
+
+[data-theme="light"] .brand-name { color: #0b1e38 !important; }
+[data-theme="light"] .brand-role { color: #1769e0 !important; }
+[data-theme="light"] .nav-link   { color: #64748b !important; }
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active { color: #1769e0 !important; }
+
+[data-theme="light"] .tech-grid-bg,
+[data-theme="light"] .blueprint-overlay {
+  background-color: #f8fafc !important;
+  background-image:
+    linear-gradient(to right, rgba(23, 105, 224, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 105, 224, 0.035) 1px, transparent 1px) !important;
+}
+
+[data-theme="light"] .btn-theme-toggle {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0b1e38 !important;
+}
+
+[data-theme="light"] .section-title  { color: #0b1e38 !important; }
+[data-theme="light"] .section-subtitle { color: #475569 !important; }
+
+[data-theme="light"] .card,
+[data-theme="light"] .mecha-card,
+[data-theme="light"] .stat-card,
+[data-theme="light"] .project-card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0b1e38 !important;
+}
+
+[data-theme="light"] .skill-card,
+[data-theme="light"] .exp-card,
+[data-theme="light"] .edu-card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .hero-section { background: transparent !important; }
+[data-theme="light"] .hero-name    { color: #0b1e38 !important; }
+[data-theme="light"] .hero-role    { color: #1769e0 !important; }
+[data-theme="light"] .hero-tagline { color: #475569 !important; }
+
+[data-theme="light"] .contact-card { background: #ffffff !important; border-color: #e2e8f0 !important; }
+[data-theme="light"] .footer { background: #0b1e38 !important; color: #e2e8f0 !important; }
+
+[data-theme="light"] .splash-screen { background: #f8fafc !important; }
+[data-theme="light"] .splash-brand-title { color: #0b1e38 !important; }
+[data-theme="light"] .splash-brand-role  { color: #1769e0 !important; }
+[data-theme="light"] .splash-logo-box    {
+  background: rgba(248, 250, 252, 0.9) !important;
+  border-color: rgba(23, 105, 224, 0.25) !important;
+}
+
+[data-theme="light"] .error-card     { background: #ffffff !important; border-color: #e2e8f0 !important; }
+[data-theme="light"] .error-headline { color: #0b1e38 !important; }
+[data-theme="light"] .error-desc     { color: #475569 !important; }

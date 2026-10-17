@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="saadaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071426"/>
+      <stop offset="50%" stop-color="#0b1e38"/>
+      <stop offset="100%" stop-color="#08182b"/>
+    </linearGradient>
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1769e0"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Technical Background -->
+  <rect width="600" height="340" fill="url(#saadaBg)"/>
+
+  <!-- Blueprint Grid Coordinate Mesh -->
+  <g stroke="#1e3a8a" stroke-width="0.75" opacity="0.35">
+    <line x1="0" y1="40" x2="600" y2="40"/>
+    <line x1="0" y1="90" x2="600" y2="90"/>
+    <line x1="0" y1="140" x2="600" y2="140"/>
+    <line x1="0" y1="190" x2="600" y2="190"/>
+    <line x1="0" y1="240" x2="600" y2="240"/>
+    <line x1="0" y1="290" x2="600" y2="290"/>
+    <line x1="60" y1="0" x2="60" y2="340"/>
+    <line x1="120" y1="0" x2="120" y2="340"/>
+    <line x1="180" y1="0" x2="180" y2="340"/>
+    <line x1="240" y1="0" x2="240" y2="340"/>
+    <line x1="300" y1="0" x2="300" y2="340"/>
+    <line x1="360" y1="0" x2="360" y2="340"/>
+    <line x1="420" y1="0" x2="420" y2="340"/>
+    <line x1="480" y1="0" x2="480" y2="340"/>
+    <line x1="540" y1="0" x2="540" y2="340"/>
+  </g>
+
+  <!-- Top Accent Mecha Border -->
+  <rect x="0" y="0" width="600" height="4" fill="url(#accentCyan)"/>
+
+  <!-- Corner Reticle Telemetry -->
+  <path d="M12,12 L12,28 M12,12 L28,12" stroke="#38bdf8" stroke-width="2" fill="none"/>
+  <path d="M588,12 L588,28 M588,12 L572,12" stroke="#38bdf8" stroke-width="2" fill="none"/>
+  <path d="M12,328 L12,312 M12,328 L28,328" stroke="#e53935" stroke-width="2" fill="none"/>
+  <path d="M588,328 L588,312 M588,328 L572,328" stroke="#38bdf8" stroke-width="2" fill="none"/>
+
+  <!-- Header Header Info -->
+  <g font-family="'JetBrains Mono', monospace">
+    <text x="36" y="32" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">SAADA // UNIT-05</text>
+    <text x="160" y="32" font-size="9" fill="#64748b">[ AI ARCHIVE OCR PIPELINE ]</text>
+    <text x="564" y="32" font-size="9" fill="#10b981" font-weight="700" text-anchor="end">STATUS: ACTIVE</text>
+  </g>
+
+  <!-- LEFT: Physical Archive Document / Diploma Sheet Scanner -->
+  <g transform="translate(38, 55)">
+    <!-- Document Backdrop Card with Shadow & Border -->
+    <rect x="0" y="0" width="180" height="235" rx="5" fill="#0f223d" stroke="#1e4976" stroke-width="1.5"/>
+    <rect x="6" y="6" width="168" height="223" rx="3" fill="#132b4a" stroke="#234e7d" stroke-width="1"/>
+    
+    <!-- Document Header & Gold Seal Emblem -->
+    <rect x="18" y="16" width="144" height="20" rx="3" fill="#0b1e38"/>
+    <circle cx="32" cy="26" r="6" fill="#f59e0b" opacity="0.9"/>
+    <text x="44" y="30" font-family="'Space Grotesk', sans-serif" font-size="8" fill="#f8fafc" font-weight="700" letter-spacing="0.5">ARSIP ALUMNI ASSA'ADAH</text>
+    
+    <!-- Text Lines Placeholder -->
+    <rect x="18" y="46" width="90" height="4" rx="2" fill="#38bdf8" opacity="0.8"/>
+    <rect x="18" y="56" width="144" height="3" rx="1.5" fill="#475569" opacity="0.7"/>
+    <rect x="18" y="64" width="130" height="3" rx="1.5" fill="#475569" opacity="0.7"/>
+    <rect x="18" y="72" width="140" height="3" rx="1.5" fill="#475569" opacity="0.7"/>
+    <rect x="18" y="80" width="110" height="3" rx="1.5" fill="#475569" opacity="0.7"/>
+
+    <!-- Document Bounding Boxes (Simulated OCR Recognition) -->
+    <rect x="16" y="94" width="148" height="28" rx="2" fill="#0284c7" fill-opacity="0.12" stroke="#00f0ff" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="22" y="106" font-family="monospace" font-size="7" fill="#00f0ff" font-weight="700">NAME: MOHAMMAD RIFAI</text>
+    <text x="22" y="116" font-family="monospace" font-size="6.5" fill="#94a3b8">NISN: 0048192841 // THN: 2023</text>
+    
+    <rect x="16" y="128" width="148" height="24" rx="2" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="22" y="140" font-family="monospace" font-size="7" fill="#34d399" font-weight="700">NO. IJAZAH: DN-02/MA/23/0019</text>
+    <text x="22" y="148" font-family="monospace" font-size="6" fill="#6ee7b7">VERIFIED HASH: e4b2..9f1a</text>
+
+    <!-- Additional Doc Details -->
+    <rect x="18" y="162" width="144" height="3" rx="1.5" fill="#475569" opacity="0.5"/>
+    <rect x="18" y="170" width="95" height="3" rx="1.5" fill="#475569" opacity="0.5"/>
+    
+    <!-- Stamp Graphic Bottom Right -->
+    <circle cx="140" cy="196" r="16" fill="none" stroke="#e53935" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <circle cx="140" cy="196" r="12" fill="none" stroke="#e53935" stroke-width="1"/>
+    <text x="140" y="199" font-family="monospace" font-size="6" fill="#f87171" font-weight="700" text-anchor="middle">VALID</text>
+
+    <!-- Scanning Laser Beam Sweeper -->
+    <rect x="0" y="100" width="180" height="35" fill="url(#scanBeam)" opacity="0.6"/>
+    <line x1="0" y1="135" x2="180" y2="135" stroke="#00f0ff" stroke-width="2.5" filter="url(#glowEffect)"/>
+    <circle cx="90" cy="135" r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- CENTER-RIGHT: ARCHITECTURE & AI OCR PROCESSING ENGINE -->
+
+  <!-- Flow Connector: Scanner to ASP.NET Backend -->
+  <path d="M225,172 L260,172" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+  <polygon points="260,168 268,172 260,176" fill="#38bdf8"/>
+  <text x="244" y="164" font-family="monospace" font-size="7" fill="#38bdf8" text-anchor="middle">IMAGE STREAM</text>
+
+  <!-- Node 1: Next.js Frontend Portal -->
+  <g transform="translate(270, 55)">
+    <rect width="138" height="52" rx="4" fill="#0d2442" stroke="#1769e0" stroke-width="1.2"/>
+    <rect width="138" height="3" fill="#1769e0"/>
+    <text x="12" y="20" font-family="'Space Grotesk', sans-serif" font-size="10.5" fill="#f8fafc" font-weight="700">NEXT.JS 14</text>
+    <text x="12" y="32" font-family="monospace" font-size="7.5" fill="#38bdf8">UI PORTAL &amp; ARCHIVE VIEWER</text>
+    <text x="12" y="44" font-family="monospace" font-size="6.5" fill="#64748b">SSR / Instant Search / Filters</text>
+    <circle cx="124" cy="24" r="4" fill="#10b981"/>
+  </g>
+
+  <!-- Flow Connector: Next.js to ASP.NET -->
+  <path d="M339,107 L339,127" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3,3" fill="none"/>
+  <polygon points="335,127 339,134 343,127" fill="#38bdf8"/>
+
+  <!-- Node 2: ASP.NET Core Backend API Gateway -->
+  <g transform="translate(270, 134)">
+    <rect width="138" height="60" rx="4" fill="#0d2442" stroke="#512bd4" stroke-width="1.5"/>
+    <rect width="138" height="3" fill="#7c3aed"/>
+    <text x="12" y="20" font-family="'Space Grotesk', sans-serif" font-size="10.5" fill="#f8fafc" font-weight="700">ASP.NET CORE</text>
+    <text x="12" y="33" font-family="monospace" font-size="7.5" fill="#c084fc">ENTERPRISE REST API GATEWAY</text>
+    <text x="12" y="45" font-family="monospace" font-size="6.5" fill="#94a3b8">Auth / Dispatcher / Controller</text>
+    <text x="12" y="54" font-family="monospace" font-size="6.5" fill="#64748b">PostgreSQL / Secure File Storage</text>
+    <circle cx="124" cy="24" r="4" fill="#a855f7"/>
+  </g>
+
+  <!-- Flow Connector: ASP.NET to Python AI Service -->
+  <path d="M408,164 L436,164" stroke="#00f0ff" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+  <polygon points="436,160 444,164 436,168" fill="#00f0ff"/>
+  <text x="424" y="156" font-family="monospace" font-size="7" fill="#00f0ff" text-anchor="middle">DISPATCH</text>
+
+  <!-- Node 3: Python AI OCR Service (Tesseract) -->
+  <g transform="translate(444, 75)">
+    <rect width="124" height="152" rx="4" fill="#0a1d33" stroke="#0284c7" stroke-width="1.5"/>
+    <rect width="124" height="3" fill="#00f0ff"/>
+    
+    <text x="12" y="22" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#00f0ff" font-weight="700">PYTHON AI</text>
+    <text x="12" y="34" font-family="monospace" font-size="8" fill="#e0f2fe" font-weight="600">TESSERACT OCR</text>
+    <line x1="12" y1="42" x2="112" y2="42" stroke="#1e4976" stroke-width="1"/>
+
+    <!-- Telemetry Badges Inside AI Service -->
+    <rect x="10" y="48" width="104" height="20" rx="2" fill="#0b1829" stroke="#1e3a8a" stroke-width="0.8"/>
+    <text x="16" y="58" font-family="monospace" font-size="6.5" fill="#64748b">ENGINE:</text>
+    <text x="56" y="58" font-family="monospace" font-size="6.5" fill="#38bdf8" font-weight="700">Tesseract 5</text>
+    <text x="16" y="65" font-family="monospace" font-size="5.5" fill="#10b981">● Pre-process: OpenCV</text>
+
+    <rect x="10" y="73" width="104" height="20" rx="2" fill="#0b1829" stroke="#1e3a8a" stroke-width="0.8"/>
+    <text x="16" y="83" font-family="monospace" font-size="6.5" fill="#64748b">ACCURACY:</text>
+    <text x="68" y="83" font-family="monospace" font-size="7" fill="#34d399" font-weight="700">98.6%</text>
+    <text x="16" y="90" font-family="monospace" font-size="5.5" fill="#94a3b8">Binarized / Skew Fix</text>
+
+    <rect x="10" y="98" width="104" height="20" rx="2" fill="#0b1829" stroke="#1e3a8a" stroke-width="0.8"/>
+    <text x="16" y="108" font-family="monospace" font-size="6.5" fill="#64748b">LATENCY:</text>
+    <text x="64" y="108" font-family="monospace" font-size="7" fill="#f59e0b" font-weight="700">&lt; 850ms</text>
+    <text x="16" y="115" font-family="monospace" font-size="5.5" fill="#94a3b8">Async Worker Queue</text>
+
+    <!-- Return Payload Arrow -->
+    <rect x="10" y="123" width="104" height="18" rx="2" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-width="0.8"/>
+    <text x="62" y="135" font-family="monospace" font-size="6.5" fill="#38bdf8" font-weight="700" text-anchor="middle">EXTRACTED JSON &rarr;</text>
+  </g>
+
+  <!-- Flow Connector: Python back to ASP.NET -->
+  <path d="M444,212 L339,212 L339,194" stroke="#10b981" stroke-width="1.8" stroke-dasharray="4,2" fill="none"/>
+  <polygon points="335,198 339,191 343,198" fill="#10b981"/>
+  <text x="390" y="222" font-family="monospace" font-size="6.5" fill="#34d399" text-anchor="middle">PARSED METADATA</text>
+
+  <!-- Bottom Telemetry HUD Bar -->
+  <g transform="translate(38, 298)">
+    <rect width="524" height="24" rx="3" fill="#0a192f" stroke="#1e3a8a" stroke-width="1"/>
+    <text x="12" y="16" font-family="monospace" font-size="8" fill="#64748b">ARCHIVE PROTOCOL:</text>
+    <text x="110" y="16" font-family="monospace" font-size="8" fill="#38bdf8" font-weight="700">REST JSON / MULTIPART OCR / RBAC AUDIT</text>
+    <text x="420" y="16" font-family="monospace" font-size="8" fill="#e53935" font-weight="700">SECURITY: SHA-256</text>
+  </g>
+</svg>

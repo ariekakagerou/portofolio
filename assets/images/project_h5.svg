@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="340" fill="url(#laptopGrad)"/>
+  
+  <!-- Desk Grid / Background Elements -->
+  <path d="M 0 60 L 600 60 M 0 120 L 600 120 M 0 180 L 600 180 M 0 240 L 600 240 M 0 300 L 600 300" stroke="#cbd5e1" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+
+  <!-- Laptop Mockup -->
+  <g filter="url(#cardShadow)">
+    <!-- Laptop Screen Outer Frame -->
+    <rect x="70" y="45" width="340" height="215" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <!-- Laptop Screen Inner Display -->
+    <rect x="80" y="55" width="320" height="195" rx="4" fill="#ffffff"/>
+    
+    <!-- E-Commerce UI on Laptop Screen -->
+    <!-- Nav header -->
+    <rect x="80" y="55" width="320" height="26" fill="#091a32"/>
+    <text x="92" y="72" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11" fill="#ffffff">H5 STORE</text>
+    <rect x="180" y="62" width="120" height="12" rx="3" fill="#1e293b"/>
+    <circle cx="385" cy="68" r="6" fill="#0284c7"/>
+    
+    <!-- Banner -->
+    <rect x="90" y="88" width="300" height="50" rx="4" fill="#0284c7"/>
+    <text x="105" y="112" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="12" fill="#ffffff">SPECIAL DROP 2026</text>
+    <text x="105" y="126" font-family="'Inter', sans-serif" font-size="8" fill="#e0f2fe">Premium Streetwear &amp; Tech Gear</text>
+    
+    <!-- Product Grid in Laptop -->
+    <rect x="90" y="146" width="90" height="92" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect x="100" y="152" width="70" height="50" rx="3" fill="#e2e8f0"/>
+    <rect x="100" y="208" width="50" height="8" rx="2" fill="#091a32"/>
+    <rect x="100" y="220" width="30" height="6" rx="2" fill="#0284c7"/>
+
+    <rect x="195" y="146" width="90" height="92" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect x="205" y="152" width="70" height="50" rx="3" fill="#e2e8f0"/>
+    <rect x="205" y="208" width="50" height="8" rx="2" fill="#091a32"/>
+    <rect x="205" y="220" width="30" height="6" rx="2" fill="#0284c7"/>
+
+    <rect x="300" y="146" width="90" height="92" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect x="310" y="152" width="70" height="50" rx="3" fill="#e2e8f0"/>
+    <rect x="310" y="208" width="50" height="8" rx="2" fill="#091a32"/>
+    <rect x="310" y="220" width="30" height="6" rx="2" fill="#0284c7"/>
+
+    <!-- Laptop Base -->
+    <path d="M 40 260 L 440 260 L 420 272 L 60 272 Z" fill="#94a3b8"/>
+    <rect x="205" y="260" width="70" height="4" rx="2" fill="#64748b"/>
+  </g>
+
+  <!-- Mobile Phone Mockup (Overlap Right) -->
+  <g filter="url(#cardShadow)">
+    <rect x="380" y="90" width="115" height="205" rx="14" fill="#091a32" stroke="#334155" stroke-width="2"/>
+    <rect x="386" y="96" width="103" height="193" rx="10" fill="#ffffff"/>
+    <!-- Phone Notch -->
+    <rect x="422" y="98" width="30" height="6" rx="3" fill="#091a32"/>
+    
+    <!-- Phone UI Header -->
+    <rect x="386" y="106" width="103" height="20" fill="#f8fafc" stroke="#f1f5f9"/>
+    <text x="394" y="120" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="8" fill="#091a32">H5 APP</text>
+    
+    <!-- Phone Product Cards -->
+    <rect x="394" y="132" width="87" height="65" rx="4" fill="#0284c7"/>
+    <text x="402" y="152" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="8" fill="#ffffff">ORDER #892</text>
+    <text x="402" y="164" font-family="'Inter', sans-serif" font-size="6.5" fill="#e0f2fe">Out for Delivery</text>
+    <rect x="402" y="174" width="70" height="4" rx="2" fill="#ffffff" opacity="0.4"/>
+    <rect x="402" y="174" width="45" height="4" rx="2" fill="#ffffff"/>
+
+    <rect x="394" y="204" width="87" height="40" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect x="400" y="210" width="24" height="28" rx="2" fill="#e2e8f0"/>
+    <rect x="430" y="214" width="45" height="6" rx="2" fill="#091a32"/>
+    <rect x="430" y="224" width="28" height="5" rx="2" fill="#10b981"/>
+
+    <!-- Bottom Nav -->
+    <rect x="386" y="270" width="103" height="19" fill="#f8fafc"/>
+    <circle cx="406" cy="279" r="4" fill="#0284c7"/>
+    <circle cx="437" cy="279" r="4" fill="#cbd5e1"/>
+    <circle cx="468" cy="279" r="4" fill="#cbd5e1"/>
+  </g>
+
+  <!-- Technical Telemetry Badge -->
+  <rect x="80" y="284" width="165" height="22" rx="3" fill="#091a32"/>
+  <text x="162" y="298" font-family="'JetBrains Mono', monospace" font-size="9" fill="#38bdf8" text-anchor="middle" font-weight="700">STRIPE &amp; AWS S3 SYNC</text>
+</svg>

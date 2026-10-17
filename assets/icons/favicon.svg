@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Rounded Tactical Background -->
+  <rect width="64" height="64" rx="14" fill="#071324"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#38bdf8" stroke-width="2.5" stroke-opacity="0.75"/>
+  
+  <!-- Outer Mecha Polygon A (Crisp White) -->
+  <polygon points="32,8 54,54 44,54 32,28 20,54 10,54" fill="#ffffff"/>
+  
+  <!-- Red Crossbar Accent -->
+  <polygon points="21,39 43,39 39,46 25,46" fill="#e53935"/>
+  
+  <!-- Blue Core Sensor Triangle -->
+  <polygon points="32,15 38,26 26,26" fill="#1769e0"/>
+</svg>

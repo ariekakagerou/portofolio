@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — SYSTEM NOT FOUND | Ari Eka Prianda</title>
+  <link rel="stylesheet" href="css/mecha-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('portfolio_theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    .error-page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .error-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-tech);
+      border-radius: 8px;
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .error-code {
+      font-family: var(--font-heading);
+      font-size: 5.5rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .error-headline {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .error-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .error-component-art {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+<body class="tech-grid-bg">
+  <div class="blueprint-overlay"></div>
+
+  <div class="error-page-wrapper">
+    <div class="error-card tech-corners">
+      <!-- Original Mechanical Component Graphic SVG -->
+      <div class="error-component-art">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" width="100%" height="100%">
+          <circle cx="50" cy="50" r="42" stroke="var(--border-tech)" stroke-width="2" stroke-dasharray="4,4"/>
+          <circle cx="50" cy="50" r="32" stroke="var(--accent-blue)" stroke-width="2.5"/>
+          <circle cx="50" cy="50" r="14" fill="var(--bg-subtle)" stroke="var(--accent-red)" stroke-width="2"/>
+          <path d="M 50 18 L 50 26 M 50 74 L 50 82 M 18 50 L 26 50 M 74 50 L 82 50" stroke="var(--accent-blue)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 28 28 L 34 34 M 66 66 L 72 72 M 28 72 L 34 66 M 66 34 L 72 28" stroke="var(--accent-blue)" stroke-width="2"/>
+          <line x1="44" y1="50" x2="56" y2="50" stroke="var(--accent-red)" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <div class="error-code">404</div>
+      <h1 class="error-headline" data-i18n="err_title">SYSTEM NOT FOUND</h1>
+      <p class="error-desc" data-i18n="err_desc">
+        "The requested route has gone offline. Transmission signal severed or component disconnected."
+      </p>
+
+      <a href="index.html" class="btn-primary-red" style="display: inline-flex; justify-content: center; width: 100%;">
+        <span data-i18n="err_btn">Return Home</span> <span class="btn-arrow">&rarr;</span>
+      </a>
+
+      <div style="margin-top: 1.5rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted);">
+        SYS.ERR_CODE // 0x404_ROUTE_UNAVAILABLE
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js?v=2.7"></script>
+</body>
+</html>

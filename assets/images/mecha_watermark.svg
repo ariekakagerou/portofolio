@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%" opacity="0.3">
+  <g stroke="#94a3b8" stroke-width="1.2" fill="none">
+    <!-- Robotic Mecha Torso & Head Silhouette Lines -->
+    <path d="M 150 40 L 170 80 L 190 70 L 220 120 L 200 130 L 240 220 L 190 260 L 150 250 L 110 260 L 60 220 L 100 130 L 80 120 L 110 70 L 130 80 Z"/>
+    <path d="M 150 40 L 150 250"/>
+    <path d="M 110 140 L 190 140"/>
+    <path d="M 90 180 L 210 180"/>
+    <circle cx="150" cy="150" r="40" stroke-dasharray="4,4"/>
+    <circle cx="150" cy="150" r="70" stroke-dasharray="6,6"/>
+    <!-- Cardinal ticks -->
+    <line x1="150" y1="20" x2="150" y2="35"/>
+    <line x1="150" y1="265" x2="150" y2="280"/>
+    <line x1="20" y1="150" x2="35" y2="150"/>
+    <line x1="265" y1="150" x2="280" y2="150"/>
+  </g>
+</svg>

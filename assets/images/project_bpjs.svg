@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="bpjsGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="bpjsBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky & Ground Architecture -->
+  <rect width="600" height="340" fill="url(#skyGrad)"/>
+  
+  <!-- Subtle Grid -->
+  <path d="M 0 50 L 600 50 M 0 100 L 600 100 M 0 150 L 600 150 M 0 200 L 600 200 M 0 250 L 600 250 M 0 300 L 600 300" stroke="#bae6fd" stroke-width="0.8" opacity="0.4"/>
+  <path d="M 100 0 L 100 340 M 200 0 L 200 340 M 300 0 L 300 340 M 400 0 L 400 340 M 500 0 L 500 340" stroke="#bae6fd" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Modern Office Building Facade -->
+  <polygon points="40,340 40,80 560,80 560,340" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  
+  <!-- Glass Window Panels -->
+  <g fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2">
+    <!-- Window Grid -->
+    <rect x="70" y="160" width="80" height="60" rx="2" fill="#e2e8f0"/>
+    <rect x="170" y="160" width="80" height="60" rx="2" fill="#e2e8f0"/>
+    <rect x="270" y="160" width="80" height="60" rx="2" fill="#e2e8f0"/>
+    <rect x="370" y="160" width="80" height="60" rx="2" fill="#e2e8f0"/>
+    <rect x="470" y="160" width="60" height="60" rx="2" fill="#e2e8f0"/>
+    
+    <rect x="70" y="240" width="80" height="80" rx="2" fill="#e2e8f0"/>
+    <rect x="170" y="240" width="80" height="80" rx="2" fill="#e2e8f0"/>
+    <rect x="270" y="240" width="80" height="80" rx="2" fill="#38bdf8" opacity="0.2"/>
+    <rect x="370" y="240" width="80" height="80" rx="2" fill="#e2e8f0"/>
+    <rect x="470" y="240" width="60" height="80" rx="2" fill="#e2e8f0"/>
+  </g>
+
+  <!-- Main Signboard Header -->
+  <rect x="80" y="96" width="440" height="48" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="80" y="140" width="440" height="4" fill="url(#bpjsGreen)"/>
+  
+  <!-- BPJS Emblem Circular Graphic -->
+  <circle cx="115" cy="120" r="16" fill="url(#bpjsGreen)"/>
+  <circle cx="115" cy="120" r="9" fill="#ffffff"/>
+  <path d="M 115 111 L 115 129 M 106 120 L 124 120" stroke="url(#bpjsGreen)" stroke-width="3"/>
+  <circle cx="128" cy="120" r="5" fill="url(#bpjsBlue)"/>
+
+  <!-- BPJS Signboard Text -->
+  <text x="145" y="123" font-family="'Space Grotesk', -apple-system, sans-serif" font-weight="800" font-size="20" fill="#0f172a" letter-spacing="0.5">BPJS Kesehatan</text>
+  <text x="146" y="136" font-family="'Inter', -apple-system, sans-serif" font-size="8.5" fill="#64748b" font-weight="600">Badan Penyelenggara Jaminan Sosial</text>
+
+  <!-- Digital Tech Overlay Schematics -->
+  <g stroke="#0284c7" stroke-width="1.5" fill="none" opacity="0.85">
+    <path d="M 60 40 L 120 40 L 140 65 L 240 65" stroke-dasharray="4,3"/>
+    <circle cx="60" cy="40" r="3" fill="#0284c7"/>
+    <circle cx="240" cy="65" r="3" fill="#0284c7"/>
+    
+    <path d="M 540 40 L 480 40 L 460 65 L 360 65" stroke-dasharray="4,3"/>
+    <circle cx="540" cy="40" r="3" fill="#0284c7"/>
+    <circle cx="360" cy="65" r="3" fill="#0284c7"/>
+  </g>
+
+  <!-- Telemetry Badge -->
+  <rect x="390" y="104" width="120" height="20" rx="3" fill="#0f172a"/>
+  <text x="450" y="117" font-family="'JetBrains Mono', monospace" font-size="8.5" fill="#38bdf8" text-anchor="middle" font-weight="700">SOAP/XML API : OK</text>
+</svg>
