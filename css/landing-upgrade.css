@@ -42,6 +42,11 @@
 /* Brand Logo Upgrade */
 .brand {
   position: relative;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none;
+  flex-shrink: 0 !important;
   transition: transform 0.2s ease;
 }
 
@@ -50,6 +55,7 @@
 }
 
 .brand svg {
+  flex-shrink: 0 !important;
   filter: drop-shadow(0 2px 6px rgba(23, 105, 224, 0.25));
   transition: filter 0.3s ease, transform 0.3s ease;
 }
@@ -59,10 +65,20 @@
   filter: drop-shadow(0 0 10px rgba(23, 105, 224, 0.55));
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .brand-name {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap !important;
+  line-height: 1.15;
   background: linear-gradient(135deg, #0b1e38 30%, #1769e0 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -81,7 +97,9 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  white-space: nowrap !important;
+  line-height: 1.2;
 }
 
 .brand-role::after {
@@ -93,11 +111,48 @@
   border-radius: 50%;
   box-shadow: 0 0 6px #10b981;
   animation: radarBlip 2s infinite ease-in-out;
+  flex-shrink: 0;
 }
 
 /* Nav Links Active Line & Hover Micro-Glow */
 .nav-links {
-  gap: 2.25rem;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 1.25rem;
+  }
+  .navbar-container {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .nav-links {
+    gap: 0.9rem;
+  }
+  .nav-link {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-links {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  .mobile-nav-panel {
+    display: block !important;
+  }
 }
 
 .nav-link {
