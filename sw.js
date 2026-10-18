@@ -1,5 +1,5 @@
 // Service Worker for Ari Eka Prianda Portfolio PWA
-const CACHE_NAME = 'ari-portfolio-v1';
+const CACHE_NAME = 'ari-portfolio-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
