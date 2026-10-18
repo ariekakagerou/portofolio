@@ -126,12 +126,12 @@ html.theme-transitioning *::after {
 
 [data-theme="dark"] .nav-link.active {
   color: #38bdf8 !important;
-  border-color: #38bdf8 !important;
-  background: rgba(56, 189, 248, 0.12) !important;
+  background: transparent !important;
+  border: none !important;
 }
 
 [data-theme="dark"] .nav-link.active::after {
-  background-color: #38bdf8 !important;
+  display: none !important;
 }
 
 [data-theme="dark"] .nav-telemetry-badge {

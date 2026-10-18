@@ -117,100 +117,101 @@
   <!-- Blueprint Lines Overlay -->
   <div class="blueprint-overlay"></div>
 
-  <div class="portfolio-canvas">
     <!-- ====================================================================
-         TOP NAVIGATION BAR
+         TOP NAVIGATION BAR (Full Width)
          ==================================================================== -->
     <header class="navbar">
-      <a href="#hero" class="brand">
-        <!-- Stylized Mecha 'A' Logo SVG -->
-        <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-          <polygon points="20,4 36,36 29,36 20,18 11,36 4,36" fill="#0b1e38"/>
-          <polygon points="13,26 27,26 24,31 16,31" fill="#e53935"/>
-          <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
-        </svg>
-        <div class="brand-text">
-          <span class="brand-name">ARI EKA PRIANDA</span>
-          <span class="brand-role" data-i18n="footer_role">BACKEND / FULLSTACK DEVELOPER</span>
-        </div>
-      </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Beranda</a></li>
-          <li><a href="#about" class="nav-link" data-i18n="nav_about">Tentang</a></li>
-          <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Keahlian</a></li>
-          <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek</a></li>
-          <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a></li>
-          <li><a href="#education" class="nav-link" data-i18n="nav_education">Pendidikan</a></li>
-          <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-actions-group">
-        <!-- Telemetry Clock Badge -->
-        <div class="nav-telemetry-badge" title="Sistem Online — UTC+7" data-i18n-title="nav_telemetry_title">
-          <span class="ping-dot"></span>
-          <span class="tele-time">--:--:--</span>
-        </div>
-
-        <!-- Language Switcher (ID / EN / JP) -->
-        <div class="lang-switcher-group" role="group" aria-label="Language Selector">
-          <button class="lang-switcher-btn active" data-lang="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
-          <button class="lang-switcher-btn" data-lang="en" aria-pressed="false" title="English">EN</button>
-          <button class="lang-switcher-btn" data-lang="jp" aria-pressed="false" title="日本語 (Japanese)">JP</button>
-        </div>
-
-        <!-- Sound FX Toggle Button -->
-        <button class="btn-sound-toggle framer-magnetic" id="soundToggleBtn" title="Toggle Mecha Audio Effects (Press M)">
-          <div class="sound-wave-bars">
-            <span></span>
-            <span></span>
-            <span></span>
+      <div class="navbar-container">
+        <a href="#hero" class="brand">
+          <!-- Stylized Mecha 'A' Logo SVG -->
+          <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+            <polygon points="20,4 36,36 29,36 20,18 11,36 4,36" fill="#0b1e38"/>
+            <polygon points="13,26 27,26 24,31 16,31" fill="#e53935"/>
+            <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-name">ARI EKA PRIANDA</span>
+            <span class="brand-role" data-i18n="footer_role">BACKEND / FULLSTACK DEVELOPER</span>
           </div>
-          <span id="soundToggleLabel" data-i18n="nav_sfx_on">SFX: ON</span>
-        </button>
-
-        <!-- Theme Mode Toggle Button -->
-        <button class="btn-theme-toggle framer-magnetic" id="themeToggleBtn" title="Toggle Light / Dark Mode (Press T)" aria-label="Toggle Theme Mode">
-          <svg class="theme-icon-sun" id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-          <span id="themeToggleLabel" data-i18n="nav_theme_dark">DARK</span>
-        </button>
-
-        <!-- Tactical CLI Terminal Launcher -->
-        <button class="btn-cli-toggle framer-magnetic" id="cliToggleBtn" title="Launch Tactical CLI Console (Press ` or ~)" aria-label="Open CLI Console">
-          <span style="color:#10b981; font-weight:800;">&gt;_</span>
-          <span>CLI</span>
-        </button>
-
-        <a href="#download-cv" class="btn-nav-cv trigger-cv-download framer-magnetic">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span data-i18n="nav_cv">Unduh CV</span>
         </a>
 
-        <!-- Mobile Menu Hamburger Button -->
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Drawer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Beranda</a></li>
+            <li><a href="#about" class="nav-link" data-i18n="nav_about">Tentang</a></li>
+            <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Keahlian</a></li>
+            <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Proyek</a></li>
+            <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Pengalaman</a></li>
+            <li><a href="#education" class="nav-link" data-i18n="nav_education">Pendidikan</a></li>
+            <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions-group">
+          <!-- Telemetry Clock Badge -->
+          <div class="nav-telemetry-badge" title="Sistem Online — UTC+7" data-i18n-title="nav_telemetry_title">
+            <span class="ping-dot"></span>
+            <span class="tele-time">--:--:--</span>
+          </div>
+
+          <!-- Language Switcher (ID / EN / JP) -->
+          <div class="lang-switcher-group" role="group" aria-label="Language Selector">
+            <button class="lang-switcher-btn active" data-lang="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
+            <button class="lang-switcher-btn" data-lang="en" aria-pressed="false" title="English">EN</button>
+            <button class="lang-switcher-btn" data-lang="jp" aria-pressed="false" title="日本語 (Japanese)">JP</button>
+          </div>
+
+          <!-- Sound FX Toggle Button -->
+          <button class="btn-sound-toggle framer-magnetic" id="soundToggleBtn" title="Toggle Mecha Audio Effects (Press M)">
+            <div class="sound-wave-bars">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span id="soundToggleLabel" data-i18n="nav_sfx_on">SFX: ON</span>
+          </button>
+
+          <!-- Theme Mode Toggle Button -->
+          <button class="btn-theme-toggle framer-magnetic" id="themeToggleBtn" title="Toggle Light / Dark Mode (Press T)" aria-label="Toggle Theme Mode">
+            <svg class="theme-icon-sun" id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon-moon" id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span id="themeToggleLabel" data-i18n="nav_theme_dark">DARK</span>
+          </button>
+
+          <!-- Tactical CLI Terminal Launcher -->
+          <button class="btn-cli-toggle framer-magnetic" id="cliToggleBtn" title="Launch Tactical CLI Console (Press ` or ~)" aria-label="Open CLI Console">
+            <span style="color:#10b981; font-weight:800;">&gt;_</span>
+            <span>CLI</span>
+          </button>
+
+          <a href="#download-cv" class="btn-nav-cv trigger-cv-download framer-magnetic">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span data-i18n="nav_cv">Unduh CV</span>
+          </a>
+
+          <!-- Mobile Menu Hamburger Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Drawer">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -249,6 +250,7 @@
       </div>
     </div>
 
+  <div class="portfolio-canvas">
     <!-- ====================================================================
          01. HERO PANEL (Image 1)
          ==================================================================== -->
@@ -1575,10 +1577,13 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         FOOTER (Image 4)
-         ==================================================================== -->
-    <footer class="footer">
+  </div>
+
+  <!-- ====================================================================
+       FOOTER (Full Width)
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="footer-container">
       <div class="footer-red-indicator"></div>
       <div class="footer-flex">
         <div class="brand">
@@ -1608,8 +1613,8 @@
           <span style="color:#1769e0;" data-i18n="footer_motto">Presisi Rekayasa &amp; Sistem Skalabilitas Tinggi.</span>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <!-- Interactive Project Modal -->
   <div id="projectModal" class="modal-overlay">

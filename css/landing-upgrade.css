@@ -9,19 +9,32 @@
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.88);
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(23, 105, 224, 0.18);
-  padding: 0.85rem 1.75rem;
+  padding: 0;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 20px -2px rgba(11, 30, 56, 0.06);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.navbar-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
 [data-theme="dark"] .navbar {
-  background: rgba(10, 16, 26, 0.85);
+  background: rgba(10, 16, 26, 0.88);
   border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(56, 189, 248, 0.15);
 }
@@ -998,15 +1011,24 @@
 
   /* Compact high-tech mobile navbar */
   .navbar {
-    padding: 0.6rem 0.75rem !important;
+    padding: 0 !important;
     margin-bottom: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .navbar-container {
+    padding: 0.6rem 0.75rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 8px !important;
     box-sizing: border-box !important;
     width: 100% !important;
-    max-width: 100% !important;
+  }
+
+  .footer-container {
+    padding: 0 1rem !important;
   }
 
   /* Hide the large CV download button in navbar on mobile (already present in hero & mobile drawer) */
@@ -2926,7 +2948,47 @@
     padding: 1rem;
   }
 }
+/* ==========================================================================
+   FULL-WIDTH FOOTER SYSTEM
+   ========================================================================== */
+.footer {
+  width: 100%;
+  background: #0b1e38;
+  color: #e2e8f0;
+  padding: 2rem 0;
+  border-radius: 0;
+  position: relative;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  box-sizing: border-box;
+}
 
+.footer-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  box-sizing: border-box;
+}
 
+.footer-red-indicator {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1769e0, #e53935, #1769e0);
+  border-radius: 0;
+}
 
+[data-theme="dark"] .footer {
+  background: rgba(8, 14, 24, 0.96) !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="light"] .footer {
+  background: #0b1e38 !important;
+  border-top: 1px solid rgba(23, 105, 224, 0.3) !important;
+}
 
