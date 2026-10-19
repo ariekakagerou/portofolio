@@ -1837,132 +1837,160 @@ function initTypingRoleEffect() {
 }
 
 /* ==========================================================================
-   27. THEME TOGGLE (LIGHT / DARK MECHA MODE)
+   27. MULTI-THEME PICKER (DARK / LIGHT / SYSTEM / CYBERPUNK / SOLARIZED)
    ========================================================================== */
 function initThemeToggle() {
-  const toggleBtn = document.getElementById('themeToggleBtn');
+  const toggleBtn    = document.getElementById('themeToggleBtn');
+  const dropdown     = document.getElementById('themeDropdown');
+  const wrapper      = document.getElementById('themePickerWrapper');
   const mobileToggleBtn = document.getElementById('mobileThemeToggleBtn');
-  const sunIcon = document.getElementById('themeIconSun');
-  const moonIcon = document.getElementById('themeIconMoon');
-  const label = document.getElementById('themeToggleLabel');
-  const mobileLabel = document.getElementById('mobileThemeLabel');
+  const mobileLabel  = document.getElementById('mobileThemeLabel');
 
-  function getCurrentTheme() {
-    // Check html attribute first, then body, then localStorage, then OS preference
-    const htmlAttr = document.documentElement.getAttribute('data-theme');
-    if (htmlAttr === 'dark' || htmlAttr === 'light') return htmlAttr;
-    try {
-      const saved = localStorage.getItem('portfolio_theme');
-      if (saved === 'dark' || saved === 'light') return saved;
-    } catch (e) {}
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
+  // Icon elements
+  const iconSun     = document.getElementById('themeIconSun');
+  const iconMoon    = document.getElementById('themeIconMoon');
+  const iconMonitor = document.getElementById('themeIconMonitor');
+  const iconCyber   = document.getElementById('themeIconCyber');
+  const iconSolar   = document.getElementById('themeIconSolar');
+
+  const THEMES = ['dark', 'light', 'system', 'cyberpunk', 'solarized'];
+  const THEME_META = {
+    dark:       { icon: iconMoon,    label: '🌙 Dark Mode',       toast: '🌙 Dark Mode Activated' },
+    light:      { icon: iconSun,     label: '☀️ Light Mode',      toast: '☀️ Light Mode Activated' },
+    system:     { icon: iconMonitor, label: '🖥 System Theme',    toast: '🖥 Following System Theme' },
+    cyberpunk:  { icon: iconCyber,   label: '⚡ Cyberpunk Mode',  toast: '⚡ Cyberpunk Mode Activated' },
+    solarized:  { icon: iconSolar,   label: '🌅 Solarized Mode',  toast: '🌅 Solarized Mode Activated' },
+  };
+
+  function resolveSystemTheme() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
   }
 
-  function updateUI(theme) {
-    const isDark = theme === 'dark';
-    if (sunIcon && moonIcon) {
-      sunIcon.style.display = isDark ? 'inline-block' : 'none';
-      moonIcon.style.display = isDark ? 'none' : 'inline-block';
-    }
-    if (label) {
-      if (window.LangManager) {
-        label.textContent = isDark ? LangManager.t('nav_theme_light') : LangManager.t('nav_theme_dark');
-      } else {
-        label.textContent = isDark ? 'LIGHT' : 'DARK';
-      }
-    }
-    if (mobileLabel) {
-      if (window.LangManager) {
-        mobileLabel.textContent = isDark ? `MODE: ${LangManager.t('nav_theme_light')} ☀️` : `MODE: ${LangManager.t('nav_theme_dark')} 🌙`;
-      } else {
-        mobileLabel.textContent = isDark ? 'MODE: LIGHT ☀️' : 'MODE: DARK 🌙';
-      }
-    }
-    if (toggleBtn) {
-      toggleBtn.setAttribute('title', 'Switch to ' + (isDark ? 'Light' : 'Dark') + ' Mode (Press T)');
-      toggleBtn.setAttribute('aria-label', 'Switch to ' + (isDark ? 'Light' : 'Dark') + ' Mode');
-    }
+  function getSavedTheme() {
+    try { return localStorage.getItem('portfolio_theme') || 'dark'; } catch(e) { return 'dark'; }
   }
 
-  if (window.LangManager) {
-    LangManager.onChange(() => {
-      updateUI(getCurrentTheme());
-    });
-  }
-
-  function setTheme(newTheme, animate) {
-    animate = animate || false;
+  function applyTheme(theme, animate) {
+    const effective = (theme === 'system') ? resolveSystemTheme() : theme;
     if (animate) {
       document.documentElement.classList.add('theme-transitioning');
-      setTimeout(function() {
-        document.documentElement.classList.remove('theme-transitioning');
-      }, 350);
+      setTimeout(() => document.documentElement.classList.remove('theme-transitioning'), 350);
     }
-    // Apply on both html and body for maximum CSS compatibility
-    document.documentElement.setAttribute('data-theme', newTheme);
-    document.body.setAttribute('data-theme', newTheme);
-    // Also use a class for fallback
-    if (newTheme === 'dark') {
+    // Remove all theme classes
+    THEMES.forEach(t => {
+      document.documentElement.classList.remove(`theme-${t}`);
+      document.body.classList.remove(`theme-${t}`);
+    });
+    document.documentElement.setAttribute('data-theme', effective);
+    document.body.setAttribute('data-theme', effective);
+    // Apply named theme class
+    document.documentElement.classList.add(`theme-${theme}`);
+    document.body.classList.add(`theme-${theme}`);
+    // Legacy dark-mode class support
+    if (effective === 'dark') {
       document.documentElement.classList.add('dark-mode');
       document.body.classList.add('dark-mode');
     } else {
       document.documentElement.classList.remove('dark-mode');
       document.body.classList.remove('dark-mode');
     }
-    try {
-      localStorage.setItem('portfolio_theme', newTheme);
-    } catch (e) {}
-    updateUI(newTheme);
+    updateUI(theme);
   }
 
-  function toggle() {
-    try {
-      const current = getCurrentTheme();
-      const next = current === 'dark' ? 'light' : 'dark';
+  function updateUI(theme) {
+    // Show only the relevant icon, hide others
+    const allIcons = [iconSun, iconMoon, iconMonitor, iconCyber, iconSolar];
+    allIcons.forEach(ic => { if (ic) ic.style.display = 'none'; });
+    const meta = THEME_META[theme] || THEME_META.dark;
+    if (meta.icon) meta.icon.style.display = 'inline-block';
+
+    // Mark active option in dropdown
+    document.querySelectorAll('.theme-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.themePick === theme);
+    });
+
+    // Mobile label
+    if (mobileLabel) mobileLabel.textContent = `MODE: ${meta.label}`;
+
+    if (toggleBtn) toggleBtn.setAttribute('title', `Theme: ${meta.label} — Click to change`);
+  }
+
+  function setTheme(theme, animate) {
+    try { localStorage.setItem('portfolio_theme', theme); } catch(e) {}
+    applyTheme(theme, animate !== false);
+    if (typeof playMechaBeep === 'function' && isAudioEnabled) playMechaBeep(880, 0.04);
+    if (typeof showToast === 'function') showToast((THEME_META[theme] || THEME_META.dark).toast);
+  }
+
+  // ── Dropdown open/close ──
+  function openDropdown() {
+    if (!dropdown) return;
+    dropdown.classList.add('open');
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeDropdown() {
+    if (!dropdown) return;
+    dropdown.classList.remove('open');
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+  }
+  function toggleDropdown(e) {
+    e.preventDefault(); e.stopPropagation();
+    dropdown && dropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleDropdown);
+
+  // Option click
+  document.querySelectorAll('.theme-option').forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const pick = opt.dataset.themePick;
+      if (pick) setTheme(pick, true);
+      closeDropdown();
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (wrapper && !wrapper.contains(e.target)) closeDropdown();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDropdown();
+    // Press T to cycle themes
+    if (e.key === 't' || e.key === 'T') {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      const cur = getSavedTheme();
+      const idx = THEMES.indexOf(cur);
+      const next = THEMES[(idx + 1) % THEMES.length];
       setTheme(next, true);
-      // Only call playMechaBeep if audio is enabled
-      if (typeof playMechaBeep === 'function' && isAudioEnabled) {
-        playMechaBeep(next === 'dark' ? 640 : 960, 0.04);
-      }
-      if (typeof showToast === 'function') {
-        showToast(next === 'dark' ? '🌙 Dark Mode Activated' : '☀️ Light Mode Activated');
-      }
-    } catch (err) {
-      console.error('Theme toggle error:', err);
     }
-  }
+  });
 
-  // Initial UI synchronization — run after a small delay to ensure DOM is settled
-  setTimeout(function() {
-    updateUI(getCurrentTheme());
-  }, 50);
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggle();
-    });
-  }
-
+  // Mobile toggle: cycle themes
   if (mobileToggleBtn) {
-    mobileToggleBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggle();
+    mobileToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const cur = getSavedTheme();
+      const idx = THEMES.indexOf(cur);
+      setTheme(THEMES[(idx + 1) % THEMES.length], true);
     });
   }
 
-  // Follow OS system preference if not set manually by user
+  // OS preference change (when system theme is active)
   if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-      try {
-        if (!localStorage.getItem('portfolio_theme')) {
-          setTheme(e.matches ? 'dark' : 'light', true);
-        }
-      } catch (err) {}
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (getSavedTheme() === 'system') applyTheme('system', true);
     });
+  }
+
+  // Bootstrap on load
+  const saved = getSavedTheme();
+  setTimeout(() => applyTheme(saved, false), 50);
+
+  if (window.LangManager) {
+    LangManager.onChange(() => updateUI(getSavedTheme()));
   }
 }
 

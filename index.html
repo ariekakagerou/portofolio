@@ -41,10 +41,14 @@
   <script>
     (function() {
       try {
+        const VALID = ['dark', 'light', 'system', 'cyberpunk', 'solarized'];
         const saved = localStorage.getItem('portfolio_theme');
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved ? saved : (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
+        let theme = (saved && VALID.includes(saved)) ? saved : (prefersDark ? 'dark' : 'dark');
+        const effective = (theme === 'system') ? (prefersDark ? 'dark' : 'light') : theme;
+        document.documentElement.setAttribute('data-theme', effective);
+        document.documentElement.classList.add('theme-' + theme);
+        if (effective === 'dark') document.documentElement.classList.add('dark-mode');
       } catch (e) {}
     })();
   </script>
@@ -148,12 +152,6 @@
         </nav>
 
         <div class="nav-actions-group">
-          <!-- Telemetry Clock Badge -->
-          <div class="nav-telemetry-badge" title="Sistem Online — UTC+7" data-i18n-title="nav_telemetry_title">
-            <span class="ping-dot"></span>
-            <span class="tele-time">--:--:--</span>
-          </div>
-
           <!-- Language Switcher (ID / EN / JP) -->
           <div class="lang-switcher-group" role="group" aria-label="Language Selector">
             <button class="lang-switcher-btn active" data-lang="id" aria-pressed="true" title="Bahasa Indonesia">ID</button>
@@ -171,39 +169,68 @@
             <span id="soundToggleLabel" data-i18n="nav_sfx_on">SFX: ON</span>
           </button>
 
-          <!-- Theme Mode Toggle Button -->
-          <button class="btn-theme-toggle framer-magnetic" id="themeToggleBtn" title="Toggle Light / Dark Mode (Press T)" aria-label="Toggle Theme Mode">
-            <svg class="theme-icon-sun" id="themeIconSun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg class="theme-icon-moon" id="themeIconMoon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <span id="themeToggleLabel" data-i18n="nav_theme_dark">DARK</span>
-          </button>
+          <!-- Theme Mode Picker (Icon-only with dropdown) -->
+          <div class="theme-picker-wrapper" id="themePickerWrapper">
+            <button class="btn-theme-toggle framer-magnetic" id="themeToggleBtn" title="Change Theme (Press T)" aria-label="Theme Picker" aria-haspopup="true" aria-expanded="false">
+              <!-- Icon renders dynamically via JS -->
+              <svg class="theme-icon-sun" id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon-moon" id="themeIconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg class="theme-icon-monitor" id="themeIconMonitor" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+              <svg class="theme-icon-cyber" id="themeIconCyber" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+              <svg class="theme-icon-solar" id="themeIconSolar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="display:none;">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+              </svg>
+            </button>
+            <!-- Theme Dropdown Panel -->
+            <div class="theme-dropdown" id="themeDropdown" role="menu" aria-label="Select Theme">
+              <div class="theme-dropdown-header">// SELECT THEME</div>
+              <button class="theme-option" data-theme-pick="dark" role="menuitem">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <span>Dark</span>
+              </button>
+              <button class="theme-option" data-theme-pick="light" role="menuitem">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <span>Light</span>
+              </button>
+              <button class="theme-option" data-theme-pick="system" role="menuitem">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span>System</span>
+              </button>
+              <button class="theme-option" data-theme-pick="cyberpunk" role="menuitem">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Cyberpunk</span>
+              </button>
+              <button class="theme-option" data-theme-pick="solarized" role="menuitem">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                <span>Solarized</span>
+              </button>
+            </div>
+          </div>
 
           <!-- Tactical CLI Terminal Launcher -->
           <button class="btn-cli-toggle framer-magnetic" id="cliToggleBtn" title="Launch Tactical CLI Console (Press ` or ~)" aria-label="Open CLI Console">
             <span style="color:#10b981; font-weight:800;">&gt;_</span>
             <span>CLI</span>
           </button>
-
-          <a href="#download-cv" class="btn-nav-cv trigger-cv-download framer-magnetic">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span data-i18n="nav_cv">Unduh CV</span>
-          </a>
 
           <!-- Mobile Menu Hamburger Button -->
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Drawer">

@@ -16,42 +16,119 @@ html.theme-transitioning *::after {
               stroke 0.25s ease !important;
 }
 
-/* Theme Toggle Button in Desktop Header */
+/* Theme Toggle Button in Desktop Header — Icon Only */
 .btn-theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 4px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
   color: #0b1e38;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .btn-theme-toggle:hover {
   border-color: #1769e0;
   color: #1769e0;
-  background: rgba(23, 105, 224, 0.04);
+  background: rgba(23, 105, 224, 0.06);
 }
 
 .theme-icon-sun,
-.theme-icon-moon {
+.theme-icon-moon,
+.theme-icon-monitor,
+.theme-icon-cyber,
+.theme-icon-solar {
   transition: transform 0.3s ease;
   flex-shrink: 0;
+  pointer-events: none;
 }
 
-.btn-theme-toggle:hover .theme-icon-sun {
-  transform: rotate(35deg);
+.btn-theme-toggle:hover .theme-icon-sun   { transform: rotate(35deg) scale(1.15); }
+.btn-theme-toggle:hover .theme-icon-moon  { transform: rotate(-15deg) scale(1.1); }
+.btn-theme-toggle:hover .theme-icon-monitor { transform: scale(1.15); }
+.btn-theme-toggle:hover .theme-icon-cyber { transform: scale(1.2); }
+.btn-theme-toggle:hover .theme-icon-solar { transform: rotate(30deg) scale(1.15); }
+
+/* ── Theme Picker Wrapper & Dropdown ── */
+.theme-picker-wrapper {
+  position: relative;
+  display: inline-flex;
 }
 
-.btn-theme-toggle:hover .theme-icon-moon {
-  transform: rotate(-15deg);
+.theme-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(11, 30, 56, 0.14);
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
+
+.theme-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.theme-dropdown-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #1769e0;
+  letter-spacing: 0.08em;
+  padding: 8px 12px 6px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  text-align: left;
+}
+
+.theme-option:hover {
+  background: rgba(23, 105, 224, 0.07);
+  color: #1769e0;
+}
+
+.theme-option.active {
+  background: rgba(23, 105, 224, 0.1);
+  color: #1769e0;
+}
+
+.theme-option.active::after {
+  content: '✓';
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: #10b981;
+  font-weight: 800;
+}
+
 
 /* ==========================================================================
    DARK THEME SYSTEM TOKENS & OVERRIDES
@@ -1059,6 +1136,11 @@ html.theme-transitioning *::after {
   color: #0b1e38 !important;
 }
 
+[data-theme="light"] .theme-dropdown {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
 [data-theme="light"] .section-title  { color: #0b1e38 !important; }
 [data-theme="light"] .section-subtitle { color: #475569 !important; }
 
@@ -1097,3 +1179,193 @@ html.theme-transitioning *::after {
 [data-theme="light"] .error-card     { background: #ffffff !important; border-color: #e2e8f0 !important; }
 [data-theme="light"] .error-headline { color: #0b1e38 !important; }
 [data-theme="light"] .error-desc     { color: #475569 !important; }
+
+/* ==========================================================================
+   DARK THEME — THEME PICKER DROPDOWN OVERRIDES
+   ========================================================================== */
+[data-theme="dark"] .btn-theme-toggle {
+  background: #0d223f !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .btn-theme-toggle:hover {
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+}
+
+[data-theme="dark"] .theme-dropdown {
+  background: #0d223f !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .theme-dropdown-header {
+  color: #38bdf8 !important;
+  border-bottom-color: rgba(56, 189, 248, 0.15) !important;
+}
+
+[data-theme="dark"] .theme-option {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .theme-option:hover {
+  background: rgba(56, 189, 248, 0.1) !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .theme-option.active {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
+}
+
+/* ==========================================================================
+   CYBERPUNK THEME
+   ========================================================================== */
+.theme-cyberpunk,
+.theme-cyberpunk body {
+  --bg-main: #0a0014;
+  --bg-subtle: #120020;
+  --bg-card: #1a0030;
+  --primary-navy: #f0e6ff;
+  --accent-blue: #c084fc;
+  --accent-blue-light: rgba(192, 132, 252, 0.15);
+  --accent-red: #f97316;
+  --border-tech: rgba(192, 132, 252, 0.3);
+  --text-primary: #f0e6ff;
+  --text-secondary: #c4b5fd;
+  --text-muted: #a78bfa;
+  background-color: #0a0014 !important;
+  color: #f0e6ff !important;
+}
+
+[data-theme="cyberpunk"] body { background-color: #0a0014 !important; }
+
+[data-theme="cyberpunk"] .navbar {
+  background: rgba(10, 0, 20, 0.96) !important;
+  border-bottom-color: rgba(192, 132, 252, 0.4) !important;
+}
+
+[data-theme="cyberpunk"] .mecha-panel,
+[data-theme="cyberpunk"] .project-card,
+[data-theme="cyberpunk"] .skill-bubble {
+  background: rgba(26, 0, 48, 0.9) !important;
+  border-color: rgba(192, 132, 252, 0.25) !important;
+  color: #f0e6ff !important;
+}
+
+[data-theme="cyberpunk"] .btn-theme-toggle {
+  background: #1a0030 !important;
+  border-color: rgba(192, 132, 252, 0.35) !important;
+  color: #c084fc !important;
+}
+
+[data-theme="cyberpunk"] .btn-theme-toggle:hover {
+  border-color: #c084fc !important;
+  color: #f0abfc !important;
+  background: rgba(192, 132, 252, 0.12) !important;
+}
+
+[data-theme="cyberpunk"] .theme-dropdown {
+  background: #1a0030 !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+  box-shadow: 0 12px 28px rgba(192, 132, 252, 0.25) !important;
+}
+
+[data-theme="cyberpunk"] .theme-dropdown-header {
+  color: #c084fc !important;
+  border-bottom-color: rgba(192, 132, 252, 0.2) !important;
+}
+
+[data-theme="cyberpunk"] .theme-option { color: #c4b5fd !important; }
+[data-theme="cyberpunk"] .theme-option:hover { background: rgba(192,132,252,0.12) !important; color: #f0abfc !important; }
+[data-theme="cyberpunk"] .theme-option.active { background: rgba(192,132,252,0.15) !important; color: #f0abfc !important; }
+
+[data-theme="cyberpunk"] .nav-link { color: #c4b5fd !important; }
+[data-theme="cyberpunk"] .nav-link:hover,
+[data-theme="cyberpunk"] .nav-link.active { color: #c084fc !important; }
+
+[data-theme="cyberpunk"] .panel-title,
+[data-theme="cyberpunk"] .hero-name-title { color: #f0e6ff !important; }
+
+[data-theme="cyberpunk"] .lang-switcher-btn.active {
+  background: #c084fc !important;
+  color: #0a0014 !important;
+  border-color: #c084fc !important;
+}
+
+/* ==========================================================================
+   SOLARIZED THEME (Warm, cozy aesthetic)
+   ========================================================================== */
+.theme-solarized,
+.theme-solarized body {
+  --bg-main: #fdf6e3;
+  --bg-subtle: #eee8d5;
+  --bg-card: #ffffff;
+  --primary-navy: #073642;
+  --accent-blue: #268bd2;
+  --accent-blue-light: rgba(38, 139, 210, 0.12);
+  --accent-red: #dc322f;
+  --border-tech: rgba(38, 139, 210, 0.25);
+  --text-primary: #073642;
+  --text-secondary: #586e75;
+  --text-muted: #93a1a1;
+  background-color: #fdf6e3 !important;
+  color: #073642 !important;
+}
+
+[data-theme="solarized"] body { background-color: #fdf6e3 !important; }
+
+[data-theme="solarized"] .navbar {
+  background: rgba(253, 246, 227, 0.97) !important;
+  border-bottom-color: rgba(38, 139, 210, 0.3) !important;
+}
+
+[data-theme="solarized"] .mecha-panel,
+[data-theme="solarized"] .project-card {
+  background: #ffffff !important;
+  border-color: rgba(38, 139, 210, 0.2) !important;
+  color: #073642 !important;
+}
+
+[data-theme="solarized"] .btn-theme-toggle {
+  background: #eee8d5 !important;
+  border-color: #b58900 !important;
+  color: #073642 !important;
+}
+
+[data-theme="solarized"] .btn-theme-toggle:hover {
+  border-color: #268bd2 !important;
+  color: #268bd2 !important;
+  background: rgba(38,139,210,0.08) !important;
+}
+
+[data-theme="solarized"] .theme-dropdown {
+  background: #fdf6e3 !important;
+  border-color: rgba(38, 139, 210, 0.3) !important;
+  box-shadow: 0 12px 28px rgba(7, 54, 66, 0.12) !important;
+}
+
+[data-theme="solarized"] .theme-dropdown-header {
+  color: #268bd2 !important;
+  border-bottom-color: rgba(38, 139, 210, 0.2) !important;
+}
+
+[data-theme="solarized"] .theme-option { color: #586e75 !important; }
+[data-theme="solarized"] .theme-option:hover { background: rgba(38,139,210,0.08) !important; color: #268bd2 !important; }
+[data-theme="solarized"] .theme-option.active { background: rgba(38,139,210,0.1) !important; color: #268bd2 !important; }
+
+[data-theme="solarized"] .nav-link { color: #586e75 !important; }
+[data-theme="solarized"] .nav-link:hover,
+[data-theme="solarized"] .nav-link.active { color: #268bd2 !important; }
+
+[data-theme="solarized"] .panel-title,
+[data-theme="solarized"] .hero-name-title { color: #073642 !important; }
+
+[data-theme="solarized"] .lang-switcher-btn.active {
+  background: #268bd2 !important;
+  color: #fdf6e3 !important;
+  border-color: #268bd2 !important;
+}
+
