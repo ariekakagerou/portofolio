@@ -256,15 +256,162 @@ html.theme-transitioning *::after {
   background-color: #e2e8f0 !important;
 }
 
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER & COMPONENTS
+   ========================================================================== */
+.mobile-nav-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mobile-nav-sys-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1769e0;
+  letter-spacing: 0.05em;
+}
+
+.mobile-nav-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(23, 105, 224, 0.06);
+  border: 1px solid rgba(23, 105, 224, 0.2);
+  border-radius: 4px;
+  color: #0b1e38;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-close-btn:hover {
+  background: rgba(229, 57, 53, 0.12);
+  border-color: #e53935;
+  color: #e53935;
+  transform: rotate(90deg);
+}
+
+.mobile-theme-section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.mobile-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #1769e0;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.mobile-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.mobile-theme-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 6px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobile-theme-card:hover {
+  background: rgba(23, 105, 224, 0.08);
+  border-color: #1769e0;
+  color: #1769e0;
+}
+
+.mobile-theme-card.active {
+  background: #1769e0;
+  border-color: #1769e0;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(23, 105, 224, 0.35);
+}
+
+.mobile-drawer-footer {
+  margin-top: 4px;
+}
+
+.mobile-cli-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #0b1e38;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 4px;
+  color: #10b981;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+
+.mobile-cli-btn:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+}
+
+/* Dark Mode Overrides for Mobile Drawer */
 [data-theme="dark"] .mobile-nav-panel {
-  background: rgba(8, 18, 35, 0.98) !important;
-  border-bottom: 2px solid #38bdf8 !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65) !important;
+  background: rgba(10, 22, 42, 0.98) !important;
+  border-left: 1px solid rgba(56, 189, 248, 0.25) !important;
+  box-shadow: -12px 0 36px rgba(0, 0, 0, 0.65) !important;
+}
+
+[data-theme="dark"] .mobile-nav-top-header {
+  border-bottom-color: rgba(56, 189, 248, 0.18) !important;
+}
+
+[data-theme="dark"] .mobile-nav-sys-badge {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .mobile-nav-close-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .mobile-nav-close-btn:hover {
+  background: rgba(229, 57, 53, 0.2) !important;
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
 }
 
 [data-theme="dark"] .mobile-nav-link {
   color: #e2e8f0 !important;
-  background: rgba(14, 29, 53, 0.8) !important;
+  background: rgba(14, 29, 53, 0.85) !important;
   border: 1px solid rgba(56, 189, 248, 0.18) !important;
 }
 
@@ -272,6 +419,44 @@ html.theme-transitioning *::after {
   color: #38bdf8 !important;
   background: rgba(56, 189, 248, 0.15) !important;
   border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .mobile-theme-section {
+  border-top-color: rgba(56, 189, 248, 0.18) !important;
+}
+
+[data-theme="dark"] .mobile-section-label {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .mobile-theme-card {
+  background: rgba(14, 29, 53, 0.9) !important;
+  border-color: rgba(56, 189, 248, 0.22) !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .mobile-theme-card:hover {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
+  border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .mobile-theme-card.active {
+  background: #0284c7 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45) !important;
+}
+
+[data-theme="dark"] .mobile-cli-btn {
+  background: rgba(7, 16, 31, 0.95) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  color: #34d399 !important;
+}
+
+[data-theme="dark"] .mobile-cli-btn:hover {
+  background: rgba(16, 185, 129, 0.18) !important;
+  border-color: #34d399 !important;
 }
 
 /* ==========================================================================
@@ -1295,6 +1480,58 @@ html.theme-transitioning *::after {
   border-color: #c084fc !important;
 }
 
+/* Cyberpunk Mobile Drawer */
+[data-theme="cyberpunk"] .mobile-nav-panel {
+  background: #0d001a !important;
+  border-left-color: rgba(192, 132, 252, 0.35) !important;
+  box-shadow: -12px 0 36px rgba(192, 132, 252, 0.25) !important;
+}
+[data-theme="cyberpunk"] .mobile-nav-top-header { border-bottom-color: rgba(192, 132, 252, 0.2) !important; }
+[data-theme="cyberpunk"] .mobile-nav-sys-badge { color: #c084fc !important; }
+[data-theme="cyberpunk"] .mobile-nav-close-btn {
+  background: rgba(192, 132, 252, 0.1) !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+  color: #f0abfc !important;
+}
+[data-theme="cyberpunk"] .mobile-nav-link {
+  color: #e9d5ff !important;
+  background: rgba(26, 0, 48, 0.8) !important;
+  border-color: rgba(192, 132, 252, 0.22) !important;
+}
+[data-theme="cyberpunk"] .mobile-nav-link:hover {
+  color: #f0abfc !important;
+  background: rgba(192, 132, 252, 0.18) !important;
+  border-color: #c084fc !important;
+}
+[data-theme="cyberpunk"] .mobile-theme-section { border-top-color: rgba(192, 132, 252, 0.2) !important; }
+[data-theme="cyberpunk"] .mobile-section-label { color: #c084fc !important; }
+[data-theme="cyberpunk"] .mobile-theme-card {
+  background: rgba(26, 0, 48, 0.9) !important;
+  border-color: rgba(192, 132, 252, 0.25) !important;
+  color: #c4b5fd !important;
+}
+[data-theme="cyberpunk"] .mobile-theme-card:hover {
+  background: rgba(192, 132, 252, 0.15) !important;
+  color: #f0abfc !important;
+  border-color: #c084fc !important;
+}
+[data-theme="cyberpunk"] .mobile-theme-card.active {
+  background: #9333ea !important;
+  border-color: #c084fc !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.5) !important;
+}
+[data-theme="cyberpunk"] .mobile-lang-row {
+  background: rgba(26, 0, 48, 0.8) !important;
+  border-color: rgba(192, 132, 252, 0.25) !important;
+}
+[data-theme="cyberpunk"] .mobile-lang-label { color: #c084fc !important; }
+[data-theme="cyberpunk"] .mobile-menu-btn {
+  background: rgba(192, 132, 252, 0.1) !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+}
+[data-theme="cyberpunk"] .mobile-menu-btn span { background-color: #c084fc !important; }
+
 /* ==========================================================================
    SOLARIZED THEME (Warm, cozy aesthetic)
    ========================================================================== */
@@ -1368,4 +1605,56 @@ html.theme-transitioning *::after {
   color: #fdf6e3 !important;
   border-color: #268bd2 !important;
 }
+
+/* Solarized Mobile Drawer */
+[data-theme="solarized"] .mobile-nav-panel {
+  background: #fdf6e3 !important;
+  border-left-color: rgba(38, 139, 210, 0.35) !important;
+  box-shadow: -12px 0 36px rgba(7, 54, 66, 0.12) !important;
+}
+[data-theme="solarized"] .mobile-nav-top-header { border-bottom-color: rgba(38, 139, 210, 0.2) !important; }
+[data-theme="solarized"] .mobile-nav-sys-badge { color: #268bd2 !important; }
+[data-theme="solarized"] .mobile-nav-close-btn {
+  background: #eee8d5 !important;
+  border-color: rgba(38, 139, 210, 0.25) !important;
+  color: #073642 !important;
+}
+[data-theme="solarized"] .mobile-nav-link {
+  color: #073642 !important;
+  background: #ffffff !important;
+  border-color: rgba(38, 139, 210, 0.2) !important;
+}
+[data-theme="solarized"] .mobile-nav-link:hover {
+  color: #268bd2 !important;
+  background: rgba(38, 139, 210, 0.08) !important;
+  border-color: #268bd2 !important;
+}
+[data-theme="solarized"] .mobile-theme-section { border-top-color: rgba(38, 139, 210, 0.2) !important; }
+[data-theme="solarized"] .mobile-section-label { color: #268bd2 !important; }
+[data-theme="solarized"] .mobile-theme-card {
+  background: #ffffff !important;
+  border-color: rgba(38, 139, 210, 0.25) !important;
+  color: #586e75 !important;
+}
+[data-theme="solarized"] .mobile-theme-card:hover {
+  background: rgba(38, 139, 210, 0.08) !important;
+  color: #268bd2 !important;
+  border-color: #268bd2 !important;
+}
+[data-theme="solarized"] .mobile-theme-card.active {
+  background: #268bd2 !important;
+  border-color: #268bd2 !important;
+  color: #fdf6e3 !important;
+  box-shadow: 0 0 10px rgba(38, 139, 210, 0.35) !important;
+}
+[data-theme="solarized"] .mobile-lang-row {
+  background: #eee8d5 !important;
+  border-color: rgba(38, 139, 210, 0.25) !important;
+}
+[data-theme="solarized"] .mobile-lang-label { color: #268bd2 !important; }
+[data-theme="solarized"] .mobile-menu-btn {
+  background: #eee8d5 !important;
+  border-color: rgba(38, 139, 210, 0.3) !important;
+}
+[data-theme="solarized"] .mobile-menu-btn span { background-color: #073642 !important; }
 

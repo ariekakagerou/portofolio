@@ -151,30 +151,74 @@ function initCustomCursor() {
    3. MOBILE NAVIGATION HAMBURGER & DRAWER
    ========================================================================== */
 function initMobileNavigation() {
-  const menuBtn = document.getElementById('mobileMenuBtn');
-  const navPanel = document.getElementById('mobileNavPanel');
-  const navLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-panel .trigger-cv-download');
+  const menuBtn   = document.getElementById('mobileMenuBtn');
+  const navPanel  = document.getElementById('mobileNavPanel');
+  const backdrop  = document.getElementById('mobileNavBackdrop');
+  const closeBtn  = document.getElementById('mobileNavCloseBtn');
+  const cliBtn    = document.getElementById('mobileCliBtn');
+  const navLinks  = document.querySelectorAll('.mobile-nav-link');
 
   if (!menuBtn || !navPanel) return;
 
-  menuBtn.addEventListener('click', () => {
-    const isOpen = navPanel.classList.contains('open');
-    if (isOpen) {
-      navPanel.classList.remove('open');
-      menuBtn.classList.remove('active');
-    } else {
-      navPanel.classList.add('open');
-      menuBtn.classList.add('active');
+  function openDrawer() {
+    navPanel.classList.add('open');
+    if (backdrop) backdrop.classList.add('open');
+    menuBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (typeof playMechaBeep === 'function' && typeof isAudioEnabled !== 'undefined' && isAudioEnabled) {
       playMechaBeep(880, 0.04);
     }
+  }
+
+  function closeDrawer() {
+    navPanel.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    menuBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navPanel.classList.contains('open') ? closeDrawer() : openDrawer();
   });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
+      if (typeof playMechaBeep === 'function' && typeof isAudioEnabled !== 'undefined' && isAudioEnabled) {
+        playMechaBeep(440, 0.04);
+      }
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', () => {
+      closeDrawer();
+    });
+  }
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      navPanel.classList.remove('open');
-      menuBtn.classList.remove('active');
+      closeDrawer();
     });
   });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navPanel.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+
+  // Mobile drawer CLI launcher button
+  if (cliBtn) {
+    cliBtn.addEventListener('click', () => {
+      closeDrawer();
+      const cliToggle = document.getElementById('cliToggleBtn');
+      if (cliToggle) cliToggle.click();
+    });
+  }
 }
 
 /* ==========================================================================

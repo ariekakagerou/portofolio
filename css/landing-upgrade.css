@@ -1129,14 +1129,25 @@
     flex-shrink: 0 !important;
   }
 
-  /* Compact icon-only toggles on mobile */
+  /* Hide lang-switcher & CLI launcher in header on mobile (already inside drawer) */
+  .navbar-container .nav-actions-group .lang-switcher-group,
+  .navbar-container .nav-actions-group .btn-cli-toggle {
+    display: none !important;
+  }
+
+  /* Compact square icon-only toggles on mobile header */
   .btn-sound-toggle,
   .btn-theme-toggle {
-    padding: 6px 8px !important;
-    font-size: 0.65rem !important;
-    min-width: 32px !important;
-    height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
     justify-content: center !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    padding: 0 !important;
+    font-size: 0.65rem !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
   }
 
   #soundToggleLabel,
@@ -1145,11 +1156,23 @@
   }
 
   .mobile-menu-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     width: 34px !important;
     height: 34px !important;
     padding: 7px 6px !important;
     flex-shrink: 0 !important;
     margin-left: 2px !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Mobile theme dropdown positioning */
+  .navbar .theme-dropdown {
+    right: 0 !important;
+    top: calc(100% + 8px) !important;
+    max-width: 220px !important;
   }
 
   /* Hero Panel full mobile fit */
