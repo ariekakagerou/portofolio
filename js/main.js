@@ -1448,30 +1448,146 @@ function initQuickSpecs() {
 }
 
 /* ==========================================================================
-   20. CERTIFICATE CATEGORY FILTER
+   20. CERTIFICATE SLIDER + CATEGORY FILTER
    ========================================================================== */
 function initCertFilter() {
-  const filterBtns = document.querySelectorAll('.cert-filter-btn[data-cfilter]');
-  const certRows = document.querySelectorAll('.cert-check-row[data-ccat], .cert-card[data-ccat]');
+  // ── Slider elements ──────────────────────────────────────────────
+  const track        = document.getElementById('certSliderTrack');
+  const prevBtn      = document.getElementById('certPrevBtn');
+  const nextBtn      = document.getElementById('certNextBtn');
+  const pageIndicator = document.getElementById('certPageIndicator');
+  const dotsContainer = document.getElementById('certSliderDots');
+  const filterBtns   = document.querySelectorAll('.cert-filter-btn[data-cfilter]');
 
+  if (!track) return; // New slider layout not found; bail
+
+  let currentPage  = 0;
+  let currentFilter = 'all';
+
+  // ── Helpers ──────────────────────────────────────────────────────
+  function getPages() {
+    return Array.from(track.querySelectorAll('.cert-slider-page'));
+  }
+
+  function getVisiblePages() {
+    // A page is "visible" when it has at least one non-hidden cert-card
+    return getPages().filter(page => {
+      const cards = page.querySelectorAll('.cert-card');
+      return Array.from(cards).some(c => c.style.display !== 'none');
+    });
+  }
+
+  function rebuildDots(visibleCount) {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < visibleCount; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'cert-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-page', String(i));
+      dot.setAttribute('aria-label', `Slide Page ${i + 1}`);
+      dot.addEventListener('click', () => goToVisiblePage(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateUI() {
+    const visible = getVisiblePages();
+    const total   = visible.length;
+
+    // Hide/show all pages; only show visible pages in order
+    getPages().forEach(page => { page.style.display = 'none'; });
+    visible.forEach(page  => { page.style.display = ''; });
+
+    // Clamp currentPage
+    if (currentPage >= total) currentPage = Math.max(0, total - 1);
+
+    // Slide track
+    if (track) track.style.transform = `translateX(-${currentPage * 100}%)`;
+
+    // Dots
+    rebuildDots(total);
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.cert-dot') : [];
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentPage));
+
+    // Page indicator
+    if (pageIndicator) {
+      const pg  = String(currentPage + 1).padStart(2, '0');
+      const tot = String(total).padStart(2, '0');
+      pageIndicator.textContent = `[ ${pg} / ${tot} ]`;
+    }
+
+    // Prev / Next buttons
+    if (prevBtn) prevBtn.disabled = currentPage === 0;
+    if (nextBtn) nextBtn.disabled = currentPage >= total - 1;
+
+    // Re-bind thumb clicks (new cards may have been added dynamically)
+    track.querySelectorAll('.cert-card-thumb').forEach(thumb => {
+      if (thumb._sliderBound) return;
+      thumb._sliderBound = true;
+      thumb.addEventListener('click', e => {
+        e.stopPropagation();
+        const path  = thumb.dataset.cert;
+        const title = thumb.dataset.certTitle;
+        if (path && typeof openCertModal === 'function') openCertModal(path, title);
+      });
+      thumb.style.cursor = 'pointer';
+    });
+  }
+
+  function goToVisiblePage(idx) {
+    const visible = getVisiblePages();
+    if (idx < 0 || idx >= visible.length) return;
+    currentPage = idx;
+    updateUI();
+    if (typeof playMechaBeep === 'function') playMechaBeep(820, 0.03);
+  }
+
+  // ── Arrow buttons ─────────────────────────────────────────────────
+  if (prevBtn) prevBtn.addEventListener('click', () => goToVisiblePage(currentPage - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goToVisiblePage(currentPage + 1));
+
+  // ── Dot clicks (delegated) ────────────────────────────────────────
+  if (dotsContainer) {
+    dotsContainer.addEventListener('click', e => {
+      const dot = e.target.closest('.cert-dot');
+      if (dot) goToVisiblePage(Number(dot.dataset.page));
+    });
+  }
+
+  // ── Category filter ───────────────────────────────────────────────
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cat = btn.dataset.cfilter;
-      playMechaBeep(850, 0.03);
+      currentFilter = btn.dataset.cfilter;
+      if (typeof playMechaBeep === 'function') playMechaBeep(850, 0.03);
 
-      certRows.forEach(row => {
-        if (cat === 'all' || row.dataset.ccat === cat) {
-          row.style.display = '';
-          row.classList.remove('hidden');
-        } else {
-          row.style.display = 'none';
-          row.classList.add('hidden');
-        }
+      // Show / hide individual cards
+      track.querySelectorAll('.cert-card[data-ccat]').forEach(card => {
+        const match = currentFilter === 'all' || card.dataset.ccat === currentFilter;
+        card.style.display = match ? '' : 'none';
       });
+
+      currentPage = 0; // reset to first visible page
+      updateUI();
     });
   });
+
+  // ── Touch / swipe support ─────────────────────────────────────────
+  let touchStartX = 0;
+  const viewport = document.getElementById('certSliderViewport');
+  if (viewport) {
+    viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 45) {
+        dx < 0 ? goToVisiblePage(currentPage + 1) : goToVisiblePage(currentPage - 1);
+      }
+    }, { passive: true });
+  }
+
+  // ── Initial render ────────────────────────────────────────────────
+  updateUI();
 }
 
 /* ==========================================================================

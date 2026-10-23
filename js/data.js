@@ -217,6 +217,15 @@ const PORTFOLIO_DATA = {
       date: "2023",
       path: "assets/certificates/Screenshot_2.png",
       skills: ["Insurance Literacy", "Financial Services", "Risk Mitigation", "Regulatory Framework"]
+    },
+    {
+      id: "cert-07",
+      title: "English Conversation Verbal Test",
+      issuer: "Finkom UNBIN x Maxy Academy",
+      category: "COMMUNICATION",
+      date: "2026",
+      path: "assets/certificates/Sertifikat_Ari_Eka_Prianda.pdf",
+      skills: ["English Fluency", "Verbal Comprehension", "Professional Presentation", "Grammar & Vocabulary"]
     }
   ]
 };

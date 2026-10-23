@@ -29,10 +29,10 @@
   <meta name="twitter:image" content="assets/images/og_banner.jpg">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/mecha-tokens.css?v=2.7">
-  <link rel="stylesheet" href="css/style.css?v=2.7">
-  <link rel="stylesheet" href="css/dark-theme.css?v=2.7">
-  <link rel="stylesheet" href="css/landing-upgrade.css?v=2.7">
+  <link rel="stylesheet" href="css/mecha-tokens.css?v=2.9">
+  <link rel="stylesheet" href="css/style.css?v=2.9">
+  <link rel="stylesheet" href="css/dark-theme.css?v=2.9">
+  <link rel="stylesheet" href="css/landing-upgrade.css?v=2.9">
 
   <!-- PDF.js for Certificate Preview -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -85,7 +85,7 @@
         </div>
       </div>
 
-      <div class="splash-brand-title">ARI EKA PRIANDA</div>
+      <div class="splash-brand-title" data-i18n="splash_brand_title">ARI EKA PRIANDA</div>
       <div class="splash-brand-role">BACKEND / FULLSTACK DEVELOPER</div>
 
       <!-- Telemetry Boot Sequence Feed -->
@@ -134,7 +134,7 @@
             <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
           </svg>
           <div class="brand-text">
-            <span class="brand-name">ARI EKA PRIANDA</span>
+            <span class="brand-name" data-i18n="brand_name">ARI EKA PRIANDA</span>
             <span class="brand-role" data-i18n="footer_role">BACKEND / FULLSTACK DEVELOPER</span>
           </div>
         </a>
@@ -347,7 +347,7 @@
 
         <div class="hero-preheader" data-i18n="hero_preheader">ARSITEKTUR BACKEND // SISTEM PERUSAHAAN</div>
 
-        <h1 class="hero-name-title">
+        <h1 class="hero-name-title" id="heroNameTitle" data-i18n-html="hero_name_html">
           <span class="navy-word">ARI EKA</span>
           <span class="blue-word">PRIANDA</span>
         </h1>
@@ -432,7 +432,7 @@
             <div class="hero-stat-label" data-i18n="hero_stat_projects">Proyek &amp; Arsitektur API</div>
           </div>
           <div class="hero-stat-cell">
-            <div class="hero-stat-val">06<span class="accent-red"></span></div>
+            <div class="hero-stat-val">07<span class="accent-red"></span></div>
             <div class="hero-stat-label" data-i18n="hero_stat_certs">Sertifikasi &amp; Pelatihan</div>
           </div>
         </div>
@@ -1333,114 +1333,154 @@
         </div>
         <div class="trio-red-accent-bar elevate-3d-sm"></div>
 
-        <!-- Filter pills for certs -->
-        <div class="cert-filter-pills">
-          <button class="cert-filter-btn active" data-cfilter="all" data-i18n="cert_filter_all">SEMUA SERTIFIKAT</button>
-          <button class="cert-filter-btn" data-cfilter="software" data-i18n="cert_filter_tech">TEKNIS / CODING</button>
-          <button class="cert-filter-btn" data-cfilter="networking" data-i18n="cert_filter_cloud">CLOUD &amp; NETWORK</button>
-          <button class="cert-filter-btn" data-cfilter="vocational" data-i18n="cert_filter_ai">AI &amp; DATA</button>
+        <!-- Filter pills & Slider Navigation Header -->
+        <div class="cert-controls-header">
+          <div class="cert-filter-pills">
+            <button class="cert-filter-btn active" data-cfilter="all" data-i18n="cert_filter_all">SEMUA SERTIFIKAT</button>
+            <button class="cert-filter-btn" data-cfilter="software" data-i18n="cert_filter_tech">TEKNIS / CODING</button>
+            <button class="cert-filter-btn" data-cfilter="networking" data-i18n="cert_filter_cloud">CLOUD &amp; NETWORK</button>
+            <button class="cert-filter-btn" data-cfilter="vocational" data-i18n="cert_filter_ai">AI &amp; DATA</button>
+          </div>
+
+          <div class="cert-slider-nav" id="certSliderNav">
+            <span class="cert-slider-page-lbl" id="certPageIndicator">[ 01 / 02 ]</span>
+            <div class="cert-slider-btns">
+              <button class="btn-cert-slider prev" id="certPrevBtn" aria-label="Previous Certificates" data-i18n-title="cert_page_prev" title="Previous Certificates" disabled>&larr;</button>
+              <button class="btn-cert-slider next" id="certNextBtn" aria-label="Next Certificates" data-i18n-title="cert_page_next" title="Next Certificates">&rarr;</button>
+            </div>
+          </div>
         </div>
 
-        <!-- Certificate Gallery Grid -->
-        <div class="cert-gallery-grid">
+        <!-- Certificate Slider Viewport (Only 4 visible per view, scrollable/slidable) -->
+        <div class="cert-slider-viewport" id="certSliderViewport">
+          <div class="cert-slider-track" id="certSliderTrack">
 
-          <!-- Cert 1: Python -->
-          <div class="cert-card" data-ccat="software">
-            <div class="cert-card-thumb" data-cert="assets/certificates/Ari eka prianda - Certificate of BelajarDasarBahasaPemrogramanDenganPython by Mounev Academy.pdf" data-cert-title="Python Programming — Mounev Academy">
-              <img src="assets/certificates/python-mounev.png" alt="Python Certificate - Mounev Academy" loading="lazy" />
-              <div class="cert-card-overlay">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+            <!-- Slide Page 1 (Cards 1 to 4) -->
+            <div class="cert-slider-page" data-page="0">
+              <!-- Cert 1: Python -->
+              <div class="cert-card" data-ccat="software">
+                <div class="cert-card-thumb" data-cert="assets/certificates/Ari eka prianda - Certificate of BelajarDasarBahasaPemrogramanDenganPython by Mounev Academy.pdf" data-cert-title="Python Programming — Mounev Academy">
+                  <img src="assets/certificates/python-mounev.png" alt="Python Certificate - Mounev Academy" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge software" data-i18n="cert_badge_tech">TEKNIS</div>
+                  <p class="cert-card-name" data-i18n="cert_name_1">Python Programming</p>
+                  <p class="cert-card-issuer">Mounev Academy</p>
+                </div>
               </div>
-            </div>
-            <div class="cert-card-info">
-              <div class="cert-card-badge software" data-i18n="cert_badge_tech">TEKNIS</div>
-              <p class="cert-card-name" data-i18n="cert_name_1">Python Programming</p>
-              <p class="cert-card-issuer">Mounev Academy</p>
-            </div>
-          </div>
 
-          <!-- Cert 2: Microservices -->
-          <div class="cert-card" data-ccat="software">
-            <div class="cert-card-thumb" data-cert="assets/certificates/Ari Eka.png" data-cert-title="Engineering Resilience — Maxy Academy">
-              <img src="assets/certificates/microservices.png" alt="Microservices Certificate - Maxy Academy" loading="lazy" />
-              <div class="cert-card-overlay">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              <!-- Cert 2: Microservices -->
+              <div class="cert-card" data-ccat="software">
+                <div class="cert-card-thumb" data-cert="assets/certificates/Ari Eka.png" data-cert-title="Engineering Resilience — Maxy Academy">
+                  <img src="assets/certificates/microservices.png" alt="Microservices Certificate - Maxy Academy" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge software" data-i18n="cert_badge_tech">TEKNIS</div>
+                  <p class="cert-card-name" data-i18n="cert_name_2">Engineering Resilience: Microservices</p>
+                  <p class="cert-card-issuer">Maxy Academy</p>
+                </div>
               </div>
-            </div>
-            <div class="cert-card-info">
-              <div class="cert-card-badge software" data-i18n="cert_badge_tech">TEKNIS</div>
-              <p class="cert-card-name" data-i18n="cert_name_2">Engineering Resilience: Microservices</p>
-              <p class="cert-card-issuer">Maxy Academy</p>
-            </div>
-          </div>
 
-          <!-- Cert 3: CCNA -->
-          <div class="cert-card" data-ccat="networking">
-            <div class="cert-card-thumb" data-cert="assets/certificates/E-Sertifikat ARI EKA PRIANDA.pdf" data-cert-title="CCNA: Introduction to Networks — Cisco">
-              <img src="assets/certificates/ccna.png" alt="CCNA Certificate - Cisco" loading="lazy" />
-              <div class="cert-card-overlay">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              <!-- Cert 3: CCNA -->
+              <div class="cert-card" data-ccat="networking">
+                <div class="cert-card-thumb" data-cert="assets/certificates/E-Sertifikat ARI EKA PRIANDA.pdf" data-cert-title="CCNA: Introduction to Networks — Cisco">
+                  <img src="assets/certificates/ccna.png" alt="CCNA Certificate - Cisco" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge networking" data-i18n="cert_badge_network">JARINGAN</div>
+                  <p class="cert-card-name" data-i18n="cert_name_3">CCNA: Introduction to Networks</p>
+                  <p class="cert-card-issuer">Cisco Networking Academy</p>
+                </div>
               </div>
-            </div>
-            <div class="cert-card-info">
-              <div class="cert-card-badge networking" data-i18n="cert_badge_network">JARINGAN</div>
-              <p class="cert-card-name" data-i18n="cert_name_3">CCNA: Introduction to Networks</p>
-              <p class="cert-card-issuer">Cisco Networking Academy</p>
-            </div>
-          </div>
 
-          <!-- Cert 4: UI/UX -->
-          <div class="cert-card" data-ccat="software">
-            <div class="cert-card-thumb" data-cert="assets/certificates/Sertifikat-101123.pdf" data-cert-title="UI/UX Designer Webinar — Eduwork">
-              <img src="assets/certificates/ui-ux-eduwork.png" alt="UI/UX Certificate - Eduwork" loading="lazy" />
-              <div class="cert-card-overlay">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              <!-- Cert 4: UI/UX -->
+              <div class="cert-card" data-ccat="software">
+                <div class="cert-card-thumb" data-cert="assets/certificates/Sertifikat-101123.pdf" data-cert-title="UI/UX Designer Webinar — Eduwork">
+                  <img src="assets/certificates/ui-ux-eduwork.png" alt="UI/UX Certificate - Eduwork" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge software" data-i18n="cert_badge_uiux">UI/UX</div>
+                  <p class="cert-card-name" data-i18n="cert_name_4">Prinsip Dasar UI/UX Designer</p>
+                  <p class="cert-card-issuer">Eduwork</p>
+                </div>
               </div>
-            </div>
-            <div class="cert-card-info">
-              <div class="cert-card-badge software" data-i18n="cert_badge_uiux">UI/UX</div>
-              <p class="cert-card-name" data-i18n="cert_name_4">Prinsip Dasar UI/UX Designer</p>
-              <p class="cert-card-issuer">Eduwork</p>
-            </div>
-          </div>
+            </div><!-- /.cert-slider-page -->
 
-          <!-- Cert 5: Seminar APBN UNBIN & DJP -->
-          <div class="cert-card" data-ccat="vocational">
-            <div class="cert-card-thumb" data-cert="assets/certificates/Ari Eka.png" data-cert-title="Sertifikat Partisipasi Seminar APBN — Tax Center UNBIN &amp; DJP">
-              <img src="assets/certificates/Ari Eka.png" alt="Sertifikat Partisipasi Seminar APBN - Tax Center UNBIN &amp; DJP" loading="lazy" />
-              <div class="cert-card-overlay">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+            <!-- Slide Page 2 (Cards 5 to 7) -->
+            <div class="cert-slider-page" data-page="1">
+              <!-- Cert 5: Seminar APBN UNBIN & DJP -->
+              <div class="cert-card" data-ccat="vocational">
+                <div class="cert-card-thumb" data-cert="assets/certificates/Ari Eka.png" data-cert-title="Sertifikat Partisipasi Seminar APBN — Tax Center UNBIN &amp; DJP">
+                  <img src="assets/certificates/Ari Eka.png" alt="Sertifikat Partisipasi Seminar APBN - Tax Center UNBIN &amp; DJP" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge vocational" data-i18n="cert_badge_seminar">SEMINAR</div>
+                  <p class="cert-card-name" data-i18n="cert_name_5">Seminar APBN 2024 &amp; Outlook APBN 2025</p>
+                  <p class="cert-card-issuer">Tax Center UNBIN &amp; DJP Kemenkeu</p>
+                </div>
               </div>
-            </div>
-            <div class="cert-card-info">
-              <div class="cert-card-badge vocational" data-i18n="cert_badge_seminar">SEMINAR</div>
-              <p class="cert-card-name" data-i18n="cert_name_5">Seminar APBN 2024 &amp; Outlook APBN 2025</p>
-              <p class="cert-card-issuer">Tax Center UNBIN &amp; DJP Kemenkeu</p>
-            </div>
-          </div>
 
-          <!-- Cert 6: Seminar OJK & SB-IPB -->
-          <div class="cert-card" data-ccat="vocational">
-            <div class="cert-card-thumb" data-cert="assets/certificates/Screenshot_2.png" data-cert-title="Sertifikat Seminar Perasuransian — Otoritas Jasa Keuangan (OJK) &amp; SB-IPB">
-              <img src="assets/certificates/Screenshot_2.png" alt="Sertifikat Seminar OJK - Industri Perasuransian Nasional" loading="lazy" />
-              <div class="cert-card-overlay">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                <span data-i18n="cert_btn_view_overlay">VIEW</span>
+              <!-- Cert 6: Seminar OJK & SB-IPB -->
+              <div class="cert-card" data-ccat="vocational">
+                <div class="cert-card-thumb" data-cert="assets/certificates/Screenshot_2.png" data-cert-title="Sertifikat Seminar Perasuransian — Otoritas Jasa Keuangan (OJK) &amp; SB-IPB">
+                  <img src="assets/certificates/Screenshot_2.png" alt="Sertifikat Seminar OJK - Industri Perasuransian Nasional" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge vocational" data-i18n="cert_badge_seminar">SEMINAR</div>
+                  <p class="cert-card-name" data-i18n="cert_name_6">Industri Perasuransian Nasional</p>
+                  <p class="cert-card-issuer">Otoritas Jasa Keuangan (OJK) &amp; SB-IPB</p>
+                </div>
               </div>
-            </div>
-            <div class="cert-card-info">
-              <div class="cert-card-badge vocational" data-i18n="cert_badge_seminar">SEMINAR</div>
-              <p class="cert-card-name" data-i18n="cert_name_6">Industri Perasuransian Nasional</p>
-              <p class="cert-card-issuer">Otoritas Jasa Keuangan (OJK) &amp; SB-IPB</p>
-            </div>
-          </div>
 
-        </div><!-- /.cert-gallery-grid -->
+              <!-- Cert 7: English Conversation Verbal Test -->
+              <div class="cert-card" data-ccat="vocational">
+                <div class="cert-card-thumb" data-cert="assets/certificates/Sertifikat_Ari_Eka_Prianda.pdf" data-cert-title="English Conversation Verbal Test — Finkom UNBIN &amp; Maxy Academy">
+                  <img src="assets/certificates/english-conversation.png" alt="English Conversation Certificate - Finkom UNBIN &amp; Maxy Academy" loading="lazy" />
+                  <div class="cert-card-overlay">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <span data-i18n="cert_btn_view_overlay">VIEW</span>
+                  </div>
+                </div>
+                <div class="cert-card-info">
+                  <div class="cert-card-badge vocational" data-i18n="cert_badge_lang">BAHASA</div>
+                  <p class="cert-card-name" data-i18n="cert_name_7">English Conversation Verbal Test</p>
+                  <p class="cert-card-issuer">Finkom UNBIN × Maxy Academy</p>
+                </div>
+              </div>
+            </div><!-- /.cert-slider-page -->
+
+          </div><!-- /.cert-slider-track -->
+        </div><!-- /.cert-slider-viewport -->
+
+        <!-- Slider Pagination Dots -->
+        <div class="cert-slider-dots" id="certSliderDots">
+          <button class="cert-dot active" data-page="0" aria-label="Slide Page 1"></button>
+          <button class="cert-dot" data-page="1" aria-label="Slide Page 2"></button>
+        </div>
       </div>
 
       <!-- 08. SOFT SKILL -->
@@ -1660,8 +1700,8 @@
             <polygon points="20,8 24,16 16,16" fill="#1769e0"/>
           </svg>
           <div class="brand-text">
-            <span class="brand-name">ARI EKA PRIANDA</span>
-            <span class="brand-role">BACKEND / FULLSTACK DEVELOPER</span>
+            <span class="brand-name" data-i18n="brand_name">ARI EKA PRIANDA</span>
+            <span class="brand-role" data-i18n="footer_role">BACKEND / FULLSTACK DEVELOPER</span>
           </div>
         </div>
 

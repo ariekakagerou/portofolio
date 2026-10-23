@@ -415,6 +415,133 @@
   100% { background-position: 0% 50%; }
 }
 
+/* ==========================================================================
+   JAPANESE EDITORIAL BILINGUAL HERO NAME (Inspired by Reference Design)
+   Top: Katakana Japanese Name
+   Middle: Romaji Name (Title Case)
+   Bottom: Directional Arrow Vector
+   ========================================================================== */
+.hero-name-jp-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.hero-name-jp-main {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  font-size: clamp(2.4rem, 4.8vw, 4.3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+  margin-bottom: 0.4rem;
+  text-transform: none !important;
+}
+
+.hero-name-jp-main .navy-word,
+.hero-name-jp-main .blue-word {
+  display: inline-block !important;
+  white-space: nowrap;
+}
+
+.hero-name-jp-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.hero-name-jp-sub .jp-sub-roman {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none !important;
+  color: #1769e0;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .hero-name-jp-sub .jp-sub-roman {
+  color: #38bdf8 !important;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+[data-theme="cyberpunk"] .hero-name-jp-sub .jp-sub-roman {
+  color: #00ffff !important;
+  text-shadow: 0 0 16px rgba(0, 255, 255, 0.6);
+}
+
+[data-theme="solarized"] .hero-name-jp-sub .jp-sub-roman {
+  color: #268bd2 !important;
+}
+
+.hero-name-jp-sub .jp-sub-arrow-track {
+  display: inline-flex;
+  align-items: center;
+  width: clamp(150px, 25vw, 240px);
+  height: 14px;
+  position: relative;
+  color: #0b1e38;
+  opacity: 0.85;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .hero-name-jp-sub .jp-sub-arrow-track {
+  color: #38bdf8 !important;
+  opacity: 0.95;
+}
+
+[data-theme="cyberpunk"] .hero-name-jp-sub .jp-sub-arrow-track {
+  color: #ff007f !important;
+  opacity: 1;
+}
+
+[data-theme="solarized"] .hero-name-jp-sub .jp-sub-arrow-track {
+  color: #2aa198 !important;
+}
+
+.hero-name-jp-sub .jp-sub-arrow-line {
+  flex: 1;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.hero-name-jp-sub .jp-sub-arrow-tip {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-left: -5px;
+}
+
+.hero-name-title:hover .jp-sub-arrow-track {
+  transform: translateX(10px);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-name-jp-main {
+    font-size: clamp(1.85rem, 7.8vw, 2.5rem);
+    line-height: 1.15;
+    gap: 0 0.35rem;
+  }
+  .hero-name-jp-sub .jp-sub-roman {
+    font-size: 1.05rem;
+  }
+  .hero-name-jp-sub .jp-sub-arrow-track {
+    width: 140px;
+  }
+}
+
 /* Hero Role Title */
 .hero-role-title {
   font-family: 'Space Grotesk', sans-serif;

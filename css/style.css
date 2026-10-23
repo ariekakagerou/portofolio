@@ -2228,13 +2228,154 @@ button {
   margin-top: 2px;
 }
 
-/* Certificate Gallery Grid */
+/* ============================================================
+   CERTIFICATE SLIDER SYSTEM
+   - Shows 4 cards per page
+   - Slides smoothly between pages via track transform
+   ============================================================ */
+
+/* Controls header: filter pills + nav buttons on same row */
+.cert-controls-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cert-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Slider nav: page indicator + arrow buttons */
+.cert-slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cert-slider-page-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.cert-slider-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-cert-slider {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(23, 105, 224, 0.35);
+  background: rgba(23, 105, 224, 0.08);
+  color: #1769e0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn-cert-slider:hover:not(:disabled) {
+  background: rgba(23, 105, 224, 0.2);
+  border-color: #1769e0;
+  transform: scale(1.08);
+}
+
+.btn-cert-slider:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+[data-theme="dark"] .btn-cert-slider {
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+[data-theme="dark"] .btn-cert-slider:hover:not(:disabled) {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: #38bdf8;
+}
+
+/* Viewport: clips to exactly one page width */
+.cert-slider-viewport {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Track: flex row of pages, animates via translateX */
+.cert-slider-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Each page fills 100% of viewport, 2-col grid of 4 cards */
+.cert-slider-page {
+  min-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* Pagination dots */
+.cert-slider-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.cert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(23, 105, 224, 0.22);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+  padding: 0;
+}
+
+.cert-dot.active {
+  background: #1769e0;
+  transform: scale(1.25);
+  width: 20px;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .cert-dot { background: rgba(56, 189, 248, 0.22); }
+[data-theme="dark"] .cert-dot.active { background: #38bdf8; }
+
+/* Vocational/Language badge colour */
+.cert-card-badge.vocational {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Certificate Gallery Grid (legacy — kept for fallback) */
 .cert-gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
   margin-top: 8px;
 }
+
 
 .cert-card {
   display: flex;

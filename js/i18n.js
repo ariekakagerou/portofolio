@@ -43,6 +43,10 @@ const I18N = {
   "hero_status": "TERSEDIA UNTUK REKAYASA SISTEM // SIAP DITUGASKAN",
   "hero_preheader": "ARSITEKTUR BACKEND // SISTEM PERUSAHAAN",
   "hero_name": "Ari Eka Prianda",
+  "hero_name_html": "<span class=\"navy-word\">ARI EKA</span><span class=\"blue-word\">PRIANDA</span>",
+  "brand_name": "ARI EKA PRIANDA",
+  "splash_brand_title": "ARI EKA PRIANDA",
+  "page_title": "Ari Eka Prianda — Backend / Fullstack Developer",
   "hero_role_prefix": "> ROLE: ",
   "hero_roles": [
     "Backend / Fullstack Developer",
@@ -252,12 +256,16 @@ const I18N = {
   "cert_badge_network": "JARINGAN",
   "cert_badge_uiux": "UI/UX",
   "cert_badge_seminar": "SEMINAR",
+  "cert_badge_lang": "BAHASA",
   "cert_name_1": "Belajar Dasar Bahasa Pemrograman dengan Python",
   "cert_name_2": "Engineering Resilience: Microservices",
   "cert_name_3": "CCNA: Introduction to Networks",
   "cert_name_4": "Prinsip Dasar UI/UX Designer",
   "cert_name_5": "Seminar APBN 2024 & Outlook APBN 2025",
   "cert_name_6": "Industri Perasuransian Nasional",
+  "cert_name_7": "English Conversation Verbal Test",
+  "cert_page_prev": "Sertifikat Sebelumnya",
+  "cert_page_next": "Sertifikat Berikutnya",
   "soft_badge": "KAPABILITAS KOGNITIF // SOFT SKILLS",
   "soft_title": "KOMPETENSI PERSONAL",
   "soft_name_1": "Pemecahan Masalah",
@@ -376,6 +384,10 @@ const I18N = {
   "hero_status": "AVAILABLE FOR SYSTEMS ENGINEERING // READY FOR DISPATCH",
   "hero_preheader": "BACKEND ARCHITECTURE // ENTERPRISE SYSTEMS",
   "hero_name": "Ari Eka Prianda",
+  "hero_name_html": "<span class=\"navy-word\">ARI EKA</span><span class=\"blue-word\">PRIANDA</span>",
+  "brand_name": "ARI EKA PRIANDA",
+  "splash_brand_title": "ARI EKA PRIANDA",
+  "page_title": "Ari Eka Prianda — Backend / Fullstack Developer",
   "hero_role_prefix": "> ROLE: ",
   "hero_roles": [
     "Backend / Fullstack Developer",
@@ -585,12 +597,16 @@ const I18N = {
   "cert_badge_network": "NETWORK",
   "cert_badge_uiux": "UI/UX",
   "cert_badge_seminar": "SEMINAR",
+  "cert_badge_lang": "LANGUAGE",
   "cert_name_1": "Python Programming Basics",
   "cert_name_2": "Engineering Resilience: Microservices",
   "cert_name_3": "CCNA: Introduction to Networks",
   "cert_name_4": "Prinsip Dasar UI/UX Designer",
   "cert_name_5": "Seminar APBN 2024 & Outlook APBN 2025",
   "cert_name_6": "Industri Perasuransian Nasional",
+  "cert_name_7": "English Conversation Verbal Test",
+  "cert_page_prev": "Previous Certificates",
+  "cert_page_next": "Next Certificates",
   "soft_badge": "COGNITIVE CAPABILITIES // SOFT SKILLS",
   "soft_title": "CORE COMPETENCIES",
   "soft_name_1": "Problem Solving",
@@ -708,7 +724,11 @@ const I18N = {
   "splash_status_val": "初期化中",
   "hero_status": "システムエンジニアリング受付中 // 出動待機中",
   "hero_preheader": "バックエンドアーキテクチャ // 企業システム",
-  "hero_name": "Ari Eka Prianda",
+  "hero_name": "アリ・エカ・プリアンダ",
+  "hero_name_html": "<div class=\"hero-name-jp-block\"><div class=\"hero-name-jp-main\"><span class=\"navy-word\">アリ・エカ</span> <span class=\"blue-word\">プリアンダ</span></div><div class=\"hero-name-jp-sub\"><span class=\"jp-sub-roman\">Ari Eka Prianda</span><div class=\"jp-sub-arrow-track\"><span class=\"jp-sub-arrow-line\"></span><span class=\"jp-sub-arrow-tip\"></span></div></div></div>",
+  "brand_name": "アリ・エカ・プリアンダ",
+  "splash_brand_title": "アリ・エカ・プリアンダ",
+  "page_title": "アリ・エカ・プリアンダ — バックエンド / フルスタックエンジニア",
   "hero_role_prefix": "> ROLE: ",
   "hero_roles": [
     "バックエンド / フルスタックエンジニア",
@@ -918,12 +938,16 @@ const I18N = {
   "cert_badge_network": "ネットワーク",
   "cert_badge_uiux": "UI/UX設計",
   "cert_badge_seminar": "セミナー",
+  "cert_badge_lang": "語学・英語",
   "cert_name_1": "Pythonプログラミング基礎",
   "cert_name_2": "高耐障害性マイクロサービス設計",
   "cert_name_3": "CCNA: ネットワーク基礎",
   "cert_name_4": "UI/UXデザイナー基礎原則",
   "cert_name_5": "国家財政・経済展望セミナー",
   "cert_name_6": "金融・保険産業規制セミナー",
+  "cert_name_7": "英会話スピーキング・口頭テスト",
+  "cert_page_prev": "前の認定証",
+  "cert_page_next": "次の認定証",
   "soft_badge": "認知機能 // ポータブルスキル",
   "soft_title": "コアコンピテンシー",
   "soft_name_1": "問題解決能力",
@@ -979,7 +1003,7 @@ const I18N = {
   "modal_arch_label": "アーキテクチャ・データフロー:",
   "modal_modules_label": "主要アーキテクチャ・モジュール:",
   "modal_proj_spec_title": "プロジェクト詳細仕様",
-  "cv_modal_title": "履歴書 (CV) テレメトリ // ARI EKA PRIANDA",
+  "cv_modal_title": "履歴書 (CV) テレメトリ // アリ・エカ・プリアンダ",
   "cv_modal_subtitle": "公式レジュメ＆職務経歴書 (PDFビューアー)",
   "cv_modal_role_sub": "// アリ・エカ・プリアンダ — バックエンド / フルスタック",
   "cv_modal_loading_sys": "[ システム読み込み中 ] 履歴書を展開中...",
@@ -997,7 +1021,7 @@ const I18N = {
   "toast_secret_unlocked": "⚡ シークレットモード解放: タクティカルHUD",
   "toast_theme_dark": "ダークモードを適用しました",
   "toast_theme_light": "ライトモードを適用しました",
-  "toast_tx_sent": "✓ 送信完了！ Ari Eka Prianda の端末へ正常に配信されました。",
+  "toast_tx_sent": "✓ 送信完了！ アリ・エカ・プリアンダ の端末へ正常に配信されました。",
   "toast_tx_fallback": "✓ メールクライアントを起動して送信します...",
   "toast_tx_required": "⚠️ 必須項目をすべて入力してください",
   "err_title": "システムが見つかりません",
@@ -1125,8 +1149,14 @@ class LangManagerClass {
       }
     });
 
-    // 6. Update HTML lang attribute
+    // 6. Update HTML lang & data-lang attribute
     document.documentElement.lang = lang === 'jp' ? 'ja' : lang;
+    document.documentElement.setAttribute('data-lang', lang);
+
+    // Dynamic Document Title
+    if (dict['page_title']) {
+      document.title = dict['page_title'];
+    }
 
     // 7. Update active states on switcher buttons
     document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
