@@ -322,6 +322,8 @@
          01. HERO PANEL (Image 1)
          ==================================================================== -->
     <section id="hero" class="mecha-panel hero-panel has-3d-perspective">
+      <!-- Animated 3D Perspective Grid Canvas -->
+      <canvas id="heroPerspectiveGrid" class="hero-perspective-canvas" aria-hidden="true"></canvas>
       <div class="panel-top-tab"></div>
 
       <!-- Left margin indicator -->
@@ -346,6 +348,13 @@
         </div>
 
         <div class="hero-preheader" data-i18n="hero_preheader">ARSITEKTUR BACKEND // SISTEM PERUSAHAAN</div>
+
+        <!-- { Hello, I'm } greeting in code style -->
+        <div class="hero-hello-greeting" aria-label="Hello, I'm">
+          <span class="greeting-brace">{</span>
+          <span class="greeting-text"> Hello, I'm </span>
+          <span class="greeting-brace">}</span>
+        </div>
 
         <h1 class="hero-name-title" id="heroNameTitle" data-i18n-html="hero_name_html">
           <span class="navy-word">ARI EKA</span>

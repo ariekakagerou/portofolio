@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initKeyboardShortcuts();
   initHeroParticleCanvas();
+  initHeroPerspectiveGrid();
   initNavTelemetryClock();
   initSoftSkillAnimatedBars();
   initHeroStatCountUp();
@@ -1795,6 +1796,169 @@ function initHeroParticleCanvas() {
   createParticles();
   draw();
   window.addEventListener('resize', () => { resize(); createParticles(); });
+}
+
+/* ==========================================================================
+   24b. HERO 3D PERSPECTIVE GRID CANVAS (CYBERSPACE TUNNEL / FLOOR)
+   ========================================================================== */
+function initHeroPerspectiveGrid() {
+  const canvas = document.getElementById('heroPerspectiveGrid');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  let W, H;
+  let mouse = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
+  let offsetZ = 0;
+  const speed = 0.003;
+
+  function resize() {
+    W = canvas.width = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.targetX = (e.clientX - rect.left) / rect.width;
+    mouse.targetY = (e.clientY - rect.top) / rect.height;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    mouse.targetX = 0.5;
+    mouse.targetY = 0.5;
+  });
+
+  function draw() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, W, H);
+
+    mouse.x += (mouse.targetX - mouse.x) * 0.05;
+    mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const gridColor = isDark ? 'rgba(56, 189, 248, ' : 'rgba(23, 105, 224, ';
+    const glowColor = isDark ? 'rgba(0, 229, 255, 0.22)' : 'rgba(23, 105, 224, 0.12)';
+
+    // Vanishing Point with gentle mouse parallax
+    const vpX = W * (0.5 + (mouse.x - 0.5) * 0.12);
+    const vpY = H * (0.46 + (mouse.y - 0.5) * 0.12);
+
+    // Horizon subtle cyber glow
+    const radial = ctx.createRadialGradient(vpX, vpY, 2, vpX, vpY, Math.max(W, H) * 0.45);
+    radial.addColorStop(0, glowColor);
+    radial.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = radial;
+    ctx.fillRect(0, 0, W, H);
+
+    // Advance 3D grid depth
+    offsetZ = (offsetZ + speed) % 1;
+
+    // 1. Radiating Perspective Rays (Floor & Ceiling)
+    const numRays = 18;
+    ctx.lineWidth = 1;
+
+    for (let i = -numRays; i <= numRays; i++) {
+      const spread = (i / numRays) * (W * 1.35);
+      const bottomX = W * 0.5 + spread;
+      const alpha = Math.max(0.03, 0.22 - Math.abs(i) / (numRays * 1.6));
+      ctx.strokeStyle = gridColor + alpha + ')';
+      
+      // Floor ray
+      ctx.beginPath();
+      ctx.moveTo(vpX, vpY);
+      ctx.lineTo(bottomX, H);
+      ctx.stroke();
+
+      // Ceiling ray
+      const topX = W * 0.5 + spread * 0.85;
+      ctx.beginPath();
+      ctx.moveTo(vpX, vpY);
+      ctx.lineTo(topX, 0);
+      ctx.stroke();
+    }
+
+    // Side wall rays
+    const sideRays = 8;
+    for (let i = 1; i <= sideRays; i++) {
+      const yFrac = i / sideRays;
+      const sideY1 = vpY + (H - vpY) * yFrac;
+      const sideY2 = vpY - vpY * yFrac;
+      const alpha = 0.08 * (1 - yFrac * 0.4);
+      ctx.strokeStyle = gridColor + alpha + ')';
+
+      // Left
+      ctx.beginPath();
+      ctx.moveTo(vpX, vpY);
+      ctx.lineTo(0, sideY1);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(vpX, vpY);
+      ctx.lineTo(0, sideY2);
+      ctx.stroke();
+
+      // Right
+      ctx.beginPath();
+      ctx.moveTo(vpX, vpY);
+      ctx.lineTo(W, sideY1);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(vpX, vpY);
+      ctx.lineTo(W, sideY2);
+      ctx.stroke();
+    }
+
+    // 2. Expanding Depth Rings / Floor Bars
+    const rings = 14;
+    for (let i = 0; i < rings; i++) {
+      const z = (i + offsetZ) / rings;
+      const p = Math.pow(z, 2.7);
+      const alpha = Math.min(0.42, p * 0.45);
+
+      if (alpha <= 0.01) continue;
+
+      ctx.strokeStyle = gridColor + alpha + ')';
+      ctx.lineWidth = Math.max(0.6, p * 1.8);
+
+      // Floor horizontal
+      const floorY = vpY + (H - vpY) * p;
+      const floorLeftX = vpX - (vpX + W * 0.2) * p;
+      const floorRightX = vpX + (W - vpX + W * 0.2) * p;
+
+      ctx.beginPath();
+      ctx.moveTo(floorLeftX, floorY);
+      ctx.lineTo(floorRightX, floorY);
+      ctx.stroke();
+
+      // Ceiling horizontal
+      const ceilY = vpY - vpY * p;
+      const ceilLeftX = vpX - (vpX + W * 0.1) * p;
+      const ceilRightX = vpX + (W - vpX + W * 0.1) * p;
+
+      ctx.beginPath();
+      ctx.moveTo(ceilLeftX, ceilY);
+      ctx.lineTo(ceilRightX, ceilY);
+      ctx.stroke();
+
+      // Connect walls
+      ctx.beginPath();
+      ctx.moveTo(floorLeftX, floorY);
+      ctx.lineTo(ceilLeftX, ceilY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(floorRightX, floorY);
+      ctx.lineTo(ceilRightX, ceilY);
+      ctx.stroke();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+  window.addEventListener('resize', resize);
 }
 
 /* ==========================================================================
