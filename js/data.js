@@ -170,7 +170,7 @@ const PORTFOLIO_DATA = {
       issuer: "Mounev Academy",
       category: "SOFTWARE",
       date: "2024",
-      path: "assets/Sertifikat/Ari eka prianda - Certificate of BelajarDasarBahasaPemrogramanDenganPython by Mounev Academy.pdf",
+      path: "assets/certificates/Ari eka prianda - Certificate of BelajarDasarBahasaPemrogramanDenganPython by Mounev Academy.pdf",
       skills: ["Python", "Control Flow", "Data Structures", "Algorithm Basics"]
     },
     {
@@ -179,7 +179,7 @@ const PORTFOLIO_DATA = {
       issuer: "Maxy Academy",
       category: "ARCHITECTURE",
       date: "2024",
-      path: "assets/Sertifikat/Verifikasi Sertifikat – Ari Eka Prianda – Maxy Academy.pdf",
+      path: "assets/certificates/Verifikasi Sertifikat – Ari Eka Prianda – Maxy Academy.pdf",
       skills: ["Microservices", "System Scalability", "Resilience Patterns", "Fault Tolerance"]
     },
     {
@@ -188,7 +188,7 @@ const PORTFOLIO_DATA = {
       issuer: "Cisco Networking Academy",
       category: "NETWORKING",
       date: "2023",
-      path: "assets/Sertifikat/E-Sertifikat ARI EKA PRIANDA.pdf",
+      path: "assets/certificates/E-Sertifikat ARI EKA PRIANDA.pdf",
       skills: ["TCP/IP", "Subnetting", "Routing & Switching", "Network Security"]
     },
     {
@@ -197,7 +197,7 @@ const PORTFOLIO_DATA = {
       issuer: "Eduwork",
       category: "DESIGN",
       date: "2023",
-      path: "assets/Sertifikat/Sertifikat-101123.pdf",
+      path: "assets/certificates/Sertifikat-101123.pdf",
       skills: ["User Centered Design", "Wireframing", "Usability Heuristics", "Design Systems"]
     },
     {
